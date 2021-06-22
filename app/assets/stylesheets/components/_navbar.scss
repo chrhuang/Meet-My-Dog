@@ -1,18 +1,16 @@
 .navbar-brand {
   font-size: 35px;
   font-weight: bold;
-  color: var(--green) !important;
+  color: $green !important;
 }
-
 
 .fa-comment-dots {
   font-weight: bold;
   font-size: 30px;
-  color: var(--green);
+  color: $green;
 }
-
 
 .fa-paw {
   font-size: 30px;
-  color: var(--green);
+  color: $green;
 }
