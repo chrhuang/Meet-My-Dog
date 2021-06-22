@@ -13,4 +13,4 @@ puts "Create User .."
 User.create!(email: "thomas@email.com", password: "123456", nickname: "Thomas")
 puts "Create User ..."
 User.create!(email: "christian@email.com", password: "123456", nickname: "Chris")
-puts "Users Created !"
+puts "Users Created ! "
