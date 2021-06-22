@@ -1,12 +1,24 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navbar-brand {
+  font-size: 35px;
+  font-weight: bold;
+  color: $green !important;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar-dashboard {
+  color: $green;
+  margin: 0;
+  &:hover {
+    color: $green;
+  }
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.fa-comment-dots {
+  font-weight: bold;
+  font-size: 30px;
+  color: $green;
+}
+
+.fa-paw {
+  font-size: 30px;
+  color: $green;
 }
