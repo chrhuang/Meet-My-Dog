@@ -11,13 +11,12 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-
-h2 {
-  font-size: 28px;
-  font-weight: bold;
-}
-
-h3 {
-  font-size: 22px;
-  font-weight: bold;
+* {
+  a {
+    text-decoration: none;
+    opacity: 0.8;
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
