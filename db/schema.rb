@@ -10,9 +10,154 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_06_22_120409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "dog_has_temperaments", force: :cascade do |t|
+    t.bigint "temperament_id", null: false
+    t.bigint "dog_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dog_id"], name: "index_dog_has_temperaments_on_dog_id"
+    t.index ["temperament_id"], name: "index_dog_has_temperaments_on_temperament_id"
+  end
+
+  create_table "dogs", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.string "size"
+    t.string "gender"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_dogs_on_user_id"
+  end
+
+  create_table "event_has_users", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_event_has_users_on_event_id"
+    t.index ["user_id"], name: "index_event_has_users_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.time "date"
+    t.text "description"
+    t.integer "max_dog"
+    t.bigint "walk_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["walk_id"], name: "index_events_on_walk_id"
+  end
+
+  create_table "messsages", force: :cascade do |t|
+    t.text "content"
+    t.time "date"
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_messsages_on_event_id"
+    t.index ["user_id"], name: "index_messsages_on_user_id"
+  end
+
+  create_table "pois", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "rating"
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.bigint "site_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_reviews_on_event_id"
+    t.index ["site_id"], name: "index_reviews_on_site_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "site_photos", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["site_id"], name: "index_site_photos_on_site_id"
+  end
+
+  create_table "sites", force: :cascade do |t|
+    t.float "long"
+    t.float "lat"
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "temperaments", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "nickname"
+    t.string "address"
+    t.string "gender"
+    t.text "description"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "walk_has_pois", force: :cascade do |t|
+    t.float "long"
+    t.float "lat"
+    t.bigint "poi_id", null: false
+    t.bigint "walk_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["poi_id"], name: "index_walk_has_pois_on_poi_id"
+    t.index ["walk_id"], name: "index_walk_has_pois_on_walk_id"
+  end
+
+  create_table "walks", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.float "length"
+    t.integer "duration"
+    t.bigint "site_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["site_id"], name: "index_walks_on_site_id"
+  end
+
+  add_foreign_key "dog_has_temperaments", "dogs"
+  add_foreign_key "dog_has_temperaments", "temperaments"
+  add_foreign_key "dogs", "users"
+  add_foreign_key "event_has_users", "events"
+  add_foreign_key "event_has_users", "users"
+  add_foreign_key "events", "walks"
+  add_foreign_key "messsages", "events"
+  add_foreign_key "messsages", "users"
+  add_foreign_key "reviews", "events"
+  add_foreign_key "reviews", "sites"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "site_photos", "sites"
+  add_foreign_key "walk_has_pois", "pois"
+  add_foreign_key "walk_has_pois", "walks"
+  add_foreign_key "walks", "sites"
 end
