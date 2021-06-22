@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :messages
   has_many :events, through: :event_has_users
+  has_one_attached :photo
 end
