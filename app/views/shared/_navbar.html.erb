@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Meet my Dog</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,11 +20,16 @@
       <li class="nav-item dropdown">
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "#{current_user.nickname}" %>
+            <% if current_user&.photo.present? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "#{current_user.nickname}" %>
+            <% end %>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="#">Edit my profile</a></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
+            <li>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              <%# <a class="dropdown-item" href="#">Logout</a> %>
+            </li>
           </ul>
         </li>
       </ul>
