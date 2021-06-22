@@ -4,6 +4,14 @@
   color: $green !important;
 }
 
+.navbar-dashboard {
+  color: $green;
+  margin: 0;
+  &:hover {
+    color: $green;
+  }
+}
+
 .fa-comment-dots {
   font-weight: bold;
   font-size: 30px;

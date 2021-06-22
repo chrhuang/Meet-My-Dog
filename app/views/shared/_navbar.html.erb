@@ -1,15 +1,17 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Meet my Dog</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="container-fluid">
-      <form class="d-flex justify-content-center">
-        <input class="form-control me-2" type="search" placeholder="Ville ou adresse" aria-label="Search" style="width: 400px;">
-        <button class="btn btn-flat" type="submit">Va chercher!</button>
-      </form>
+    <div class="d-flex align-items-center">
+      <%= link_to "Meet My Dog", root_path, class: "navbar-brand" %>
+      <%= link_to "Dashboard", dashboard_path, class: "navbar-dashboard" %>
     </div>
+    <% unless current_page?(root_path) %>
+      <div class="container-fluid">
+        <form class="d-flex justify-content-center">
+          <input class="form-control me-2" type="search" placeholder="Ville ou adresse" aria-label="Search" style="width: 400px;">
+          <button class="btn btn-flat" type="submit">Va chercher!</button>
+        </form>
+      </div>
+    <% end %>
     <ul class="navbar-nav align-items-center">
       <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="#"><i class="far fa-comment-dots"></i></a>
@@ -25,10 +27,12 @@
             <% end %>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Edit my profile</a></li>
+            <li>
+              <%= link_to "Edit my profile", edit_user_registration_path, class: "dropdown-item" %>
+              <%# <a class="dropdown-item" href="#">Edit my profile</a> %>
+            </li>
             <li>
               <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-              <%# <a class="dropdown-item" href="#">Logout</a> %>
             </li>
           </ul>
         </li>
