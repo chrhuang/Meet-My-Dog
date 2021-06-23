@@ -9,13 +9,14 @@
       <% end %>
     </form> -->
     <%= form_tag sites_path, class: "d-flex", method: :get do %>
-  <%= text_field_tag :query,
+      <%= text_field_tag :query,
     params[:query],
+    id: "banner-search",
     class: "form-control me-2",
     style: "width: 400px",
     placeholder: "Ville ou adresse"
   %>
-  <%= submit_tag "Va chercher!", class: "btn btn-flat" %>
-<% end %>
+      <%= submit_tag "Va chercher!", class: "btn btn-flat" %>
+    <% end %>
   </div>
 </div>
