@@ -1,0 +1,54 @@
+.site-cards {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  gap: 32px;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 992px) {
+  .site-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.site-card-link {
+  opacity: 0.9;
+  color: black;
+  &:hover {
+    opacity: 1;
+    color: black;
+  }
+}
+
+.site-card {
+  &__img {
+    height: 300px;
+    border-radius: 10px;
+  }
+  .title {
+    margin-top: 4px;
+    margin-bottom: 0;
+    font-weight: bold;
+  }
+  .city {
+    opacity: 0.3;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  &__icons {
+    margin-top: 4px;
+  }
+
+  .walks {
+    opacity: 0.3;
+  }
+}

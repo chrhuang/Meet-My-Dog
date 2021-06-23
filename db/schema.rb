@@ -83,15 +83,15 @@ ActiveRecord::Schema.define(version: 2021_06_22_123458) do
     t.index ["walk_id"], name: "index_events_on_walk_id"
   end
 
-  create_table "messsages", force: :cascade do |t|
+  create_table "messages", force: :cascade do |t|
     t.text "content"
     t.time "date"
     t.bigint "user_id", null: false
     t.bigint "event_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["event_id"], name: "index_messsages_on_event_id"
-    t.index ["user_id"], name: "index_messsages_on_user_id"
+    t.index ["event_id"], name: "index_messages_on_event_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "pois", force: :cascade do |t|
@@ -181,8 +181,8 @@ ActiveRecord::Schema.define(version: 2021_06_22_123458) do
   add_foreign_key "event_has_users", "events"
   add_foreign_key "event_has_users", "users"
   add_foreign_key "events", "walks"
-  add_foreign_key "messsages", "events"
-  add_foreign_key "messsages", "users"
+  add_foreign_key "messages", "events"
+  add_foreign_key "messages", "users"
   add_foreign_key "reviews", "events"
   add_foreign_key "reviews", "sites"
   add_foreign_key "reviews", "users"
