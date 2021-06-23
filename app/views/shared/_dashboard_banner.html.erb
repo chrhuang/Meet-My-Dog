@@ -1,0 +1,5 @@
+<div class="dashboard-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://wallpapercave.com/wp/wp4735094.jpg);">
+    <% current_user.dogs.each do |dog| %>
+      <%= cl_image_tag(dog.photo.key, :transformation=>[{:height=>300, :width=>300, :crop=>"fill"}], class: "avatar-XL") %>
+    <% end %>
+</div>
