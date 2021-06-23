@@ -1,1 +1,19 @@
-<h1><%= @event.name %></h1>
+<%= render "/shared/banner_event" %>
+<div class="container">
+  <div>
+    <h1><%= @event.name %></h1>
+    <%# <button class="btn btn-flat" type="submit">Rejoindre cette balade</button> %>
+    <%# <p><%= @event.date %></p>
+   %>
+  <%# <p><%= @event.walk.description %></p>
+ %>
+<%# <h3> %>
+<%# <p> participants:</p> %>
+<%# </h3> %>
+</div>
+<div class="event-cards">
+  <% @event.users.each do |user| %>
+    <%= render partial: "shared/card_event", locals: {user: user} %>
+  <% end %>
+</div>
+</div>
