@@ -2,7 +2,7 @@
   <div class="container">
     <h1><strong>MeetMyDog</strong></h1>
     <p>Je sais pas quoi mettre ici</p>
-    <%= form_tag sites_path, class: "d-flex", method: :get do %>
+    <%= form_tag sites_path, class: "d-flex banner__search-bar", method: :get do %>
       <%= text_field_tag :query,
     params[:query],
     id: "banner-search",
@@ -10,7 +10,7 @@
     style: "width: 400px",
     placeholder: "Ville ou adresse"
   %>
-      <%= submit_tag "Va chercher!", class: "btn btn-flat" %>
+      <%= submit_tag "Va chercher!", class: "btn btn-flat ms-2" %>
     <% end %>
   </div>
 </div>
