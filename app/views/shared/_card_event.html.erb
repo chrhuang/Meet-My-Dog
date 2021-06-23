@@ -1,0 +1,19 @@
+<div class="blog-slider">
+  <div class="blog-slider__wrp swiper-wrapper">
+    <div class="blog-slider__item swiper-slide">
+      <div class="blog-slider__img">
+        <%= cl_image_tag user.photo.key %>
+      </div>
+      <div class="blog-slider__content">
+        <span class="blog-slider__code"></span>
+        <div class="blog-slider__title"><%= user.nickname %></div>
+        <div class="blog-slider__text"><%= user.description %></div>
+        <div class="blog-slider__text"> Meet My Dogs: </div>
+        <a href="#" class="blog-slider__button"><%= user.dogs[0].photo.key %></a>
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="blog-slider__pagination"></div>
+</div>
