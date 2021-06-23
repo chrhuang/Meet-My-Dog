@@ -2,12 +2,6 @@
   <div class="container">
     <h1><strong>MeetMyDog</strong></h1>
     <p>Je sais pas quoi mettre ici</p>
-    <!-- <form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Ville ou adresse" aria-label="Search" style="width: 400px;">
-      <%= link_to sites_path do %>
-        <button class="btn btn-flat" type="submit">Va chercher!</button>
-      <% end %>
-    </form> -->
     <%= form_tag sites_path, class: "d-flex", method: :get do %>
       <%= text_field_tag :query,
     params[:query],
