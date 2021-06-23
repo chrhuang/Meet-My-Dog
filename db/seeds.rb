@@ -51,7 +51,7 @@ Site.destroy_all
 puts "Create Site ."
 file = URI.open('https://cdn.shortpixel.ai/client/q_glossy,ret_img/https://www.roubaixtourisme.com/wp-content/uploads/2018/09/lac.jpg')
 site = Site.create!(name: "Parc Barbieux")
-site.photo.attach(io: file, filename: 'Barbieux.png', content_type: 'image/png')
+site.photos.attach(io: file, filename: 'Barbieux.png', content_type: 'image/png')
 
 puts "Sites Created"
 

@@ -1,1 +1,10 @@
-index
+<div class="container">
+  <h2 class="text-center my-3">Sites à Lille</h2>
+  <h4>2 lieux de balades à Lille</h4>
+  <div class="w-50">
+    <div class="site-cards">
+      <%= render '/shared/site_card', title: 'Parc Barbieux', description: "Une description à la con pour remplir le champs description car je ne sais pas quoi mettre et j'ai la flemme de faire un copier coller d'un Lorem Ipsum", img: Site.first.photos[0].key, city: "Lille", walks: 45, rating: 4 %>
+      <%= render '/shared/site_card', title: 'Citadelle', description: "Une description à la con pour remplir le champs description car je ne sais pas quoi mettre et j'ai la flemme de faire un copier coller d'un Lorem Ipsum", img: "Citadelle_44j83b3", city: "Lille", walks: 45, rating: 4 %>
+    </div>
+  </div>
+</div>
