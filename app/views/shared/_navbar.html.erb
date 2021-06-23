@@ -6,10 +6,16 @@
     </div>
     <% unless current_page?(root_path) %>
       <div class="container-fluid">
-        <form class="d-flex justify-content-center">
-          <input class="form-control me-2" type="search" placeholder="Ville ou adresse" aria-label="Search" style="width: 400px;">
-          <button class="btn btn-flat" type="submit">Va chercher!</button>
-        </form>
+        <%= form_tag sites_path, class: "d-flex justify-content-center", method: :get do %>
+      <%= text_field_tag :query,
+    params[:query],
+    id: "banner-search",
+    class: "form-control me-2",
+    style: "width: 400px",
+    placeholder: "Ville ou adresse"
+  %>
+      <%= submit_tag "Va chercher!", class: "btn btn-flat" %>
+    <% end %>
       </div>
     <% end %>
     <ul class="navbar-nav align-items-center">
