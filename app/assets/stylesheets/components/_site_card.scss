@@ -1,9 +1,8 @@
 .site-cards {
   display: grid;
-  grid-gap: 8px;
   justify-content: center;
   align-content: center;
-  gap: 16px;
+  gap: 32px;
   grid-template-columns: 1fr 1fr;
 }
 
@@ -16,6 +15,15 @@
 @media (max-width: 768px) {
   .site-cards {
     grid-template-columns: 1fr;
+  }
+}
+
+.site-card-link {
+  opacity: 0.9;
+  color: black;
+  &:hover {
+    opacity: 1;
+    color: black;
   }
 }
 
