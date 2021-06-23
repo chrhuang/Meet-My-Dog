@@ -25,24 +25,60 @@
       <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-paw"></i></a>
       </li>
-      <li class="nav-item dropdown">
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <% if current_user&.photo.present? %>
-              <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "#{current_user.nickname}" %>
-            <% end %>
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li>
-              <%= link_to "Edit my profile", edit_user_registration_path, class: "dropdown-item" %>
-              <%# <a class="dropdown-item" href="#">Edit my profile</a> %>
-            </li>
-            <li>
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </li>
-          </ul>
-        </li>
+      <% if user_signed_in? %>
+        <li class="nav-item dropdown">
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <% if current_user&.photo.present? %>
+                <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "#{current_user.nickname}" %>
+              <% end %>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li>
+                <%= link_to "Edit my profile", edit_user_registration_path, class: "dropdown-item" %>
+                <%# <a class="dropdown-item" href="#">Edit my profile</a> %>
+              </li>
+              <li>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <a class="text-green" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal" href="#">Login</a>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
 </nav>
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Se connecter</h5>
+        <a type="button" class="text-green" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for :user, url: session_path(:user) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :email,
+                required: false,
+                input_html: { autocomplete: "email" }
+                %>
+            <%= f.input :password,
+                required: false,
+                input_html: { autocomplete: "current-password" } %>
+            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="form-actions">
+            <%= f.button :submit, "Log in", class: "btn btn-flat" %>
+            <%# <button type="button" class="btn btn-primary">Save changes</button> %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
