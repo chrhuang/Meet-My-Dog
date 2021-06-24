@@ -3,6 +3,7 @@
     // background-size:cover;
     // background-repeat: no-repeat;
     display: flex;
+  margin-top: 20px;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -29,17 +30,16 @@
   .footer .fa-heart {
     color: $green;
   }
+.footer .fa-github {
+  font-size: 24px;
+}
 
-  .footer .fa-github {
-      font-size: 24px;
-  }
-
-  .footer .fa-instagram {
-    font-size: 24px;
+.footer .fa-instagram {
+  font-size: 24px;
 }
 
 .footer .fa-twitter {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .footer .fa-linkedin {
