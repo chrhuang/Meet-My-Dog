@@ -1,7 +1,7 @@
 require "open-uri"
 
 # This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+# The data can then be loaded with the bin/rails db:seed command (or created alongitudeside the database with db:setup).
 #
 # Examples:
 #
@@ -53,7 +53,7 @@ Site.destroy_all
 
 puts "Create Site 1/6"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624441789/Citadelle_44j83b3.jpg')
-site = Site.create!(name: "Citadelle de Lille", description: "Situé autour de la Citadelle, ce véritable poumon vert de 90 hectares, est le paradis des toutous, des familles et de tout ceux qui désirent profiter de la nature au sein d’une grande métropole.", long: 3.045384, lat: 50.64079)
+site = Site.create!(name: "Citadelle de Lille", description: "Situé autour de la Citadelle, ce véritable poumon vert de 90 hectares, est le paradis des toutous, des familles et de tout ceux qui désirent profiter de la nature au sein d’une grande métropole.", longitude: 3.045384, latitude: 50.64079)
 site.photos.attach(io: file, filename: 'Citadelle.png', content_type: 'image/png')
 
 puts "Create Site 2/6"
@@ -63,7 +63,7 @@ site.photos.attach(io: file, filename: 'Barbieux.png', content_type: 'image/png'
 
 puts "Create Site 3/6"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624527074/4QSp5dqK3zT9joFE_QFPvVkp14H-nKpPLRTi3mX977O00AhDUKOz4HzXDgAX1HOL25U1PFc4KerUl_btjkE3XTN-WxNQQ0MGLAW6IT1V3SL5u6eu3ClCIbbFAblReeTSQ-k_uvkuui.jpg')
-site = Site.create!(name: "Forêt de Raismes-Saint-Amand-Wallers", description: "S’étendant sur 4 600 hectares, la forêt domaniale de Raismes-Saint-Amand-Wallers est parfaite pour les chiens qui ont besoin de se dépenser.", long: 3.496953, lat: 50.428708)
+site = Site.create!(name: "Forêt de Raismes-Saint-Amand-Wallers", description: "S’étendant sur 4 600 hectares, la forêt domaniale de Raismes-Saint-Amand-Wallers est parfaite pour les chiens qui ont besoin de se dépenser.", longitude: 3.496953, latitude: 50.428708)
 site.photos.attach(io: file, filename: 'ForetSA.png', content_type: 'image/png')
 
 
@@ -79,7 +79,7 @@ site.photos.attach(io: file, filename: 'ParcJBL.png', content_type: 'image/png')
 
 puts "Create Site 6/6"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624525689/Appartement-neuf-Villeneuve-dAscq-parc-Heron-Novacity-02_osepru.jpg')
-site = Site.create!(name: "Parc du Héron", description: "Les quelques 110 hectares d'eau et de verdure constituant le Parc du Héron forment un remarquable terrain de jeu pour nos amis à 4 pattes. Ils pourront profiter d' une vaste zone de nature en métropole.", long: 3.1483957, lat: 50.6343157)
+site = Site.create!(name: "Parc du Héron", description: "Les quelques 110 hectares d'eau et de verdure constituant le Parc du Héron forment un remarquable terrain de jeu pour nos amis à 4 pattes. Ils pourront profiter d' une vaste zone de nature en métropole.", longitude: 3.1483957, latitude: 50.6343157)
 site.photos.attach(io: file, filename: 'ParcHeron.png', content_type: 'image/png')
 
 
@@ -103,7 +103,7 @@ walk.photo.attach(io: file, filename: 'citadelle02.png', content_type: 'image/pn
 
 puts "Create Walk 3/6"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624539773/145151_88829_b1w2gu.jpg')
-walk = Walk.create!(name: "Longue promenade autour de la citadelle", description: "Pour les toutous les plus sportifs, un tour complet de la citadelle.", length: 15, duration: 300,  site: Site.first)
+walk = Walk.create!(name: "longitudeue promenade autour de la citadelle", description: "Pour les toutous les plus sportifs, un tour complet de la citadelle.", length: 15, duration: 300,  site: Site.first)
 walk.photo.attach(io: file, filename: 'citadelle03.png', content_type: 'image/png')
 
 puts "Create Walk 4/6"
