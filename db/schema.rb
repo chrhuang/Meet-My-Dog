@@ -121,8 +121,8 @@ ActiveRecord::Schema.define(version: 2021_06_24_101642) do
   end
 
   create_table "sites", force: :cascade do |t|
-    t.decimal "long", precision: 10, scale: 6
-    t.decimal "lat", precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
+    t.decimal "latitude", precision: 10, scale: 6
     t.string "name"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
@@ -153,8 +153,8 @@ ActiveRecord::Schema.define(version: 2021_06_24_101642) do
   end
 
   create_table "walk_has_pois", force: :cascade do |t|
-    t.decimal "long", precision: 10, scale: 6
-    t.decimal "lat", precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
+    t.decimal "latitude", precision: 10, scale: 6
     t.bigint "poi_id", null: false
     t.bigint "walk_id", null: false
     t.datetime "created_at", precision: 6, null: false

@@ -1,8 +1,12 @@
-<div class="group_banner">
+<div class="group_banner d-flex">
   <div class="event_walk_photo">
     <img src="https://static.actu.fr/uploads/2018/06/25565-180629104553822-0.jpg" alt="">
   </div>
   <div class="event_map">
-    <map name=""></map>
+    <div id="map" class=""
+     style="width:400px; height: 400px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
 </div>

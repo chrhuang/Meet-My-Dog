@@ -1,2 +1,27 @@
-.site-description {
+.walk-title {
+  white-space: nowrap;
+}
+
+.walk-description {
+  line-height: 1.5em;
+  height: 1.5em; /* height is 2x line-height, so two lines will display */
+  overflow: hidden; /* prevents extra lines from being visible */
+}
+
+.walk-photo {
+  width: 150px;
+  height: 150px;
+}
+
+@media (max-width: 992px) {
+  .walk-infos {
+    flex-direction: column;
+  }
+  .site-bar {
+    display: none;
+  }
+  .walk-photo {
+    width: 100px;
+    height: 100px;
+  }
 }

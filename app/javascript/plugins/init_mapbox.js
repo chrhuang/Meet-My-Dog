@@ -4,7 +4,7 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
 const myApiKey = 'pk.eyJ1IjoiY2hyaHVhbmciLCJhIjoiY2twODVmcHB3MDJ6MTJwdDdtNjA2YnRmOSJ9.UASVCzlZa34egBDU9JgA8Q'
 
-  
+
 const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey
   return new mapboxgl.Map({
@@ -21,10 +21,11 @@ const addMarkersToMap = (map, markers) => {
       const popup = new mapboxgl.Popup().setHTML(marker.site_window);
       const element = document.createElement('div');
       element.className = 'marker';
-      element.style.backgroundImage = `url("https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624525523/Component_2-removebg-preview_jgfplv.png")`;
+      element.style.backgroundImage = `url("https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624537678/Component_2_c6ucqa.png")`;
       element.style.backgroundSize = 'contain';
-      element.style.width = '50px';
-      element.style.height = '50px';
+      element.style.width = '100px';
+      element.style.height = '80px';
+      element.style.backgroundRepeat = 'no-repeat'
       new mapboxgl.Marker(element)
         .setLngLat([marker.lng, marker.lat])
         .setPopup(popup)
@@ -34,12 +35,10 @@ const addMarkersToMap = (map, markers) => {
 }
 
 const fitMapToMarkers = (map, markers) => {
-  if (markers.length !== 0) {
-    const bounds = new mapboxgl.LngLatBounds()
-    markers.forEach(marker => bounds.extend([marker.lng, marker.lat]))
-    map.fitBounds(bounds, { padding: 70, maxZoom: 15, zoom: 10 })
-  }
-}
+  const bounds = new mapboxgl.LngLatBounds();
+  markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+  map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+};
 
 const insertCoordinates = (coordinates, map) => {
   const longitude = coordinates[0]
