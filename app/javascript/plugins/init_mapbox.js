@@ -21,7 +21,7 @@ const addMarkersToMap = (map, markers) => {
       const popup = new mapboxgl.Popup().setHTML(marker.site_window);
       const element = document.createElement('div');
       element.className = 'marker';
-      element.style.backgroundImage = `url("https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624537678/Component_2_c6ucqa.png")`;
+      element.style.backgroundImage = `url("https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624549304/Component_2_prev_ui_s98agf.png")`;
       element.style.backgroundSize = 'contain';
       element.style.width = '100px';
       element.style.height = '80px';
