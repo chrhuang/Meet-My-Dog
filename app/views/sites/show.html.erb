@@ -1,1 +1,15 @@
-<h1><%= @site.name %></h1>
+<div id="map"
+     style="width: 100%; height: 300px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+<div class="container mt-4">
+  <h1><%= @site.name %></h1>
+  <h3 class="text-grey">Lille</h3>
+  <p class="site-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias unde sapiente quia dicta ex rem odit. Consectetur sint dignissimos quasi repellat odio cum aliquam ab laborum cupiditate voluptatem! Numquam, soluta!</p>
+  <div class="accordion" id="accordionExample">
+    <%= render '/shared/site_show_card', walk: Walk.first, img: "Citadelle_44j83b3", description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias unde sapiente quia dicta ex rem odit. Consectetur sint dignissimos quasi repellat odio cum aliquam ab laborum cupiditate voluptatem! Numquam, soluta!", city: "Lille", id: 1 %>
+    <%= render '/shared/site_show_card', walk: Walk.first, img: "7v2smpodpoa2r0uhyf88j2xfxvez", description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias unde sapiente quia dicta ex rem odit. Consectetur sint dignissimos quasi repellat odio cum aliquam ab laborum cupiditate voluptatem! Numquam, soluta!", city: "Lille", id: 2 %>
+    <%= render '/shared/site_show_card', walk: Walk.first, img: "Parc-Montsouris", description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias unde sapiente quia dicta ex rem odit. Consectetur sint dignissimos quasi repellat odio cum aliquam ab laborum cupiditate voluptatem! Numquam, soluta!", city: "Lille", id: 3 %>
+  </div>
+</div>

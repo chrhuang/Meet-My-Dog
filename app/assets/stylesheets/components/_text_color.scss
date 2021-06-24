@@ -4,3 +4,11 @@
     color: $green;
   }
 }
+
+.text-grey {
+  color: black;
+  opacity: 0.3;
+  &:hover {
+    color: black;
+  }
+}
