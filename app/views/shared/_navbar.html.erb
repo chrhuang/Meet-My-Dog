@@ -29,7 +29,7 @@
       </li>
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <div class="collapse navbar-collapse d-block" id="navbarNavDropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <% if current_user&.photo.present? %>
                 <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "#{current_user.nickname}" %>
