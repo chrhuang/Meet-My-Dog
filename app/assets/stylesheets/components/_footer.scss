@@ -1,46 +1,47 @@
 .footer {
-    // background-image: asset-url("forest.svg");
-    // background-size:cover;
-    // background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 100px;
-    padding: 0px 50px;
-    color: $green;
-    font-weight: lighter;
-    bottom:0;
-    width: 100%;
-    font-size: 16px;
-  }
-  .footer-links {
-    color: $green;
-  }
-  .footer-links a {
-    color: $green;
-    opacity: 0.80;
-    padding: 0px 10px;
-  }
-  .footer-links a:hover {
-    opacity: 1;
-  }
-  .footer .fa-heart {
-    color: $green;
-  }
+  // background-image: asset-url("forest.svg");
+  // background-size:cover;
+  // background-repeat: no-repeat;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100px;
+  padding: 0px 50px;
+  color: $green;
+  font-weight: lighter;
+  bottom: 0;
+  width: 100%;
+  font-size: 16px;
+}
+.footer-links {
+  color: $green;
+}
+.footer-links a {
+  color: $green;
+  opacity: 0.8;
+  padding: 0px 10px;
+}
+.footer-links a:hover {
+  opacity: 1;
+}
+.footer .fa-heart {
+  color: $green;
+}
 
-  .footer .fa-github {
-      font-size: 24px;
-  }
+.footer .fa-github {
+  font-size: 24px;
+}
 
-  .footer .fa-instagram {
-    font-size: 24px;
+.footer .fa-instagram {
+  font-size: 24px;
 }
 
 .footer .fa-twitter {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .footer .fa-linkedin {
-    font-size: 24px;
+  font-size: 24px;
 }
