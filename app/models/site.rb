@@ -4,6 +4,6 @@ class Site < ApplicationRecord
   has_many :walks, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
-  reverse_geocoded_by :lat, :long
-  after_validation :reverse_geocode, if: ->(obj) { obj.lat.present? and obj.long.present? }  # auto-fetch address
+  reverse_geocoded_by :latitude, :longitude
+  after_validation :reverse_geocode, if: ->(obj) { obj.latitude.present? and obj.longitude.present? }  # auto-fetch address
 end

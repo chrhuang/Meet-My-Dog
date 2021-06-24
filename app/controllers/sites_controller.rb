@@ -1,13 +1,14 @@
 class SitesController < ApplicationController
   def index
-    @sites = Site.geocoded
-    @sites = policy_scope(Site).order(created_at: :desc)
+    @sites = Site.near(params[:query], 20)
+    # raise
+    @sites = policy_scope(@sites)
     @markers = @sites.geocoded.map do |site|
       {
-        lat: site.lat,
-        lng: site.long,
+        lat: site.latitude,
+        lng: site.longitude,
         info_window: render_to_string(partial: "site_window", locals: { site: site }),
-        image_url: helpers.asset_url('Component_2-removebg-preview.png')
+        image_url: helpers.asset_url('3-removebg-preview.png')
       }
     end
   end
