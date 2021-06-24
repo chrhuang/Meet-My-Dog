@@ -1,9 +1,10 @@
 import mapboxgl from 'mapbox-gl'
-// import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
-// import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
 const myApiKey = 'pk.eyJ1IjoiY2hyaHVhbmciLCJhIjoiY2twODVmcHB3MDJ6MTJwdDdtNjA2YnRmOSJ9.UASVCzlZa34egBDU9JgA8Q'
 
+  
 const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey
   return new mapboxgl.Map({
@@ -18,7 +19,13 @@ const addMarkersToMap = (map, markers) => {
   if (markers.length !== 0) {
     markers.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.site_window);
-      new mapboxgl.Marker()
+      const element = document.createElement('div');
+      element.className = 'marker';
+      element.style.backgroundImage = `url("https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624525523/Component_2-removebg-preview_jgfplv.png")`;
+      element.style.backgroundSize = 'contain';
+      element.style.width = '50px';
+      element.style.height = '50px';
+      new mapboxgl.Marker(element)
         .setLngLat([marker.lng, marker.lat])
         .setPopup(popup)
         .addTo(map)
@@ -49,7 +56,6 @@ const fetchLocalisation = (search, map) => {
   fetch(url)
     .then(reponse => reponse.json())
     .then((data) => {
-      console.log(data.features[0].geometry.coordinates)
       map.jumpTo({
         center: [
           data.features[0].geometry.coordinates[0],
@@ -72,7 +78,6 @@ const initMapbox = () => {
     //   mapboxgl: mapboxgl
     // }))
     const params = new URLSearchParams(window.location.search)
-    console.log(params.get('query'))
     fetchLocalisation(params.get('query'), map)
     addMarkersToMap(map, markers)
     fitMapToMarkers(map, markers)
