@@ -66,6 +66,7 @@ file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624525689/A
 site = Site.create!(name: "Parc du Héron", description: "Les quelques 110 hectares d'eau et de verdure constituant le Parc du Héron forment un remarquable terrain de jeu pour nos amis à 4 pattes. Ils pourront profiter d' une vaste zone de nature en métropole.", longitude: 3.1483957, latitude: 50.6343157)
 site.photos.attach(io: file, filename: 'ParcHeron.png', content_type: 'image/png')
 
+
 puts "Create Site ...."
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624525689/Appartement-neuf-Villeneuve-dAscq-parc-Heron-Novacity-02_osepru.jpg')
 site = Site.create!(name: "Prés du Hem", description: "Au coeur de 120 hectares de nature et autour d'un vaste lac, des dizaines d'activités ludiques, naturalistes et sportives attendent votre chien!.", longitude: 2.874436, latitude: 50.698895)
@@ -90,7 +91,34 @@ puts "Delete all Walks ..."
 Walk.destroy_all
 
 puts "Create Walk ."
-Walk.create!(name: "Petit trajet", site: Site.first)
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624539419/citadelle_juin_2020_01_dw1mwi.jpg')
+walk = Walk.create!(name: "Tour à l'entrée de la citadelle", description: "balade au bord de l'eau, rapide et parfaite pour un petit chien.", length: 1, duration: 30,  site: Site.first)
+walk.photo.attach(io: file, filename: 'citadelle01.png', content_type: 'image/png')
+
+puts "Create Walk .."
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624539605/citadelle-vauban-lille-renonce-patrimoine-mondial_ix8lc1.jpg')
+walk = Walk.create!(name: "Visite intérieure de la citadelle", description: "balade à l'intérieur de l'enceinte de la citadelle.", length: 5, duration: 120,  site: Site.first)
+walk.photo.attach(io: file, filename: 'citadelle02.png', content_type: 'image/png')
+
+puts "Create Walk ..."
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624539773/145151_88829_b1w2gu.jpg')
+walk = Walk.create!(name: "Longue promenade autour de la citadelle", description: "Pour les toutous les plus sportifs, un tour complet de la citadelle.", length: 15, duration: 300,  site: Site.first)
+walk.photo.attach(io: file, filename: 'citadelle03.png', content_type: 'image/png')
+
+puts "Create Walk ...."
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624540016/NBeTz3gLM77bt4O-gR0rvTgA30k_azsdef.jpg')
+walk = Walk.create!(name: "Promenade au bord du lac", description: "Petite promenade sur la rive du lac, au calme pour se détendre les papattes.", length: 2.5, duration: 60,  site: Site.last)
+walk.photo.attach(io: file, filename: 'heron01.png', content_type: 'image/png')
+
+puts "Create Walk ....."
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624540284/3942d8043f14e30dc57c3d3389c52d03_jzxzrz.jpg')
+walk = Walk.create!(name: "Tour du petit lac", description: "Tour du petit lac pour dire bonjour aux chevaux de traits et aux oiseaux.", length: 7, duration: 240,  site: Site.last)
+walk.photo.attach(io: file, filename: 'heron02.png', content_type: 'image/png')
+
+puts "Create Walk ......"
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624540506/drone1_oxzhom.jpg')
+walk = Walk.create!(name: "Tour du complet du lac", description: "Tour complet du lac pour passer une journée à gambader dans la forest et peut-être apercevoir un héron au bord de l'eau.", length: 17, duration: 320,  site: Site.last)
+walk.photo.attach(io: file, filename: 'heron03.png', content_type: 'image/png')
 
 puts "Walks Created"
 
