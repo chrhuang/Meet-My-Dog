@@ -1,6 +1,7 @@
 class SitesController < ApplicationController
   def index
     @sites = Site.near(params[:query], 20)
+    @search = params[:query]
     # raise
     @sites = policy_scope(@sites)
     @markers = @sites.geocoded.map do |site|
