@@ -8,8 +8,8 @@
   <h5 class="text-grey"><%= @site.address %></h5>
   <p class="site-description my-4"><%= @site.description %></p>
   <div class="accordion" id="accordionExample">
-    <%= render '/shared/site_show_card', walk: Walk.first, img: "Citadelle_44j83b3", description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias unde sapiente quia dicta ex rem odit. Consectetur sint dignissimos quasi repellat odio cum aliquam ab laborum cupiditate voluptatem! Numquam, soluta!", city: "Lille", id: 1 %>
-    <%= render '/shared/site_show_card', walk: Walk.first, img: "7v2smpodpoa2r0uhyf88j2xfxvez", description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias unde sapiente quia dicta ex rem odit. Consectetur sint dignissimos quasi repellat odio cum aliquam ab laborum cupiditate voluptatem! Numquam, soluta!", city: "Lille", id: 2 %>
-    <%= render '/shared/site_show_card', walk: Walk.first, img: "Parc-Montsouris", description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias unde sapiente quia dicta ex rem odit. Consectetur sint dignissimos quasi repellat odio cum aliquam ab laborum cupiditate voluptatem! Numquam, soluta!", city: "Lille", id: 3 %>
+    <% @site.walks.each do |walk| %>
+      <%= render '/shared/site_show_card', walk: walk, city: "Lille" %>
+    <% end %>
   </div>
 </div>
