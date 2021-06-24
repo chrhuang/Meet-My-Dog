@@ -57,7 +57,7 @@ site = Site.create!(name: "Citadelle de Lille", description: "Situé autour de l
 site.photos.attach(io: file, filename: 'Citadelle.png', content_type: 'image/png')
 
 puts "Create Site 2/6"
-file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624457118/7v2smpodpoa2r0uhyf88j2xfxvez.jpg')
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624548583/kpnpwtirvm78k0jp8fedz6opt09p.jpg')
 site = Site.create!(name: "Parc Barbieux", description: "Le parc de Barbieux est situé dans la commune de Roubaix. C'est un parc remarquable par la présence de plus de 60 essences d'arbres. Il s’étend sur 1,5 kilomètre avec un joli plan d'eau.", longitude: 3.160818, latitude: 50.675526)
 site.photos.attach(io: file, filename: 'Barbieux.png', content_type: 'image/png')
 
