@@ -6,10 +6,10 @@
     </div>
     <% unless current_page?(root_path) %>
       <div class="container-fluid">
-        <%= form_tag sites_path, class: "d-flex justify-content-center", method: :get do %>
+        <%= form_tag sites_path, class: "d-flex justify-content-center navbar__search-bar", method: :get do %>
           <%= text_field_tag :query,
     params[:query],
-    id: "banner-search",
+    id: "navbar-search",
     class: "form-control me-2",
     style: "width: 400px",
     placeholder: "Ville ou adresse"
