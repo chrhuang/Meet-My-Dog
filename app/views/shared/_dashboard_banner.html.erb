@@ -1,5 +1,38 @@
-<div class="dashboard-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://www.setaswall.com/wp-content/uploads/2017/09/Park-Wallpaper-36-1920x1080.jpg);">
+<div class="dashboard-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.setaswall.com/wp-content/uploads/2017/09/Park-Wallpaper-36-1920x1080.jpg);">
     <% current_user.dogs.each do |dog| %>
-      <%= cl_image_tag(dog.photo.key, :transformation=>[{:height=>300, :width=>300, :crop=>"fill"}], class: "avatar-XL") %>
+      <div class="dog-avatar">
+        <%= cl_image_tag(dog.photo.key, :transformation=>[{:height=>300, :width=>300, :crop=>"fill"}], class: "avatar-XL") %>
+         <div class="dog-links">
+          <a class="dog-link" href="edit_dog_path"><i class="fas fa-edit"></i></a>
+          <a class="dog-link" href="dog_path"><i class="fas fa-times-circle"></i></a>
+        </div>
+      </div>
     <% end %>
+</div>
+<%# MODAL EDIT DOG %>
+<div class="modal fade" id="editDogModal" tabindex="-1" aria-labelledby="editDogModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editDogModalLabel">Modifier les infos de mon chien</h5>
+        <a type="button" class="text-green" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for :dog, url: dog_path(dog), method: :get do |f| %>
+          <div class="form-inputs">
+            <%= f.input :name, required: true %>
+            <%= f.input :age, required: true %>
+            <%= f.input :size, required: true %>
+            <%= f.input :photo, as: :file %>
+            <%= f.input :gender %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="form-actions">
+            <%= f.button :submit, "Mettre à jour", class: "btn btn-flat" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
