@@ -1,6 +1,12 @@
 class SitesController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
+
   def index
-    @sites = Site.near(params[:query], 20)
+    if params[:query] == ""
+      @sites = Site.all
+    else
+      @sites = Site.near(params[:query], 20)
+    end
     @search = params[:query]
     # raise
     @sites = policy_scope(@sites)

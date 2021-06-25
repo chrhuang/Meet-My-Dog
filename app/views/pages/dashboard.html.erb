@@ -1,5 +1,34 @@
 <%= render "/shared/dashboard_banner" %>
 <div class="container">
-   <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-dog"></i>+</a>
-   <h2>Mes balades à venir:</h2>
+  <a class="my-3 text-green" aria-current="page" data-bs-toggle="modal" data-bs-target="#addDogModal" href="#"><i class="fas fa-dog"></i>+</a>
+  <h2>Mes balades à venir:</h2>
+  <% @my_events.each do |event| %>
+    <p><%= event.name %></p>
+  <% end %>
+</div>
+<%# MODAL CREATE DOG %>
+<div class="modal fade" id="addDogModal" tabindex="-1" aria-labelledby="addDogModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addDogModalLabel">Ajouter mon chien</h5>
+        <a type="button" class="text-green" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for :event, url: events_path, method: :post do |f| %>
+          <div class="form-inputs">
+            <%= f.input :name, required: true %>
+            <%= f.input :age, required: true %>
+            <%= f.input :size, required: true %>
+            <%= f.input :gender, as: :hidden %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="form-actions">
+            <%= f.button :submit, "Ajouter mon chien", class: "btn btn-flat" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
