@@ -52,7 +52,7 @@ puts "Delete all Sites ..."
 Site.destroy_all
 
 puts "Create Site 1/6"
-file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624441789/Citadelle_44j83b3.jpg')
+file = URI.open('https://www.lille.fr/var/www/storage/images/mediatheque/mairie-de-lille/visuels-annuaire/le-parc-de-la-citadelle/76380-1-fre-FR/Le-parc-de-la-Citadelle_news_image_top.jpg')
 site = Site.create!(name: "Citadelle de Lille", description: "Situé autour de la Citadelle, ce véritable poumon vert de 90 hectares, est le paradis des toutous, des familles et de tout ceux qui désirent profiter de la nature au sein d’une grande métropole.", longitude: 3.045384, latitude: 50.64079)
 site.photos.attach(io: file, filename: 'Citadelle.png', content_type: 'image/png')
 
@@ -97,7 +97,7 @@ walk = Walk.create!(name: "Tour à l'entrée de la citadelle", description: "bal
 walk.photo.attach(io: file, filename: 'citadelle01.png', content_type: 'image/png')
 
 puts "Create Walk 2/6"
-file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624539605/citadelle-vauban-lille-renonce-patrimoine-mondial_ix8lc1.jpg')
+file = URI.open('https://parcdelacitadelle.lille.fr/sites/default/files/styles/full/public/thumbnails/image/p-01.premiere_enceintecphilippe_frutier.jpg?itok=SweekwvY')
 walk = Walk.create!(name: "Visite intérieure de la citadelle", description: "balade à l'intérieur de l'enceinte de la citadelle.", length: 5, duration: 120,  site: Site.first)
 walk.photo.attach(io: file, filename: 'citadelle02.png', content_type: 'image/png')
 
@@ -134,7 +134,8 @@ Event.destroy_all
 puts "Create Event 1/6"
 event = Event.create!(name: "Balade entre copains", walk: Walk.first, description: "Il fait beau, profitons-en: laissons nos toutous s'amuser dehors. N'oubliez pas les bières.", max_dog: 4, date: DateTime.strptime("21/08/2021 17:00", "%d/%m/%Y %H:%M"))
 EventHasUser.create!(event: event, user: User.first);
-EventHasUser.create!(event: event, user: User.first);
+EventHasUser.create!(event: event, user: User.all[1]);
+EventHasUser.create!(event: event, user: User.last);
 
 puts "Create Event 2/6"
 event = Event.create!(name: "Découverte de la citadelle", walk: Walk.all[1], description: "N'étant pas du Nord je viens découvrir ce lieu si prisé des lillois. Je viens ave 3 enfants.", max_dog: 2, date: DateTime.strptime("02/07/2021 16:00", "%d/%m/%Y %H:%M"))
@@ -162,7 +163,7 @@ puts "Events Created"
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 puts "Delete all Temperaments ..."
-Temperament.destroy.all
+Temperament.destroy_all
 
 puts "Create Temperament 1/16"
 temperament = Temperament.create!(name: "Bagarreur")
