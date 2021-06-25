@@ -1,5 +1,6 @@
 <div class="chat-group m-3">
-  <p><%= event.name %></p>
+  <h6><%= event.name %></h6>
+  <p class="date"><%= event.date %></p>
   <% event.users.each do |user| %>
     <%= cl_image_tag user.photo.key, class: "avatar" %>
   <% end %>
