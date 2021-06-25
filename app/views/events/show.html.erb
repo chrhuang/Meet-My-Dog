@@ -5,6 +5,10 @@
     <% unless @user_in_event %>
       <%= link_to "Rejoindre cette balade", join_path(@event.id), class: "btn btn-flat" %>
     <% end %>
+    <% if @user_in_event %>
+      <!--  <a class="btn btn-flat" aria-current="page" data-bs-toggle="modal" data-bs-target="#updateEventModal" href="#">Editer cet événement</a> %>-->
+      <%= link_to "Quitter cet événement", event_path(@event), method: :delete, class:"btn btn-red"%>
+    <% end %>
     <p><%= @event.date %></p>
     <p><%= @event.walk.description %></p>
     <h3>

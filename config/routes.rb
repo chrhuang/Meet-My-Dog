@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "/dashboard", to: "pages#dashboard", as: "dashboard"
   get "/join/:id", to: "events#join", as: "join"
   resources :sites, only: [:index, :show]
-  resources :events, only: [:show, :create]
+  resources :events, only: [:show, :create, :destroy]
   resources :dogs, only: [:create, :update, :destroy]
   resources :messages, only: [:create]
 end
