@@ -1,7 +1,5 @@
 class DogsController < ApplicationController
   def new
-    @dog = Dog.new
-    authorize @dog
   end
 
   def create
@@ -11,7 +9,7 @@ class DogsController < ApplicationController
     if dog.save
       redirect_to dashboard_path
     else
-      render :new
+      render dashboard_path
     end
   end
 
@@ -40,6 +38,6 @@ class DogsController < ApplicationController
   private
 
   def dog_params
-    params.require(:dog).permit(:name, :age, :size, :gender, :photo_key, :user_id)
+    params.require(:dog).permit(:name, :age, :size, :gender, :photo)
   end
 end

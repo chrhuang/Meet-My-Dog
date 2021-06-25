@@ -2,6 +2,8 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     authorize @event
+    @user_in_event = user_in_event?
+    # raise
   end
 
   def create
@@ -16,9 +18,20 @@ class EventsController < ApplicationController
     end
   end
 
+  def join
+    event = Event.find(params[:id])
+    authorize event
+    EventHasUser.create!(event: event, user: current_user)
+    redirect_to event_path(event)
+  end
+
   private
 
   def event_params
     params.require(:event).permit(:name, :description, :max_dog)
+  end
+
+  def user_in_event?
+    current_user.events.include? @event
   end
 end
