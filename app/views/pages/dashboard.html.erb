@@ -15,12 +15,13 @@
         <a type="button" class="text-green" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
       </div>
       <div class="modal-body">
-        <%= simple_form_for :event, url: events_path, method: :post do |f| %>
+        <%= simple_form_for :dog, url: dogs_path, method: :post do |f| %>
           <div class="form-inputs">
             <%= f.input :name, required: true %>
             <%= f.input :age, required: true %>
             <%= f.input :size, required: true %>
-            <%= f.input :gender, as: :hidden %>
+            <%= f.input :photo, as: :file %>
+            <%= f.input :gender %>
           </div>
         </div>
         <div class="modal-footer">

@@ -1,0 +1,29 @@
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Se connecter</h5>
+        <a type="button" class="text-green" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for :user, url: session_path(:user) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :email,
+                required: false,
+                input_html: { autocomplete: "email" }
+                %>
+            <%= f.input :password,
+                required: false,
+                input_html: { autocomplete: "current-password" } %>
+            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="form-actions">
+            <%= f.button :submit, "Log in", class: "btn btn-flat" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
