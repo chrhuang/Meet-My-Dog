@@ -3,7 +3,7 @@
   <a class="my-3 text-green" aria-current="page" data-bs-toggle="modal" data-bs-target="#addDogModal" href="#"><i class="fas fa-dog"></i>+</a>
   <h2>Mes balades à venir:</h2>
   <% @my_events.each do |event| %>
-    <p><%= event.name %></p>
+    <%= render "/shared/event_card", event: event %>
   <% end %>
 </div>
 <%# MODAL CREATE DOG %>

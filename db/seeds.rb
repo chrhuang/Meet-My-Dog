@@ -132,27 +132,28 @@ puts "Delete all Events ..."
 Event.destroy_all
 
 puts "Create Event 1/6"
-event = Event.create!(name: "Balade entre copains", walk: Walk.first, description: "Il fait beau, profitons-en: laissons nos toutous s'amuser dehors. N'oubliez pas les bières.", date: DateTime.strptime("21/08/2021 17:00", "%d/%m/%Y %H:%M"))
+event = Event.create!(name: "Balade entre copains", walk: Walk.first, description: "Il fait beau, profitons-en: laissons nos toutous s'amuser dehors. N'oubliez pas les bières.", max_dog: 4, date: DateTime.strptime("21/08/2021 17:00", "%d/%m/%Y %H:%M"))
+EventHasUser.create!(event: event, user: User.first);
 EventHasUser.create!(event: event, user: User.first);
 
 puts "Create Event 2/6"
-event = Event.create!(name: "Découverte de la citadelle", walk: Walk.all[1], description: "N'étant pas du Nord je viens découvrir ce lieu si prisé des lillois. Je viens ave 3 enfants.", date: DateTime.strptime("02/07/2021 16:00", "%d/%m/%Y %H:%M"))
+event = Event.create!(name: "Découverte de la citadelle", walk: Walk.all[1], description: "N'étant pas du Nord je viens découvrir ce lieu si prisé des lillois. Je viens ave 3 enfants.", max_dog: 2, date: DateTime.strptime("02/07/2021 16:00", "%d/%m/%Y %H:%M"))
 EventHasUser.create!(event: event, user: User.all[1]);
 
 puts "Create Event 3/6"
-event = Event.create!(name: "Footing avec sa boule de poils", walk: Walk.all[2], description: "N'étant pas du Nord je viens découvrir ce lieu si prisé des lillois. Je viens ave 3 enfants.", date: DateTime.strptime("23/07/2021 18:30", "%d/%m/%Y %H:%M"))
+event = Event.create!(name: "Footing avec sa boule de poils", walk: Walk.all[2], description: "N'étant pas du Nord je viens découvrir ce lieu si prisé des lillois. Je viens ave 3 enfants.", max_dog: 3, date: DateTime.strptime("23/07/2021 18:30", "%d/%m/%Y %H:%M"))
 EventHasUser.create!(event: event, user: User.all[2]);
 
 puts "Create Event 4/6"
-event = Event.create!(name: "Petite sortie matinale", walk: Walk.all[3], description: "Je sors mon chien rapidement avant le travail. Si quelqu'un veut venir prendre un café c'est avec plaisir.", date: DateTime.strptime("12/08/2021 7:30", "%d/%m/%Y %H:%M"))
+event = Event.create!(name: "Petite sortie matinale", walk: Walk.all[3], description: "Je sors mon chien rapidement avant le travail. Si quelqu'un veut venir prendre un café c'est avec plaisir.", max_dog: 2, date: DateTime.strptime("12/08/2021 7:30", "%d/%m/%Y %H:%M"))
 EventHasUser.create!(event: event, user: User.all[2]);
 
 puts "Create Event 5/6"
-event = Event.create!(name: "Balade habituelle du mercredi", walk: Walk.all[4], description: "J'emmène des balles et un frisbee pour faire courir nos molosses. Chiens joueurs bienvenus donc.", date: DateTime.strptime("14/07/2021 7:30", "%d/%m/%Y %H:%M"))
+event = Event.create!(name: "Balade habituelle du mercredi", walk: Walk.all[4], description: "J'emmène des balles et un frisbee pour faire courir nos molosses. Chiens joueurs bienvenus donc.", max_dog: 5, date: DateTime.strptime("14/07/2021 7:30", "%d/%m/%Y %H:%M"))
 EventHasUser.create!(event: event, user: User.all[1]);
 
 puts "Create Event 6/6"
-event = Event.create!(name: "Rando découverte du Lac", walk: Walk.all[5], description: "Nous venons faire une randonnée pour découvrir le lac dans ses moindres recoins. Le départ se fera de Forest sur marque.", date: DateTime.strptime("30/09/2021 12:30", "%d/%m/%Y %H:%M"))
+event = Event.create!(name: "Rando découverte du Lac", walk: Walk.all[5], description: "Nous venons faire une randonnée pour découvrir le lac dans ses moindres recoins. Le départ se fera de Forest sur marque.", max_dog: 3, date: DateTime.strptime("30/09/2021 12:30", "%d/%m/%Y %H:%M"))
 EventHasUser.create!(event: event, user: User.first);
 
 puts "Events Created"
