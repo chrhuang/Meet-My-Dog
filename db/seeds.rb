@@ -156,3 +156,38 @@ event = Event.create!(name: "Rando découverte du Lac", walk: Walk.all[5], descr
 EventHasUser.create!(event: event, user: User.first);
 
 puts "Events Created"
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+puts "Delete all POIS ..."
+Poi.destroy_all
+
+puts "Create POI 1/7"
+poi = Poi.create!(name: "Point D'Eau")
+poi.icon.attach(io: file, filename: 'water.png', content_type: 'image/png')
+
+puts "Create POI 2/7"
+poi = Poi.create!(name: "Sac à Crottes")
+poi.icon.attach(io: file, filename: 'poop.png', content_type: 'image/png')
+
+puts "Create POI 3/7"
+poi = Poi.create!(name: "Toilettes")
+poi.icon.attach(io: file, filename: 'toilets.png', content_type: 'image/png')
+
+puts "Create POI 4/7"
+poi = Poi.create!(name: "Restauration")
+poi.icon.attach(io: file, filename: 'eat.png', content_type: 'image/png')
+
+puts "Create POI 5/7"
+poi = Poi.create!(name: "Aire De Jeu")
+poi.icon.attach(io: file, filename: 'play.png', content_type: 'image/png')
+
+puts "Create POI 6/7"
+poi = Poi.create!(name: "Aire De Repos")
+poi.icon.attach(io: file, filename: 'rest.png', content_type: 'image/png')
+
+puts "Create POI 7/7"
+poi = Poi.create!(name: "Poubelle")
+poi.icon.attach(io: file, filename: 'bin.png', content_type: 'image/png')
+
+puts "POIS Created"
