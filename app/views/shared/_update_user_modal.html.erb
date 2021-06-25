@@ -2,17 +2,20 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="updateModalLabel">Modifier mon profile</h5>
+        <h5 class="modal-title" id="updateModalLabel">Modifier mon profil</h5>
         <a type="button" class="text-green" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
       </div>
       <div class="modal-body">
-        <%= simple_form_for(:user, url: registration_path(:user), html: { method: :put }) do |f| %>
+        <%= simple_form_for(current_user, url: registration_path(:user), html: { method: :put }) do |f| %>
           <%= f.error_notification %>
           <div class="form-inputs">
-            <%= f.input :email, required: true, autofocus: true %>
+            <%= f.input :nickname, required: true, autofocus: true %>
+            <%= f.input :description %>
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
             <% end %>
+            <%= f.input :address, required: true, autofocus: true %>
+            <%= f.input :photo, as: :file %>
             <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,

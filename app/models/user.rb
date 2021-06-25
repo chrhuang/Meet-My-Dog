@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :dogs, dependent: :destroy
   has_many :reviews, dependent: :destroy
-  has_many :messages
+  has_many :messages, dependent: :destroy
   has_many :event_has_users, dependent: :destroy
   has_many :events, through: :event_has_users
   has_one_attached :photo

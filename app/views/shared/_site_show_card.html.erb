@@ -14,15 +14,23 @@
         <p class="mb-0 site-bar">|</p>
         <p class="text-nowrap mb-0 mx-2"><%= walk.duration / 60 %> heures</p>
         <p class="mb-0 site-bar">|</p>
-        <p class="text-nowrap mb-0 mx-2">3 balades</p>
+        <% if walk.events.count %>
+          <p class="text-nowrap mb-0 mx-2"><%= walk.events.count %> événements</p>
+        <% else %>
+          <p class="text-nowrap mb-0 mx-2">Aucun événement</p>
+        <% end %>
       </div>
     </button>
   </h2>
   <div id="collapse-<%= walk.id %>" class="accordion-collapse collapse" aria-labelledby="heading-<%= walk.id %>" data-bs-parent="#accordionExample">
     <div class="accordion-body">
       <div class="container">
-        <% walk.events.each do |event| %>
-          <%= render '/shared/event_card', event: event %>
+        <% if walk.events.count.zero? %>
+          <h2 class="text-center mt-3">😢 Aucun événement disponible 😢</h2>
+        <% else %>
+          <% walk.events.each do |event| %>
+            <%= render '/shared/event_card', event: event %>
+          <% end %>
         <% end %>
       </div>
       <div class="w-100 d-flex justify-content-between p-4">

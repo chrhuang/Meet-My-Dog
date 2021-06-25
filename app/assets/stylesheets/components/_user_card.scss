@@ -1,6 +1,7 @@
 .event-cards {
   display: grid;
-  grid-gap: 124px;
+  column-gap: 64px;
+  row-gap: 10px;
   justify-content: center;
   align-content: center;
   grid-template-columns: 1fr 1fr;
