@@ -1,8 +1,13 @@
 .dashboard-banner {
-  background-size: 100%;
-  background-position: 0px -300px;
+  background-size: cover;
+  background-position: center;
   padding: 20px 0;
   height: 400px;
   display: flex;
   justify-content: center;
+}
+
+.add-dog-icon {
+  margin: 30px;
+  display: block;
 }
