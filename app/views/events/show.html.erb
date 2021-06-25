@@ -11,7 +11,7 @@
   </div>
   <div class="event-cards">
     <% @event.users.each do |user| %>
-      <%= render partial: "shared/card_event", locals: {user: user} %>
+      <%= render partial: "shared/user_card", locals: {user: user} %>
     <% end %>
   </div>
 </div>
