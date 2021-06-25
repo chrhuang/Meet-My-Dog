@@ -7,17 +7,40 @@
             <%= render "/shared/chat_group", event: event %>
           <% end %>
         </div>
-        <div class="w-100">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Chat METTRE NOM DU GROUPE</h5>
-            <a type="button" class="text-green" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
+        <div class="d-flex flex-column w-100">
+          <div class="modal-header flex-column align-items-start">
+            <div class="d-flex justify-content-between w-100">
+              <h5 class="modal-title" id="exampleModalLabel">Balade entre copains</h5>
+              <a type="button" class="text-green" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
+            </div>
+            <div>
+              <% @events[0].users.each do |user| %>
+                <%= cl_image_tag user.photo.key, class: "avatar" %>
+              <% end %>
+            </div>
           </div>
           <div class="modal-body">
-            ICI LES MESSAGES
+            <%# ICI LA BOUCLE POUR RECUPERER LES MESSAGES %>
+            <% Event.first.messages.each do |message| %>
+              <% if current_user == message.user %>
+                <div class="d-flex justify-content-end align-items-center">
+                  <p class="me-2 mb-0"><%= message.content %></p>
+                  <%= cl_image_tag message.user.photo.key, class: "avatar" %>
+                </div>
+              <% else %>
+                <div class="d-flex align-items-center">
+                  <%= cl_image_tag message.user.photo.key, class: "avatar" %>
+                  <p class="ms-2 mb-0"><%= message.content %></p>
+                </div>
+              <% end %>
+            <% end %>
           </div>
           <div class="modal-footer">
-            ICI LE FORM ENVOYER MESSAGES
-            <button type="button" class="btn btn-flat">Envoyer</button>
+            <%= simple_form_for :message, url: messages_path, wrapper: :inline_form, html: { class: 'form-inline d-flex w-100' }, method: :post do |f| %>
+              <%= f.input :event, as: :hidden, input_html: { :value => Event.first.id } %>
+              <%= f.input :content, placeholder: "Votre message" %>
+              <%= f.button :submit, "Envoyer", class: "btn btn-flat ms-4" %>
+            <% end %>
           </div>
         </div>
       </div>

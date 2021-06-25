@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :sites, only: [:index, :show]
   resources :events, only: [:show, :create]
   resources :dogs, only: [:create]
+  resources :messages, only: [:create]
 end
