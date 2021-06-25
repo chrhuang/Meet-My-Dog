@@ -30,7 +30,7 @@ class EventsController < ApplicationController
     authorize @event
     @eventhasuser = EventHasUser.find_by(event_id: @event, user_id: current_user)
     @eventhasuser.destroy
-    redirect_to dashboard_path
+    redirect_to event_path(@event)
   end
 
   private

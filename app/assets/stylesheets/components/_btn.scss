@@ -25,6 +25,19 @@
   color: white;
 }
 
+.btn-red {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 10px;
+  background: $red;
+  transition: background 0.3s ease;
+}
+
+.btn-red:hover {
+  background: $red;
+  color: white;
+}
+
 .btn-gradient {
   color: white;
   padding: 8px 24px;
