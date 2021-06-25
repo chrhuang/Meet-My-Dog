@@ -1,0 +1,5 @@
+<% if user_signed_in? %>
+  <%= link_to content, path, class: "btn btn-flat" %>
+<% else %>
+  <button class="btn btn-flat" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal" href="#"><%= content %></button>
+<% end %>

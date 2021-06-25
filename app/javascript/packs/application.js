@@ -26,6 +26,7 @@ import { initSearchSites } from '../plugins/search_sites'
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initAutocomplete } from '../plugins/init_autocomplete'
+import { initNewEvent } from '../plugins/init_new_event'
 
 Rails.start()
 Turbolinks.start()
@@ -34,9 +35,7 @@ ActiveStorage.start()
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-})
-
-document.addEventListener('turbolinks:load', () => {
+  initNewEvent()
   initMapbox()
   initAutocomplete()
 })

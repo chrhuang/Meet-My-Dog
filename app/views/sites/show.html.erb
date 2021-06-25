@@ -8,8 +8,39 @@
   <h5 class="text-grey"><%= @site.address %></h5>
   <p class="site-description my-4"><%= @site.description %></p>
   <div class="accordion" id="accordionExample">
-    <% @site.walks.each do |walk| %>
-      <%= render '/shared/site_show_card', walk: walk, city: "Lille" %>
+    <% if @site.walks.size.zero? %>
+      <h2 class="text-center">😢 Aucune balade disponible 😢</h2>
+    <% else %>
+      <h2 class="text-center my-4"><%= @site.walks.size  %> balades disponibles</h2>
+      <% @site.walks.each do |walk| %>
+        <%= render '/shared/site_show_card', walk: walk, city: "Lille" %>
+      <% end %>
     <% end %>
+  </div>
+</div>
+<%# MODAL CREATE EVENT %>
+<div class="modal fade" id="createEventModal" tabindex="-1" aria-labelledby="createEventModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createEventModalLabel">Créer un evenement</h5>
+        <a type="button" class="text-green" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for :event, url: events_path, method: :post do |f| %>
+          <div class="form-inputs">
+            <%= f.input :name, required: true %>
+            <%= f.input :description, required: true %>
+            <%= f.input :max_dog, required: true %>
+            <%= f.input :walk_id, as: :hidden %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="form-actions">
+            <%= f.button :submit, "Créer un evenement", class: "btn btn-flat" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
