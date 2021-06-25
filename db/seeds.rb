@@ -156,3 +156,61 @@ event = Event.create!(name: "Rando découverte du Lac", walk: Walk.all[5], descr
 EventHasUser.create!(event: event, user: User.first);
 
 puts "Events Created"
+
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+puts "Delete all Temperaments ..."
+Temperament.destroy.all
+
+puts "Create Temperament 1/16"
+temperament = Temperament.create!(name: "Bagarreur")
+
+puts "Create Temperament 2/16"
+temperament = Temperament.create!(name: "Craintif")
+
+puts "Create Temperament 3/16"
+temperament = Temperament.create!(name: "Joueur")
+
+puts "Create Temperament 4/16"
+temperament = Temperament.create!(name: "Affectueux")
+
+puts "Create Temperament 5/16"
+temperament = Temperament.create!(name: "OK Enfant")
+
+puts "Create Temperament 6/16"
+temperament = Temperament.create!(name: "Non OK Enfant")
+
+puts "Create Temperament 7/16"
+temperament = Temperament.create!(name: "Bavard")
+
+puts "Create Temperament 8/16"
+temperament = Temperament.create!(name: "Curieux")
+
+puts "Create Temperament 9/16"
+temperament = Temperament.create!(name: "Distant")
+
+puts "Create Temperament 10/16"
+temperament = Temperament.create!(name: "Aventureux")
+
+puts "Create Temperament 11/16"
+temperament = Temperament.create!(name: "Actif")
+
+puts "Create Temperament 12/16"
+temperament = Temperament.create!(name: "Futé")
+
+puts "Create Temperament 13/16"
+temperament = Temperament.create!(name: "Têtu")
+
+puts "Create Temperament 14/16"
+temperament = Temperament.create!(name: "Malicieux")
+
+puts "Create Temperament 15/16"
+temperament = Temperament.create!(name: "Nerveux")
+
+puts "Create Temperament 16/16"
+temperament = Temperament.create!(name: "Chasseur")
+
+puts "Temperaments Created"
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------
