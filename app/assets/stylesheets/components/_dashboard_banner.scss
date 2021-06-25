@@ -11,3 +11,15 @@
   margin: 30px;
   display: block;
 }
+
+.dog-avatar {
+  position: relative;
+  display: flex;
+}
+
+.dog-avatar .dog-links {
+  position: absolute;
+  bottom: 40px;
+  right: 1px;
+  display: block;
+}

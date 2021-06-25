@@ -1,5 +1,4 @@
 const initNewEvent = () => {
-  console.log('Coucou')
   const elements = document.querySelectorAll('.create-event')
   const inputId = document.querySelector('#event_walk_id')
   console.log(inputId)

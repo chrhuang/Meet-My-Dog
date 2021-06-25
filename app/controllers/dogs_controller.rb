@@ -13,24 +13,18 @@ class DogsController < ApplicationController
     end
   end
 
-  def edit
-    id = params[:id]
-    @dog = Dog.find(id)
-    authorize @dog
-  end
-
   def update
-    id = params[:id]
-    @dog = Dog.find(id)
-    authorize @dog
-    @dog.update(dog_params)
+    dog_id = params[:dog][:id]
+    dog = Dog.find(dog_id)
+    authorize dog
+    dog.update(dog_params)
     redirect_to dashboard_path
   end
 
   def destroy
     id = params[:id]
     dog = Dog.find(id)
-    authorize @dog
+    authorize dog
     dog.destroy
     redirect_to dashboard_path
   end
