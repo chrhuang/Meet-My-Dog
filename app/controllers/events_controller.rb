@@ -3,7 +3,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     authorize @event
     @user_in_event = user_in_event?
-    # raise
+    @eventhasuser = EventHasUser.find_by(event_id: @event, user_id: current_user)
   end
 
   def create
@@ -23,6 +23,14 @@ class EventsController < ApplicationController
     authorize event
     EventHasUser.create!(event: event, user: current_user)
     redirect_to event_path(event)
+  end
+
+  def destroy
+    @event = Event.find(params[:id])
+    authorize @event
+    @eventhasuser = EventHasUser.find_by(event_id: @event, user_id: current_user)
+    @eventhasuser.destroy
+    redirect_to dashboard_path
   end
 
   private

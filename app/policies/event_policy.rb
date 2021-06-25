@@ -16,4 +16,8 @@ class EventPolicy < ApplicationPolicy
   def join?
     true
   end
+
+  def destroy?
+    true
+  end
 end
