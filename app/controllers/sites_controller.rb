@@ -23,5 +23,12 @@ class SitesController < ApplicationController
   def show
     @site = Site.find(params[:id])
     authorize @site
-  end
+
+    @markers = {
+        lat: @site.latitude,
+        lng: @site.longitude,
+        info_window: render_to_string(partial: "site_window", locals: { site: @site }),
+        image_url: helpers.asset_url('3-removebg-preview.png')
+      }.to_a
+    end
 end
