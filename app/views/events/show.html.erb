@@ -9,7 +9,7 @@
       <%= link_to "Quitter cet événement", event_path(@event), method: :delete, class:"btn btn-red"%>
     <% end %>
     <h1 class="mt-4"><%= @event.name %></h1>
-    <p style="opacity: 0.5;">Le <%= l(@event.date, format: '%d/%m/%Y') %></p>
+    <p style="opacity: 0.5;">Le <%= @event.date.strftime('%d-%m-%Y') %></p>
     <p><%= @event.walk.description %></p>
     <h3>
       <p>Participants:</p>

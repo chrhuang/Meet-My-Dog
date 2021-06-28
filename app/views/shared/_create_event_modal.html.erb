@@ -10,6 +10,7 @@
         <%= simple_form_for :event, url: events_path, method: :post do |f| %>
           <div class="form-inputs">
             <%= f.input :name, required: true %>
+            <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
             <%= f.input :description, required: true %>
             <%= f.input :max_dog, required: true %>
             <%= f.input :walk_id, as: :hidden %>
