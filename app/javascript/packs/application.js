@@ -21,6 +21,8 @@ import 'bootstrap'
 import 'mapbox-gl/dist/mapbox-gl.css'
 // internal imports
 import { initMapbox } from '../plugins/init_mapbox'
+import { initCreateMapbox } from '../plugins/init_create_mapbox'
+import { initShowMapbox } from '../plugins/init_map_show'
 
 import { initSearchSites } from '../plugins/search_sites'
 
@@ -29,6 +31,7 @@ import { initSearchSites } from '../plugins/search_sites'
 import { initAutocomplete } from '../plugins/init_autocomplete'
 import { initNewEvent } from '../plugins/init_new_event'
 import { initDogId } from '../plugins/init_dog_id'
+import { initFlatpickr } from '../plugins/flatpickr'
 
 Rails.start()
 Turbolinks.start()
@@ -42,4 +45,7 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete()
   initDogId()
   initSearchSites()
+  initCreateMapbox()
+  initShowMapbox()
+  initFlatpickr()
 })

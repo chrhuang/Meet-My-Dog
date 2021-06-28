@@ -10,9 +10,9 @@
         </div>
       </div>
       <div class="d-flex align-items-center mx-4 walk-infos">
-        <p class="text-nowrap mb-0 mx-2"><%= walk.length %> km</p>
+        <p class="text-nowrap mb-0 mx-2"><%= walk.length.round(1) %> km</p>
         <p class="mb-0 site-bar">|</p>
-        <p class="text-nowrap mb-0 mx-2"><%= walk.duration / 60 %> heures</p>
+        <p class="text-nowrap mb-0 mx-2"><%= walk.duration  %> minutes</p>
         <p class="mb-0 site-bar">|</p>
         <% if walk.events.count %>
           <p class="text-nowrap mb-0 mx-2"><%= walk.events.count %> événements</p>
@@ -35,9 +35,9 @@
       </div>
       <div class="w-100 d-flex justify-content-between p-4">
         <% if user_signed_in? %>
-          <button class="btn btn-flat create-event" aria-current="page" data-bs-toggle="modal" data-bs-target="#createEventModal" data-walk-id="<%= walk.id %>" href="#">Créer un evenement</button>
+          <button class="btn btn-ghost create-event" aria-current="page" data-bs-toggle="modal" data-bs-target="#createEventModal" data-walk-id="<%= walk.id %>" href="#">Créer un evenement</button>
         <% else %>
-          <button class="btn btn-flat" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal" href="#">Créer un evenement</button>
+          <button class="btn btn-ghost" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal" href="#">Créer un evenement</button>
         <% end %>
         <% if user_signed_in? %>
           <button class="btn btn-flat">Balade seul</button>
