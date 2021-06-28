@@ -159,6 +159,47 @@ EventHasUser.create!(event: event, user: User.first);
 
 puts "Events Created"
 
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+puts "Delete all POIS ..."
+Poi.destroy_all
+
+puts "Create POI 1/7"
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624622208/water.png_u2ei4c.png')
+poi = Poi.create!(name: "Point D'Eau")
+poi.photos.attach(io: file, filename: 'water.png', content_type: 'image/png')
+
+puts "Create POI 2/7"
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624622208/poop.png_ubqssy.jpg')
+poi = Poi.create!(name: "Sac à Crottes")
+poi.photos.attach(io: file, filename: 'poop.png', content_type: 'image/png')
+
+puts "Create POI 3/7"
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624622208/toilets.png_l86bxi.png')
+poi = Poi.create!(name: "Toilettes")
+poi.photos.attach(io: file, filename: 'toilets.png', content_type: 'image/png')
+
+puts "Create POI 4/7"
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624622209/eat.png_orpml8.png')
+poi = Poi.create!(name: "Restauration")
+poi.photos.attach(io: file, filename: 'eat.png', content_type: 'image/png')
+
+puts "Create POI 5/7"
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624622210/play.png_lshsbo.jpg')
+poi = Poi.create!(name: "Aire De Jeu")
+poi.photos.attach(io: file, filename: 'play.png', content_type: 'image/png')
+
+puts "Create POI 6/7"
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624622208/rest.png_ouov6l.png')
+poi = Poi.create!(name: "Aire De Repos")
+poi.photos.attach(io: file, filename: 'rest.png', content_type: 'image/png')
+
+puts "Create POI 7/7"
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624622208/bin.png_shb66m.png')
+poi = Poi.create!(name: "Poubelle")
+poi.photos.attach(io: file, filename: 'bin.png', content_type: 'image/png')
+
+puts "POIS Created"
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
