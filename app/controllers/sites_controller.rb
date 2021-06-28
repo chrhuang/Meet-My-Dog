@@ -26,7 +26,7 @@ class SitesController < ApplicationController
     @markers << {
       lat: @site.latitude,
       lng: @site.longitude,
-      info_window: render_to_string(partial: "site_window", locals: { site: @site }),
+      info_window: render_to_string(partial: "info_window", locals: { site: @site }),
       image_url: helpers.asset_url('3-removebg-preview.png')
     }
   end
