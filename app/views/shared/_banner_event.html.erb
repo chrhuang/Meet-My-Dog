@@ -3,9 +3,9 @@
     <%= cl_image_tag @event.walk.photo.key, class: "event-img" %>
   </div>
   <div class="event_map">
-    <div id="map" class=""
+    <div id="mapShow" class=""
      style="width:400px; height: 400px;"
-     data-markers="<%= @markers.to_json %>"
+     data-coords="<%= coords %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>

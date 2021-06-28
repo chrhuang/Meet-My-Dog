@@ -10,9 +10,9 @@
         </div>
       </div>
       <div class="d-flex align-items-center mx-4 walk-infos">
-        <p class="text-nowrap mb-0 mx-2"><%= walk.length %> km</p>
+        <p class="text-nowrap mb-0 mx-2"><%= walk.length.round(1) %> km</p>
         <p class="mb-0 site-bar">|</p>
-        <p class="text-nowrap mb-0 mx-2"><%= walk.duration / 60 %> heures</p>
+        <p class="text-nowrap mb-0 mx-2"><%= walk.duration  %> minutes</p>
         <p class="mb-0 site-bar">|</p>
         <% if walk.events.count %>
           <p class="text-nowrap mb-0 mx-2"><%= walk.events.count %> événements</p>
