@@ -17,19 +17,43 @@
       <div class="modal-body">
         <%= simple_form_for :dog, url: dogs_path, method: :post do |f| %>
           <div class="form-inputs">
-            <%= f.input :name, required: true %>
-            <%= f.input :age, required: true %>
-            <%= f.input :size, required: true %>
-            <%= f.input :photo, as: :file %>
-            <%= f.input :gender %>
+            <%= f.input :name, label: 'Nom:', required: true %>
+            <%= f.input :age, label: 'Âge:',as: :integer, required: true %>
+            <%= f.input :size, placeholder: 'Merci de selectionner une taille', collection: ['Petit', 'Moyen', 'Grand'], label: 'Taille:', required: true %>
+            <%= f.input :photo, label: 'Photo:', as: :file %>
+            <%= f.input :gender, collection: ['Mâle', 'Femelle'], label: 'Sexe:', as: :radio_buttons%>
           </div>
+          <a aria-current="page" data-bs-toggle="modal" data-bs-target="#addTemperament" href="#" color=($green)> Ajoutez les tempéraments de votre chien</a>
         </div>
         <div class="modal-footer">
           <div class="form-actions">
-            <%= f.button :submit, "Ajouter mon chien", class: "btn btn-flat" %>
+            <%= f.button :submit, "Ajouter mon chien sans tempéraments", class: "btn btn-flat" %>
           </div>
         </div>
-      <% end %>
-    </div>
+        <%# <% MODAL CREATE DOG 2 with temperament %>
+        <div class="modal fade" id="addTemperament" tabindex="-1" aria-labelledby="addTemperamentModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="addTemperamentModalLabel">Ajouter mon chien</h5>
+                <a type="button" class="text-green" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
+              </div>
+              <div class="modal-body" display='inline-block'>
+                <% Temperament.all.each do |temperament| %>
+                  <%= render "/shared/checkbox", temperament: temperament %>
+                <% end %>
+              </div>
+              <div class="modal-footer">
+                <%= f.button :submit, "Ajouter mon chien", class: "btn btn-flat" %>
+                <div class="form-actions">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%# <% MODAL CREATE DOG 2 with temperament %>
+      </div>
+    <% end %>
   </div>
+</div>
 </div>
