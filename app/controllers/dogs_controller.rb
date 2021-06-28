@@ -6,7 +6,9 @@ class DogsController < ApplicationController
     dog = Dog.new(dog_params)
     dog.user = current_user
     authorize dog
-    raise
+    params["temperament"].each do |_key, value|
+      DogHasTemperament.create!(dog: dog, temperament_id: value)
+    end
     if dog.save
       redirect_to dashboard_path
     else
