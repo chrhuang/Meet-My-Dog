@@ -20,7 +20,7 @@ const addMarkersToMap = (map, markers) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window)
       const element = document.createElement('div')
       element.className = 'marker'
-      element.style.backgroundImage = 'url("https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624550261/Component_2-removebg-preview_ougazj.png")'
+      element.style.backgroundImage = 'url("https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624887621/Mapbox_Marker_iw3wvw.png")'
       element.style.backgroundSize = 'contain'
       element.style.width = '50px'
       element.style.height = '50px'
