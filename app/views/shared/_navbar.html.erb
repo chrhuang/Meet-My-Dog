@@ -21,12 +21,14 @@
       </div>
     <% end %>
     <ul class="navbar-nav align-items-center flex-row">
-      <li class="nav-item m-2">
-        <a class="nav-link active" aria-current="page" href="#"><i class="far fa-comment-dots"></i></a>
-      </li>
-      <li class="nav-item m-2">
-        <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-paw"></i></a>
-      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item m-2">
+          <a class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#chatModal" href="#"><i class="far fa-comment-dots"></i></a>
+        </li>
+        <li class="nav-item m-2">
+          <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-paw"></i></a>
+        </li>
+      <% end %>
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
           <div class="collapse navbar-collapse d-block" id="navbarNavDropdown">
@@ -37,10 +39,10 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
               <li>
-                <a class="dropdown-item" aria-current="page" data-bs-toggle="modal" data-bs-target="#updateModal" href="#">Edit my profile</a>
+                <a class="dropdown-item" aria-current="page" data-bs-toggle="modal" data-bs-target="#updateModal" href="#">Editer mon profil</a>
               </li>
               <li>
-                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                <%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               </li>
             </ul>
           </li>
@@ -54,73 +56,8 @@
   </div>
 </nav>
 <% if user_signed_in? %>
-  <%# UPDATE MODAL %>
-  <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="updateModalLabel">Modifier mon profile</h5>
-          <a type="button" class="text-green" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
-        </div>
-        <div class="modal-body">
-          <%= simple_form_for(:user, url: registration_path(:user), html: { method: :put }) do |f| %>
-            <%= f.error_notification %>
-            <div class="form-inputs">
-              <%= f.input :email, required: true, autofocus: true %>
-              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-              <% end %>
-              <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-              <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-              <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
-            </div>
-            <div class="modal-footer">
-              <div class="form-actions">
-                <%= f.button :submit, "Update", class: "btn btn-flat" %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
+  <%= render '/shared/update_user_modal' %>
 <% else %>
-  <%# LOGIN MODAL %>
-  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="loginModalLabel">Se connecter</h5>
-          <a type="button" class="text-green" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
-        </div>
-        <div class="modal-body">
-          <%= simple_form_for :user, url: session_path(:user) do |f| %>
-            <div class="form-inputs">
-              <%= f.input :email,
-                required: false,
-                input_html: { autocomplete: "email" }
-                %>
-              <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <div class="form-actions">
-              <%= f.button :submit, "Log in", class: "btn btn-flat" %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
+  <%= render '/shared/login_modal' %>
 <% end %>
+<%= render '/shared/chat_modal' %>

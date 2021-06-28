@@ -2,7 +2,7 @@
   color: #4a4a4a;
   border: 1px solid #4a4a4a;
   padding: 8px 24px;
-  border-radius: 50px;
+  border-radius: 10px;
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
@@ -25,6 +25,19 @@
   color: white;
 }
 
+.btn-red {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 10px;
+  background: $red;
+  transition: background 0.3s ease;
+}
+
+.btn-red:hover {
+  background: $red;
+  color: white;
+}
+
 .btn-gradient {
   color: white;
   padding: 8px 24px;
@@ -37,5 +50,18 @@
 
 .btn-gradient:hover {
   background: linear-gradient(#147eff, #0f67da);
+  color: white;
+}
+
+.btn-group {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 10px;
+  background: #41A8F1;
+  transition: background 0.3s ease;
+}
+
+.btn-group:hover {
+  background: #0f67da;
   color: white;
 }

@@ -1,5 +1,41 @@
-<div class="dashboard-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://wallpapercave.com/wp/wp4735094.jpg);">
-    <% current_user.dogs.each do |dog| %>
+<div class="dashboard-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.setaswall.com/wp-content/uploads/2017/09/Park-Wallpaper-36-1920x1080.jpg);">
+  <% current_user.dogs.each do |dog| %>
+    <div class="dog-avatar">
       <%= cl_image_tag(dog.photo.key, :transformation=>[{:height=>300, :width=>300, :crop=>"fill"}], class: "avatar-XL") %>
-    <% end %>
+      <div class="dog-links">
+        <a class="dog-link edit-dog" href="#" aria-current="page" data-bs-toggle="modal" data-bs-target="#editDogModal" data-dog-id="<%= dog.id%>" data-dog-name="<%= dog.name%>" data-dog-age="<%= dog.age %>" data-dog-size="<%= dog.size %>" data-dog-gender="<%= dog.gender%>"><i class="fas fa-edit"></i></a>
+        <%= link_to dog_path(dog), method: :delete, class: "dog-link" do %>
+          <i class="fas fa-times-circle"></i>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%# MODAL EDIT DOG %>
+<div class="modal fade" id="editDogModal" tabindex="-1" aria-labelledby="editDogModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editDogModalLabel">Modifier les infos de mon chien</h5>
+        <a type="button" class="text-green" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for :dog, url: dog_path(Dog.first), method: :patch do |f| %>
+          <div class="form-inputs">
+            <%= f.input :id, as: :hidden %>
+            <%= f.input :name, label: 'Nom' %>
+            <%= f.input :age, label: 'Âge' %>
+            <%= f.input :size, label: 'Taille' %>
+            <%= f.input :photo, as: :file %>
+            <%= f.input :gender, label: 'Sexe' %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="form-actions">
+            <%= f.button :submit, "Mettre à jour", class: "btn btn-flat" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

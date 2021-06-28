@@ -52,34 +52,34 @@ puts "Delete all Sites ..."
 Site.destroy_all
 
 puts "Create Site 1/6"
-file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624441789/Citadelle_44j83b3.jpg')
-site = Site.create!(name: "Citadelle de Lille", description: "Situé autour de la Citadelle, ce véritable poumon vert de 90 hectares, est le paradis des toutous, des familles et de tout ceux qui désirent profiter de la nature au sein d’une grande métropole.", longitude: 3.045384, latitude: 50.64079)
+file = URI.open('https://www.lille.fr/var/www/storage/images/mediatheque/mairie-de-lille/visuels-annuaire/le-parc-de-la-citadelle/76380-1-fre-FR/Le-parc-de-la-Citadelle_news_image_top.jpg')
+site = Site.create!(name: "Citadelle de Lille", description: "Situé autour de la Citadelle, ce véritable poumon vert de 90 hectares, est le paradis des toutous, des familles et de tout ceux qui désirent profiter de la nature au sein d’une grande métropole.", longitude: 3.045384, latitude: 50.64079, city: "Lille")
 site.photos.attach(io: file, filename: 'Citadelle.png', content_type: 'image/png')
 
 puts "Create Site 2/6"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624548583/kpnpwtirvm78k0jp8fedz6opt09p.jpg')
-site = Site.create!(name: "Parc Barbieux", description: "Le parc de Barbieux est situé dans la commune de Roubaix. C'est un parc remarquable par la présence de plus de 60 essences d'arbres. Il s’étend sur 1,5 kilomètre avec un joli plan d'eau.", longitude: 3.160818, latitude: 50.675526)
+site = Site.create!(name: "Parc Barbieux", description: "Le parc de Barbieux est situé dans la commune de Roubaix. C'est un parc remarquable par la présence de plus de 60 essences d'arbres. Il s’étend sur 1,5 kilomètre avec un joli plan d'eau.", longitude: 3.160818, latitude: 50.675526, city: "Roubaix")
 site.photos.attach(io: file, filename: 'Barbieux.png', content_type: 'image/png')
 
 puts "Create Site 3/6"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624527074/4QSp5dqK3zT9joFE_QFPvVkp14H-nKpPLRTi3mX977O00AhDUKOz4HzXDgAX1HOL25U1PFc4KerUl_btjkE3XTN-WxNQQ0MGLAW6IT1V3SL5u6eu3ClCIbbFAblReeTSQ-k_uvkuui.jpg')
-site = Site.create!(name: "Forêt de Raismes-Saint-Amand-Wallers", description: "S’étendant sur 4 600 hectares, la forêt domaniale de Raismes-Saint-Amand-Wallers est parfaite pour les chiens qui ont besoin de se dépenser.", longitude: 3.496953, latitude: 50.428708)
+site = Site.create!(name: "Forêt de Raismes-Saint-Amand-Wallers", description: "S’étendant sur 4 600 hectares, la forêt domaniale de Raismes-Saint-Amand-Wallers est parfaite pour les chiens qui ont besoin de se dépenser.", longitude: 3.496953, latitude: 50.428708, city: "Raismes")
 site.photos.attach(io: file, filename: 'ForetSA.png', content_type: 'image/png')
 
 
 puts "Create Site 4/6"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624525689/Appartement-neuf-Villeneuve-dAscq-parc-Heron-Novacity-02_osepru.jpg')
-site = Site.create!(name: "Prés du Hem", description: "Au coeur de 120 hectares de nature et autour d'un vaste lac, des dizaines d'activités ludiques, naturalistes et sportives attendent votre chien!.", longitude: 2.874436, latitude: 50.698895)
+site = Site.create!(name: "Prés du Hem", description: "Au coeur de 120 hectares de nature et autour d'un vaste lac, des dizaines d'activités ludiques, naturalistes et sportives attendent votre chien!.", longitude: 2.874436, latitude: 50.698895, city: "Armentières")
 site.photos.attach(io: file, filename: 'ParcHeron.png', content_type: 'image/png')
 
 puts "Create Site 5/6"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624526174/Parc-Jean-Baptiste-Lebas_news_image_top_zjy1uv.jpg')
-site = Site.create!(name: "Parc Jean Baptiste Lebas", description: "Le parc Jean Baptiste Lebas est un jardin pour tous : jeux pour enfants, terrains de boules, placettes, grandes pelouses et parterres de fleurs. Votre compagnon adorera toute cette animation!", longitude: 3.069022, latitude: 50.626658)
+site = Site.create!(name: "Parc Jean Baptiste Lebas", description: "Le parc Jean Baptiste Lebas est un jardin pour tous : jeux pour enfants, terrains de boules, placettes, grandes pelouses et parterres de fleurs. Votre compagnon adorera toute cette animation!", longitude: 3.069022, latitude: 50.626658, city: "Lille")
 site.photos.attach(io: file, filename: 'ParcJBL.png', content_type: 'image/png')
 
 puts "Create Site 6/6"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624525689/Appartement-neuf-Villeneuve-dAscq-parc-Heron-Novacity-02_osepru.jpg')
-site = Site.create!(name: "Parc du Héron", description: "Les quelques 110 hectares d'eau et de verdure constituant le Parc du Héron forment un remarquable terrain de jeu pour nos amis à 4 pattes. Ils pourront profiter d' une vaste zone de nature en métropole.", longitude: 3.1483957, latitude: 50.6343157)
+site = Site.create!(name: "Parc du Héron", description: "Les quelques 110 hectares d'eau et de verdure constituant le Parc du Héron forment un remarquable terrain de jeu pour nos amis à 4 pattes. Ils pourront profiter d' une vaste zone de nature en métropole.", longitude: 3.1483957, latitude: 50.6343157, city: "Villeneuve d'ascq")
 site.photos.attach(io: file, filename: 'ParcHeron.png', content_type: 'image/png')
 
 
@@ -97,7 +97,7 @@ walk = Walk.create!(name: "Tour à l'entrée de la citadelle", description: "bal
 walk.photo.attach(io: file, filename: 'citadelle01.png', content_type: 'image/png')
 
 puts "Create Walk 2/6"
-file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624539605/citadelle-vauban-lille-renonce-patrimoine-mondial_ix8lc1.jpg')
+file = URI.open('https://parcdelacitadelle.lille.fr/sites/default/files/styles/full/public/thumbnails/image/p-01.premiere_enceintecphilippe_frutier.jpg?itok=SweekwvY')
 walk = Walk.create!(name: "Visite intérieure de la citadelle", description: "balade à l'intérieur de l'enceinte de la citadelle.", length: 5, duration: 120,  site: Site.first)
 walk.photo.attach(io: file, filename: 'citadelle02.png', content_type: 'image/png')
 
@@ -132,27 +132,29 @@ puts "Delete all Events ..."
 Event.destroy_all
 
 puts "Create Event 1/6"
-event = Event.create!(name: "Balade entre copains", walk: Walk.first, description: "Il fait beau, profitons-en: laissons nos toutous s'amuser dehors. N'oubliez pas les bières.", date: DateTime.strptime("21/08/2021 17:00", "%d/%m/%Y %H:%M"))
+event = Event.create!(name: "Balade entre copains", walk: Walk.first, description: "Il fait beau, profitons-en: laissons nos toutous s'amuser dehors. N'oubliez pas les bières.", max_dog: 4, date: DateTime.strptime("08/21/2021 17:00", "%m/%d/%Y %H:%M"))
 EventHasUser.create!(event: event, user: User.first);
+EventHasUser.create!(event: event, user: User.all[1]);
+EventHasUser.create!(event: event, user: User.last);
 
 puts "Create Event 2/6"
-event = Event.create!(name: "Découverte de la citadelle", walk: Walk.all[1], description: "N'étant pas du Nord je viens découvrir ce lieu si prisé des lillois. Je viens ave 3 enfants.", date: DateTime.strptime("02/07/2021 16:00", "%d/%m/%Y %H:%M"))
+event = Event.create!(name: "Découverte de la citadelle", walk: Walk.all[1], description: "N'étant pas du Nord je viens découvrir ce lieu si prisé des lillois. Je viens ave 3 enfants.", max_dog: 2, date: DateTime.strptime("07/02/2021 16:00", "%m/%d/%Y %H:%M"))
 EventHasUser.create!(event: event, user: User.all[1]);
 
 puts "Create Event 3/6"
-event = Event.create!(name: "Footing avec sa boule de poils", walk: Walk.all[2], description: "N'étant pas du Nord je viens découvrir ce lieu si prisé des lillois. Je viens ave 3 enfants.", date: DateTime.strptime("23/07/2021 18:30", "%d/%m/%Y %H:%M"))
+event = Event.create!(name: "Footing avec sa boule de poils", walk: Walk.all[2], description: "N'étant pas du Nord je viens découvrir ce lieu si prisé des lillois. Je viens ave 3 enfants.", max_dog: 3, date: DateTime.strptime("07/23/2021 18:30", "%m/%d/%Y %H:%M"))
 EventHasUser.create!(event: event, user: User.all[2]);
 
 puts "Create Event 4/6"
-event = Event.create!(name: "Petite sortie matinale", walk: Walk.all[3], description: "Je sors mon chien rapidement avant le travail. Si quelqu'un veut venir prendre un café c'est avec plaisir.", date: DateTime.strptime("12/08/2021 7:30", "%d/%m/%Y %H:%M"))
+event = Event.create!(name: "Petite sortie matinale", walk: Walk.all[3], description: "Je sors mon chien rapidement avant le travail. Si quelqu'un veut venir prendre un café c'est avec plaisir.", max_dog: 2, date: DateTime.strptime("08/12/2021 7:30", "%m/%d/%Y %H:%M"))
 EventHasUser.create!(event: event, user: User.all[2]);
 
 puts "Create Event 5/6"
-event = Event.create!(name: "Balade habituelle du mercredi", walk: Walk.all[4], description: "J'emmène des balles et un frisbee pour faire courir nos molosses. Chiens joueurs bienvenus donc.", date: DateTime.strptime("14/07/2021 7:30", "%d/%m/%Y %H:%M"))
+event = Event.create!(name: "Balade habituelle du mercredi", walk: Walk.all[4], description: "J'emmène des balles et un frisbee pour faire courir nos molosses. Chiens joueurs bienvenus donc.", max_dog: 5, date: DateTime.strptime("07/14/2021 7:30", "%m/%d/%Y %H:%M"))
 EventHasUser.create!(event: event, user: User.all[1]);
 
 puts "Create Event 6/6"
-event = Event.create!(name: "Rando découverte du Lac", walk: Walk.all[5], description: "Nous venons faire une randonnée pour découvrir le lac dans ses moindres recoins. Le départ se fera de Forest sur marque.", date: DateTime.strptime("30/09/2021 12:30", "%d/%m/%Y %H:%M"))
+event = Event.create!(name: "Rando découverte du Lac", walk: Walk.all[5], description: "Nous venons faire une randonnée pour découvrir le lac dans ses moindres recoins. Le départ se fera de Forest sur marque.", max_dog: 3, date: DateTime.strptime("09/30/2021 12:30", "%m/%d/%Y %H:%M"))
 EventHasUser.create!(event: event, user: User.first);
 
 puts "Events Created"
@@ -198,3 +200,60 @@ poi = Poi.create!(name: "Poubelle")
 poi.photos.attach(io: file, filename: 'bin.png', content_type: 'image/png')
 
 puts "POIS Created"
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+puts "Delete all Temperaments ..."
+Temperament.destroy_all
+
+puts "Create Temperament 1/16"
+temperament = Temperament.create!(name: "Bagarreur")
+
+puts "Create Temperament 2/16"
+temperament = Temperament.create!(name: "Craintif")
+
+puts "Create Temperament 3/16"
+temperament = Temperament.create!(name: "Joueur")
+
+puts "Create Temperament 4/16"
+temperament = Temperament.create!(name: "Affectueux")
+
+puts "Create Temperament 5/16"
+temperament = Temperament.create!(name: "OK Enfant")
+
+puts "Create Temperament 6/16"
+temperament = Temperament.create!(name: "Non OK Enfant")
+
+puts "Create Temperament 7/16"
+temperament = Temperament.create!(name: "Bavard")
+
+puts "Create Temperament 8/16"
+temperament = Temperament.create!(name: "Curieux")
+
+puts "Create Temperament 9/16"
+temperament = Temperament.create!(name: "Distant")
+
+puts "Create Temperament 10/16"
+temperament = Temperament.create!(name: "Aventureux")
+
+puts "Create Temperament 11/16"
+temperament = Temperament.create!(name: "Actif")
+
+puts "Create Temperament 12/16"
+temperament = Temperament.create!(name: "Futé")
+
+puts "Create Temperament 13/16"
+temperament = Temperament.create!(name: "Têtu")
+
+puts "Create Temperament 14/16"
+temperament = Temperament.create!(name: "Malicieux")
+
+puts "Create Temperament 15/16"
+temperament = Temperament.create!(name: "Nerveux")
+
+puts "Create Temperament 16/16"
+temperament = Temperament.create!(name: "Chasseur")
+
+puts "Temperaments Created"
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------

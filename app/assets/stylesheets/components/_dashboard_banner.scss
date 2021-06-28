@@ -1,8 +1,25 @@
 .dashboard-banner {
-  background-size: 100%;
-  background-position: 0px -300px;
+  background-size: cover;
+  background-position: center;
   padding: 20px 0;
   height: 400px;
   display: flex;
   justify-content: center;
+}
+
+.add-dog-icon {
+  margin: 30px;
+  display: block;
+}
+
+.dog-avatar {
+  position: relative;
+  display: flex;
+}
+
+.dog-avatar .dog-links {
+  position: absolute;
+  bottom: 40px;
+  right: 1px;
+  display: block;
 }

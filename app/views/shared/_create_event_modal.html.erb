@@ -1,0 +1,27 @@
+<%# MODAL CREATE EVENT %>
+<div class="modal fade" id="createEventModal" tabindex="-1" aria-labelledby="createEventModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createEventModalLabel">Créer un evenement</h5>
+        <a type="button" class="text-green" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for :event, url: events_path, method: :post do |f| %>
+          <div class="form-inputs">
+            <%= f.input :name, label: 'Nom de votre événement:'%>
+            <%= f.input :description, label: 'Description:' %>
+            <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
+            <%= f.input :max_dog, as: :integer, label: 'Nombre de chien présents au maximum' %>
+            <%= f.input :walk_id, as: :hidden %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="form-actions">
+            <%= f.button :submit, "Créer un evenement", class: "btn btn-flat" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

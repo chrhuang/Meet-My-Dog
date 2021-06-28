@@ -5,6 +5,6 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @my_events = current_user.events
+    @my_events = current_user.events.sort_by(&:date)
   end
 end
