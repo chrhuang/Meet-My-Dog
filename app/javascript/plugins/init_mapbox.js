@@ -22,8 +22,8 @@ const addMarkersToMap = (map, markers) => {
       element.className = 'marker'
       element.style.backgroundImage = 'url("https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624550261/Component_2-removebg-preview_ougazj.png")'
       element.style.backgroundSize = 'contain'
-      element.style.width = '100px'
-      element.style.height = '80px'
+      element.style.width = '50px'
+      element.style.height = '50px'
       element.style.backgroundRepeat = 'no-repeat'
       new mapboxgl.Marker(element)
         .setLngLat([marker.lng, marker.lat])
@@ -35,8 +35,9 @@ const addMarkersToMap = (map, markers) => {
 
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds()
+  console.log(markers)
   markers.forEach(marker => bounds.extend([marker.lng, marker.lat]))
-  map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+  map.fitBounds(bounds, { padding: 70, maxZoom: 15, minZoom: 5, duration: 0 })
 }
 
 const insertCoordinates = (coordinates, map) => {
@@ -71,7 +72,7 @@ const initMapbox = () => {
     const map = buildMap(mapElement)
     const markers = JSON.parse(mapElement.dataset.markers)
     const params = new URLSearchParams(window.location.search)
-    fetchLocalisation(params.get('query'), map)
+    // fetchLocalisation(params.get('query'), map)
     addMarkersToMap(map, markers)
     fitMapToMarkers(map, markers)
   }

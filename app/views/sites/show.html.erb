@@ -4,7 +4,7 @@
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 <div class="container mt-4">
-  <h1><%= @site.name %></h1>
+  <h1 id="site"><%= @site.name %></h1>
   <h5 class="text-grey"><%= @site.address %></h5>
   <p class="site-description my-4"><%= @site.description %></p>
   <div class="accordion" id="accordionExample">
