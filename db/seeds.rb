@@ -21,10 +21,10 @@ file = URI.open('https://avatars.githubusercontent.com/u/78411645?v=4')
 user = User.create!(email: "tom@email.com", password: "123456", nickname: "Tom", description: "Mon idée de site était meilleure bordel!")
 user.photo.attach(io: file, filename: 'tom.png', content_type: 'image/png')
 file = URI.open('https://www.rd.com/wp-content/uploads/2021/01/GettyImages-588935825.jpg')
-dog = Dog.create!(name: "Tyson", user: user)
+dog = Dog.create!(name: "Tyson", user: user, size: "Grand", gender: "male", age: 2)
 dog.photo.attach(io: file, filename: 'tomdog1.png', content_type: 'image/png')
 file = URI.open('https://upload.chien.com/img_global/24-les-races-de-chiens/_light-17356-des-welsh-corgi-nagent-dans-la-piscine.jpg')
-dog = Dog.create!(name: "Floyd", user: user)
+dog = Dog.create!(name: "Floyd", user: user, size: "Grand", gender: "male", age: 2)
 dog.photo.attach(io: file, filename: 'tomdog2.png', content_type: 'image/png')
 
 puts "Create User 2/3"
@@ -32,7 +32,7 @@ file = URI.open('https://avatars.githubusercontent.com/u/82810122?v=4')
 user = User.create!(email: "thomas@email.com", password: "123456", nickname: "Thomas", description: "C'est là que le Blas blesse.")
 user.photo.attach(io: file, filename: 'thomas.png', content_type: 'image/png')
 file = URI.open('https://media1.fdncms.com/orlando/imager/u/original/26765334/adobestock_107224974.jpeg')
-dog = Dog.create!(name: "Poki", user: user)
+dog = Dog.create!(name: "Poki", user: user, size: "Grand", gender: "male", age: 2)
 dog.photo.attach(io: file, filename: 'tomasdog1.png', content_type: 'image/png')
 
 puts "Create User 3/3"
@@ -40,7 +40,7 @@ file = URI.open('https://avatars.githubusercontent.com/u/41517143?v=4')
 user = User.create!(email: "christian@email.com", password: "123456", nickname: "Chris", description: "J'ai faim. On mange un tata cheese?")
 user.photo.attach(io: file, filename: 'christian.png', content_type: 'image/png')
 file = URI.open('https://race-shiba-inu.fr/wp-content/uploads/2019/09/Shiba_inu_taiki-869x1024.jpg')
-dog = Dog.create!(name: "Yugi", user: user)
+dog = Dog.create!(name: "Yugi", user: user, size: "Grand", gender: "male", age: 2)
 dog.photo.attach(io: file, filename: 'christiandog.png', content_type: 'image/png')
 
 puts "Users Created"
@@ -167,37 +167,37 @@ Poi.destroy_all
 puts "Create POI 1/7"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624622208/water.png_u2ei4c.png')
 poi = Poi.create!(name: "Point D'Eau")
-poi.photos.attach(io: file, filename: 'water.png', content_type: 'image/png')
+poi.photo.attach(io: file, filename: 'water.png', content_type: 'image/png')
 
 puts "Create POI 2/7"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624622208/poop.png_ubqssy.jpg')
 poi = Poi.create!(name: "Sac à Crottes")
-poi.photos.attach(io: file, filename: 'poop.png', content_type: 'image/png')
+poi.photo.attach(io: file, filename: 'poop.png', content_type: 'image/png')
 
 puts "Create POI 3/7"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624622208/toilets.png_l86bxi.png')
 poi = Poi.create!(name: "Toilettes")
-poi.photos.attach(io: file, filename: 'toilets.png', content_type: 'image/png')
+poi.photo.attach(io: file, filename: 'toilets.png', content_type: 'image/png')
 
 puts "Create POI 4/7"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624622209/eat.png_orpml8.png')
 poi = Poi.create!(name: "Restauration")
-poi.photos.attach(io: file, filename: 'eat.png', content_type: 'image/png')
+poi.photo.attach(io: file, filename: 'eat.png', content_type: 'image/png')
 
 puts "Create POI 5/7"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624622210/play.png_lshsbo.jpg')
 poi = Poi.create!(name: "Aire De Jeu")
-poi.photos.attach(io: file, filename: 'play.png', content_type: 'image/png')
+poi.photo.attach(io: file, filename: 'play.png', content_type: 'image/png')
 
 puts "Create POI 6/7"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624622208/rest.png_ouov6l.png')
 poi = Poi.create!(name: "Aire De Repos")
-poi.photos.attach(io: file, filename: 'rest.png', content_type: 'image/png')
+poi.photo.attach(io: file, filename: 'rest.png', content_type: 'image/png')
 
 puts "Create POI 7/7"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624622208/bin.png_shb66m.png')
 poi = Poi.create!(name: "Poubelle")
-poi.photos.attach(io: file, filename: 'bin.png', content_type: 'image/png')
+poi.photo.attach(io: file, filename: 'bin.png', content_type: 'image/png')
 
 puts "POIS Created"
 
