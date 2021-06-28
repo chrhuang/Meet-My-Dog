@@ -9,9 +9,9 @@
       <div class="modal-body">
         <%= simple_form_for :event, url: events_path, method: :post do |f| %>
           <div class="form-inputs">
-            <%= f.input :name, required: true %>
-            <%= f.input :description, required: true %>
-            <%= f.input :max_dog, required: true %>
+            <%= f.input :name, label: 'Nom de votre événement:'%>
+            <%= f.input :description, label: 'Description:' %>
+            <%= f.input :max_dog, as: :integer, label: 'Nombre de chien présents au maximum' %>
             <%= f.input :walk_id, as: :hidden %>
           </div>
         </div>

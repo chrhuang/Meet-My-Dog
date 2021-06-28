@@ -22,12 +22,12 @@
       <div class="modal-body">
         <%= simple_form_for :dog, url: dog_path(Dog.first), method: :patch do |f| %>
           <div class="form-inputs">
-            <%= f.input :id, as: :hidden, required: true %>
-            <%= f.input :name, required: true %>
-            <%= f.input :age, required: true %>
-            <%= f.input :size, required: true %>
+            <%= f.input :id, as: :hidden %>
+            <%= f.input :name, label: 'Nom' %>
+            <%= f.input :age, label: 'Âge' %>
+            <%= f.input :size, label: 'Taille' %>
             <%= f.input :photo, as: :file %>
-            <%= f.input :gender %>
+            <%= f.input :gender, label: 'Sexe' %>
           </div>
         </div>
         <div class="modal-footer">

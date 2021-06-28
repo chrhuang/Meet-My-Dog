@@ -2,35 +2,34 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="updateModalLabel">Modifier mon profil</h5>
+        <h5 class="modal-title" id="updateModalLabel">Editer mon profil</h5>
         <a type="button" class="text-green" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
       </div>
       <div class="modal-body">
         <%= simple_form_for(current_user, url: registration_path(:user), html: { method: :put }) do |f| %>
           <%= f.error_notification %>
           <div class="form-inputs">
-            <%= f.input :nickname, required: true, autofocus: true %>
-            <%= f.input :description %>
+            <%= f.input :nickname, label: 'Pseudo:', autofocus: true %>
+            <%= f.input :description, label: 'Description:' %>
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
             <% end %>
-            <%= f.input :address, required: true, autofocus: true %>
-            <%= f.input :photo, as: :file %>
-            <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
+            <%= f.input :address, label:'Adresse Postale:', autofocus: true %>
+            <%= f.input :photo, label: 'Votre photo de profil: ', as: :file %>
+            <%= f.input :password, label: "Changer de Mot De Passe ?",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
-            <%= f.input :password_confirmation,
+            <%= f.input :password_confirmation, label: "Confirmation du nouveau Mot De Passe:",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
-            <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
+            <%= f.input :current_password, label: 'Mot De Passe actuel',
+                hint: "Nous avons besoin de votre mot de passe actuel pour confirmer ces changements",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
           </div>
           <div class="modal-footer">
             <div class="form-actions">
-              <%= f.button :submit, "Update", class: "btn btn-flat" %>
+              <%= f.button :submit, "Enregistrer", class: "btn btn-flat" %>
             </div>
           </div>
         <% end %>
