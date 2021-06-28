@@ -35,9 +35,9 @@
       </div>
       <div class="w-100 d-flex justify-content-between p-4">
         <% if user_signed_in? %>
-          <button class="btn btn-flat create-event" aria-current="page" data-bs-toggle="modal" data-bs-target="#createEventModal" data-walk-id="<%= walk.id %>" href="#">Créer un evenement</button>
+          <button class="btn btn-ghost create-event" aria-current="page" data-bs-toggle="modal" data-bs-target="#createEventModal" data-walk-id="<%= walk.id %>" href="#">Créer un evenement</button>
         <% else %>
-          <button class="btn btn-flat" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal" href="#">Créer un evenement</button>
+          <button class="btn btn-ghost" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal" href="#">Créer un evenement</button>
         <% end %>
         <% if user_signed_in? %>
           <button class="btn btn-flat">Balade seul</button>
