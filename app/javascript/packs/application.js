@@ -21,6 +21,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 // internal imports
 import { initMapbox } from '../plugins/init_mapbox'
 import { initCreateMapbox } from '../plugins/init_create_mapbox'
+import { initShowMapbox } from '../plugins/init_map_show'
 
 import { initSearchSites } from '../plugins/search_sites'
 
@@ -44,5 +45,6 @@ document.addEventListener('turbolinks:load', () => {
   initDogId()
   initSearchSites()
   initCreateMapbox()
+  initShowMapbox()
   initFlatpickr()
 })
