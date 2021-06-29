@@ -15,3 +15,18 @@
 .algolia-places {
   width: auto;
 }
+
+.notifications {
+  position: relative;
+
+  .notification {
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    background-color: #fd1015;
+    opacity: 0.8;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+}
