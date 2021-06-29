@@ -20,6 +20,11 @@ class DogsController < ApplicationController
     dog_id = params[:dog][:id]
     dog = Dog.find(dog_id)
     authorize dog
+    tmp = DogHasTemperament.where(dog: dog)
+    tmp.each { |t| t.destroy }
+    params["temperament"].each do |_key, value|
+      DogHasTemperament.create!(dog: dog, temperament_id: value)
+    end
     dog.update(dog_params)
     redirect_to dashboard_path
   end

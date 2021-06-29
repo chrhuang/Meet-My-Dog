@@ -28,37 +28,37 @@
             <%= f.input :size, placeholder: 'Merci de selectionner une taille', collection: ['Petit', 'Moyen', 'Grand'], label: 'Taille:', required: true %>
             <%= f.input :photo, label: 'Photo:', as: :file %>
             <%= f.input :gender, collection: ['Mâle', 'Femelle'], label: 'Sexe:', as: :radio_buttons%>
-    <a aria-current="page" data-bs-toggle="modal" data-bs-target="#addTemperament" href="#" color=($green)> Modifier les tempéraments attribués à votre chien</a>
-        </div>
-        <div class="modal-footer">
-          <div class="form-actions">
-            <%= f.button :submit, "Enregistrer", class: "btn btn-flat" %>
+            <a aria-current="page" data-bs-toggle="modal" data-bs-target="#addTemperamentEdit" href="#" color=($green)> Modifier les tempéraments attribués à votre chien</a>
           </div>
-        </div>
-        <%# <% MODAL EDIT DOG 2 with temperament %>
-        <div class="modal fade" id="addTemperamentEdit" tabindex="-1" aria-labelledby="addTemperamentModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="addTemperamentEditModalLabel">Modifier les infos de mon chien</h5>
-                <a type="button" class="text-green" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
-              </div>
-              <div class="modal-body" display='inline-block'>
-                <% Temperament.all.each do |temperament| %>
-                  <%= render "/shared/checkbox", temperament: temperament %>
-                <% end %>
-              </div>
-              <div class="modal-footer">
-                <%= f.button :submit, "Enregistrer", class: "btn btn-flat" %>
-                <div class="form-actions">
+          <div class="modal-footer">
+            <div class="form-actions">
+              <%= f.button :submit, "Enregistrer", class: "btn btn-flat" %>
+            </div>
+          </div>
+          <%# <% MODAL EDIT DOG 2 with temperament %>
+          <div class="modal fade" id="addTemperamentEdit" tabindex="-1" aria-labelledby="addTemperamentModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="addTemperamentEditModalLabel">Modifier les infos de mon chien</h5>
+                  <a type="button" class="text-green" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
+                </div>
+                <div class="modal-body" display='inline-block'>
+                  <% Temperament.all.each do |temperament| %>
+                    <%= render "/shared/checkbox", temperament: temperament %>
+                  <% end %>
+                </div>
+                <div class="modal-footer">
+                  <%= f.button :submit, "Enregistrer", class: "btn btn-flat" %>
+                  <div class="form-actions">
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <%# <% MODAL EDIT DOG 2 with temperament %>
         </div>
-        <%# <% MODAL EDIT DOG 2 with temperament %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
 </div>
