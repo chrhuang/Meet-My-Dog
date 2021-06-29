@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "/join/:id", to: "events#join", as: "join"
   resources :sites, only: [:index, :show] do
     resources :walks, only: [:new, :create]
+    resources :reviews, only: [:create]
   end
   resources :events, only: [:show, :create, :destroy]
   resources :dogs, only: [:create, :update, :destroy]
