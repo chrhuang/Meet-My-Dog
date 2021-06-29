@@ -1,0 +1,10 @@
+<div class="checkbox">
+  <input
+    class="checkbox__temperament"
+    type="checkbox" id="<%= temperament %>"
+    name="<%= "temperament[#{temperament.name}]" %>"
+    value="<%= temperament.id %>"
+    <%= "checked=true" if dog.temperaments.include?(temperament) %>
+    >
+  <label for="<%= temperament %>"><%= temperament.name %></label>
+</div>

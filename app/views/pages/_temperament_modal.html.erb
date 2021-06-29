@@ -1,0 +1,24 @@
+<div class="modal fade" id="temperaments_modal_<%= dom_id(dog) %>" tabindex="-1" aria-labelledby="addTemperamentCreateModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addTemperamentCreateModalLabel">Tempéraments de mon chien</h5>
+        <a type="button" class="text-green" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
+      </div>
+      <div class="modal-body" display='inline-block'>
+        <div class="row">
+          <% Temperament.all.each do |temperament| %>
+            <div class="col-6 mb-3">
+              <%= render "/shared/temperament_checkbox", temperament: temperament, dog: dog %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <%= f.button :submit, dog.persisted? ? "Editer mon chien" : "Ajouter mon chien", class: "btn btn-flat" %>
+        <div class="form-actions">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
