@@ -1,0 +1,17 @@
+<div class="container">
+  <h1 class="text-center my-4" id="site"><%= @site.name %></h1>
+  <h2 class="text-center mb-4">Creation d'une nouvelle balade</h2>
+  <%= simple_form_for [@site, @walk], url: site_walks_path, html: { method: :post } do |f| %>
+    <%= f.input :name, label: 'Nom:' %>
+    <%= f.input :description, label: 'Description:',  :input_html => { class: "mb-3" } %>
+    <div id="mapCreate" class=""
+     style="height: 600px;"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+    <%= f.input :length, as: :hidden %>
+    <%= f.input :duration, as: :hidden %>
+    <%= f.input :photo, label: 'Photo:', as: :file, :input_html => { class: "mt-3" } %>
+    <%= f.input :coords, as: :hidden %>
+    <%= f.button :submit, "Créer la balade", class: "btn btn-flat mt-3" %>
+  <% end %>
+</div>

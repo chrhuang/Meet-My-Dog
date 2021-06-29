@@ -1,4 +1,4 @@
-class Messsage < ApplicationRecord
+class Message < ApplicationRecord
   belongs_to :user
   belongs_to :event
 end

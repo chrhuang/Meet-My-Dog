@@ -2,41 +2,62 @@
   <div class="container-fluid">
     <div class="d-flex align-items-center">
       <%= link_to "Meet My Dog", root_path, class: "navbar-brand" %>
-      <%= link_to "Dashboard", dashboard_path, class: "navbar-dashboard" %>
+      <% if user_signed_in? %>
+        <%= link_to "Dashboard", dashboard_path, class: "navbar-dashboard" %>
+      <% end %>
     </div>
     <% unless current_page?(root_path) %>
-      <div class="container-fluid">
-        <form class="d-flex justify-content-center">
-          <input class="form-control me-2" type="search" placeholder="Ville ou adresse" aria-label="Search" style="width: 400px;">
-          <button class="btn btn-flat" type="submit">Va chercher!</button>
-        </form>
+      <div class="container-fluid d-none d-lg-block d-xl-block">
+        <%= form_tag sites_path, class: "d-flex justify-content-center navbar__search-bar", method: :get do %>
+          <%= text_field_tag :query,
+    params[:query],
+    id: "navbar-search",
+    class: "form-control me-2",
+    style: "width: 400px",
+    placeholder: "Ville ou adresse"
+  %>
+          <%= submit_tag "Va chercher!", class: "btn btn-flat" %>
+        <% end %>
       </div>
     <% end %>
-    <ul class="navbar-nav align-items-center">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#"><i class="far fa-comment-dots"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-paw"></i></a>
-      </li>
-      <li class="nav-item dropdown">
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <% if current_user&.photo.present? %>
-              <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "#{current_user.nickname}" %>
-            <% end %>
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li>
-              <%= link_to "Edit my profile", edit_user_registration_path, class: "dropdown-item" %>
-              <%# <a class="dropdown-item" href="#">Edit my profile</a> %>
-            </li>
-            <li>
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </li>
-          </ul>
+    <ul class="navbar-nav align-items-center flex-row">
+      <% if user_signed_in? %>
+        <li class="nav-item m-2">
+          <a class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#chatModal" href="#"><i class="far fa-comment-dots"></i></a>
         </li>
+        <li class="nav-item m-2">
+          <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-paw"></i></a>
+        </li>
+      <% end %>
+      <% if user_signed_in? %>
+        <li class="nav-item dropdown">
+          <div class="collapse navbar-collapse d-block" id="navbarNavDropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <% if current_user&.photo.present? %>
+                <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "#{current_user.nickname}" %>
+              <% end %>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+              <li>
+                <a class="dropdown-item" aria-current="page" data-bs-toggle="modal" data-bs-target="#updateModal" href="#">Editer mon profil</a>
+              </li>
+              <li>
+                <%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <a class="text-green" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal" href="#">Login</a>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
 </nav>
+<% if user_signed_in? %>
+  <%= render '/shared/update_user_modal' %>
+<% else %>
+  <%= render '/shared/login_modal' %>
+<% end %>
+<%= render '/shared/chat_modal' %>

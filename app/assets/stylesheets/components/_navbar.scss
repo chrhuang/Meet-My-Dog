@@ -1,5 +1,5 @@
 .navbar-brand {
-  font-size: 35px;
+  font-size: 1.5 rem;
   font-weight: bold;
   color: $green !important;
 }
@@ -12,13 +12,6 @@
   }
 }
 
-.fa-comment-dots {
-  font-weight: bold;
-  font-size: 30px;
-  color: $green;
-}
-
-.fa-paw {
-  font-size: 30px;
-  color: $green;
+.algolia-places {
+  width: auto;
 }

@@ -1,17 +1,23 @@
-<%= render "/shared/banner_event" %>
-<div class="container">
+<%= render "/shared/banner_event", coords: @event.walk.coords %>
+<div class="container mt-4">
   <div>
-    <h1><%= @event.name %></h1>
-    <button class="btn btn-flat" type="submit">Rejoindre cette balade</button>
-    <p><%= @event.date %></p>
+    <% unless @user_in_event %>
+      <%= link_to "Rejoindre cette balade", join_path(@event.id), class: "btn btn-flat" %>
+    <% end %>
+    <% if @user_in_event %>
+      <!--  <a class="btn btn-flat" aria-current="page" data-bs-toggle="modal" data-bs-target="#updateEventModal" href="#">Editer cet événement</a> %>-->
+      <%= link_to "Quitter cet événement", event_path(@event), method: :delete, class:"btn btn-red"%>
+    <% end %>
+    <h1 class="mt-4 mb-0"><span id="site"><%= @event.walk.site.name %></span> - <%= @event.name %></h1>
+    <p style="opacity: 0.5;">Le <%= @event.date.strftime('%d-%m-%Y') %></p>
     <p><%= @event.walk.description %></p>
     <h3>
-      <p> participants:</p>
+      <p>Participants:</p>
     </h3>
   </div>
   <div class="event-cards">
     <% @event.users.each do |user| %>
-      <%= render partial: "shared/card_event", locals: {user: user} %>
+      <%= render partial: "shared/user_card", locals: {user: user} %>
     <% end %>
   </div>
 </div>

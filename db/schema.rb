@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_22_123458) do
+ActiveRecord::Schema.define(version: 2021_06_28_123821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,24 +74,24 @@ ActiveRecord::Schema.define(version: 2021_06_22_123458) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
-    t.time "date"
     t.text "description"
     t.integer "max_dog"
     t.bigint "walk_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "date"
     t.index ["walk_id"], name: "index_events_on_walk_id"
   end
 
-  create_table "messsages", force: :cascade do |t|
+  create_table "messages", force: :cascade do |t|
     t.text "content"
     t.time "date"
     t.bigint "user_id", null: false
     t.bigint "event_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["event_id"], name: "index_messsages_on_event_id"
-    t.index ["user_id"], name: "index_messsages_on_user_id"
+    t.index ["event_id"], name: "index_messages_on_event_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "pois", force: :cascade do |t|
@@ -121,12 +121,14 @@ ActiveRecord::Schema.define(version: 2021_06_22_123458) do
   end
 
   create_table "sites", force: :cascade do |t|
-    t.float "long"
-    t.float "lat"
+    t.decimal "longitude", precision: 10, scale: 6
+    t.decimal "latitude", precision: 10, scale: 6
     t.string "name"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "address"
+    t.string "city"
   end
 
   create_table "temperaments", force: :cascade do |t|
@@ -152,8 +154,8 @@ ActiveRecord::Schema.define(version: 2021_06_22_123458) do
   end
 
   create_table "walk_has_pois", force: :cascade do |t|
-    t.float "long"
-    t.float "lat"
+    t.decimal "longitude", precision: 10, scale: 6
+    t.decimal "latitude", precision: 10, scale: 6
     t.bigint "poi_id", null: false
     t.bigint "walk_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -170,6 +172,7 @@ ActiveRecord::Schema.define(version: 2021_06_22_123458) do
     t.bigint "site_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "coords"
     t.index ["site_id"], name: "index_walks_on_site_id"
   end
 
@@ -181,8 +184,8 @@ ActiveRecord::Schema.define(version: 2021_06_22_123458) do
   add_foreign_key "event_has_users", "events"
   add_foreign_key "event_has_users", "users"
   add_foreign_key "events", "walks"
-  add_foreign_key "messsages", "events"
-  add_foreign_key "messsages", "users"
+  add_foreign_key "messages", "events"
+  add_foreign_key "messages", "users"
   add_foreign_key "reviews", "events"
   add_foreign_key "reviews", "sites"
   add_foreign_key "reviews", "users"

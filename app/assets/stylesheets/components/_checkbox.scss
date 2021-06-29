@@ -1,0 +1,21 @@
+.checkbox__temperament{
+    position: absolute;
+    transform: scale(0);
+}
+
+.checkbox__temperament + label {
+    cursor: pointer;
+    color: white;
+    padding: 8px 24px;
+    border-radius: 10px;
+    background: grey;
+    transition: background 0.3s ease;
+      }
+
+.checkbox__temperament:checked + label {
+    color: white;
+    padding: 8px 24px;
+    border-radius: 10px;
+    background: $green;
+    transition: background 0.3s ease;
+}

@@ -1,6 +1,7 @@
 .event-cards {
   display: grid;
-  grid-gap: 124px;
+  column-gap: 64px;
+  row-gap: 10px;
   justify-content: center;
   align-content: center;
   grid-template-columns: 1fr 1fr;
@@ -29,7 +30,7 @@
     align-items: center;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     position: relative;
-    img {
+    .user-img {
       border-radius: 10px;
       position: absolute;
       left: -30px;

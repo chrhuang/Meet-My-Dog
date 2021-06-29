@@ -1,12 +1,18 @@
 <div class="container">
-  <h2 class="text-center my-3"><strong>Sites à Lille</strong></h2>
-  <h4>2 lieux de balades à Lille</h4>
-  <div class="w-50">
-    <div class="site-cards">
-      <%= render '/shared/site_card', title: 'Parc Barbieux', description: "Une description à la con pour remplir le champs description car je ne sais pas quoi mettre et j'ai la flemme de faire un copier coller d'un Lorem Ipsum", img: Site.first.photos[0].key, city: "Lille", walks: 45, rating: 4, id: Site.first.id %>
-      <%= render '/shared/site_card', title: 'Citadelle', description: "Une description à la con pour remplir le champs description car je ne sais pas quoi mettre et j'ai la flemme de faire un copier coller d'un Lorem Ipsum", img: "Citadelle_44j83b3", city: "Lille", walks: 45, rating: 4, id: Site.first.id %>
-      <%= render '/shared/site_card', title: 'Citadelle', description: "Une description à la con pour remplir le champs description car je ne sais pas quoi mettre et j'ai la flemme de faire un copier coller d'un Lorem Ipsum", img: "Citadelle_44j83b3", city: "Lille", walks: 45, rating: 4, id: Site.first.id %>
-      <%= render '/shared/site_card', title: 'Citadelle', description: "Une description à la con pour remplir le champs description car je ne sais pas quoi mettre et j'ai la flemme de faire un copier coller d'un Lorem Ipsum", img: "Citadelle_44j83b3", city: "Lille", walks: 45, rating: 4, id: Site.first.id %>
+  <h2 class="text-center my-3"><strong>Résultats de votre recherche aux alentours de <%= @search %></strong></h2>
+  <h4><%= @sites.size %> balades trouvées !</h4>
+  <div class="row justify-content-between">
+    <div class="col-lg-6 col-md-12 col-sm-12 list-sites">
+      <div class="site-cards">
+        <% @sites.each do |site| %>
+          <%= render '/shared/site_card', site: site %>
+        <% end %>
+      </div>
+    </div>
+    <div id="map" class="col-lg-6 col-md-12 col-sm-12 order-md-1 order-sm-1"
+     style="height: 700px; 'mapbox://styles/chrhuang/ckqglr1jegknj17p8r4bblye9'"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
 </div>
