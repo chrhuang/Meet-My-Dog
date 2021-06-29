@@ -8,16 +8,31 @@
   <h5 class="text-grey"><%= @site.address %></h5>
   <p class="site-description my-4"><%= @site.description %></p>
   <div class="accordion" id="accordionExample">
-    <% if @site.walks.size.zero? %>
-      <h2 class="text-center"> Aucune balade disponible pour l'instant, il n'appartient qu'à vous de créer la première !</h2>
-      <%= link_to "Créer une nouvelle balade", new_site_walk_path(@site), class: "btn btn-flat" %>
-    <% else %>
-      <h2 class="text-center my-4"><%= @site.walks.size  %> balades disponibles</h2>
-      <%= link_to "Créer une nouvelle balade", new_site_walk_path(@site), class: "btn btn-flat mb-4" %>
-      <% @site.walks.each do |walk| %>
-        <%= render '/shared/site_show_card', walk: walk, city: "Lille" %>
+    <h2><%= pluralize @site.reviews.size, "Reviews:" %>
+      <div id="reviews">
+        <% if @site.reviews.blank? %>
+          Soyez le premier à laisser une review pour ce lieu de balade.
+        <% else %>
+          <% @site.reviews.each do |review| %>
+            <p><%= review.content %><%= review.rating %></p>
+          <% end %>
+        <% end %>
+        <%= simple_form_for([ @site, @review ], remote: true) do |f| %>
+          <%= f.input :content, as: :text %>
+          <%= f.input :rating, as: :integer %>
+          <%= f.button :submit %>
+        <% end %>
+      </div>
+      <% if @site.walks.size.zero? %>
+        <h2 class="text-center"> Aucune balade disponible pour l'instant, il n'appartient qu'à vous de créer la première !</h2>
+        <%= link_to "Créer une nouvelle balade", new_site_walk_path(@site), class: "btn btn-flat" %>
+      <% else %>
+        <h2 class="text-center my-4"><%= @site.walks.size  %> balades disponibles</h2>
+        <%= link_to "Créer une nouvelle balade", new_site_walk_path(@site), class: "btn btn-flat mb-4" %>
+        <% @site.walks.each do |walk| %>
+          <%= render '/shared/site_show_card', walk: walk, city: "Lille" %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
-<%= render "shared/create_event_modal" %>
+  <%= render "shared/create_event_modal" %>
