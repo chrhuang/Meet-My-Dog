@@ -1,4 +1,4 @@
-<div class="chat-group m-3">
+<div class="chat-group m-3 <%= "active" if first %>" id="<%= event.id %>">
   <h6><%= event.name %></h6>
   <p class="date"><%= event.date %></p>
   <% event.users.each do |user| %>

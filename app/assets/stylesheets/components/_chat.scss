@@ -21,6 +21,9 @@
     font-size: 12px;
     opacity: 0.3;
   }
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .message_content {
