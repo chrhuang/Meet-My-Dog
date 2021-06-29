@@ -17,37 +17,22 @@
   </ul>
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-    <div class="accordion" id="accordionExample">
-    <% if @site.walks.size.zero? %>
-      <h2 class="text-center"> Aucune balade disponible pour l'instant, il n'appartient qu'à vous de créer la première !</h2>
-      <%= link_to "Créer une nouvelle balade", new_site_walk_path(@site), class: "btn btn-flat" %>
-    <% else %>
-      <h2 class="text-center my-4"><%= @site.walks.size  %> balades disponibles</h2>
-      <%= link_to "Créer une nouvelle balade", new_site_walk_path(@site), class: "btn btn-flat mb-4" %>
-      <% @site.walks.each do |walk| %>
-        <%= render '/shared/site_show_card', walk: walk, city: "Lille" %>
-      <% end %>
-    <% end %>
-  </div>
-  <%= render "shared/create_event_modal" %>
-    </div>
-    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-      <h2><%= pluralize @site.reviews.size, "Avi" %></h2>
-      <div id="reviews">
-        <% if @site.reviews.blank? %>
-          Soyez le premier à laisser un avis pour ce lieu de balade.
+      <div class="accordion" id="accordionExample">
+        <% if @site.walks.size.zero? %>
+          <h2 class="text-center"> Aucune balade disponible pour l'instant, il n'appartient qu'à vous de créer la première !</h2>
+          <%= link_to "Créer une nouvelle balade", new_site_walk_path(@site), class: "btn btn-flat" %>
         <% else %>
-          <% @site.reviews.each do |review| %>
-            <p id="review-<%= review.id %>"><%= review.content %><%= review.rating %></p>
+          <h2 class="text-center my-4"><%= @site.walks.size  %> balades disponibles</h2>
+          <%= link_to "Créer une nouvelle balade", new_site_walk_path(@site), class: "btn btn-flat mb-4" %>
+          <% @site.walks.each do |walk| %>
+            <%= render '/shared/site_show_card', walk: walk, city: "Lille" %>
           <% end %>
         <% end %>
-        <%= simple_form_for([ @site, @review ], method: :post) do |f| %>
-          <%= f.input :content, label: 'Contenu:', as: :text %>
-          <%= f.input :rating, label: 'attribuez une note entre 0 et 5:', as: :integer %>
-          <%= f.button :submit, 'Soumettre', class: "btn btn-flat" %>
-        <% end %>
       </div>
+      <%= render "shared/create_event_modal" %>
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <%= render "reviews/review" %>
     </div>
   </div>
 </div>
-
