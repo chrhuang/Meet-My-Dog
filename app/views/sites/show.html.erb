@@ -7,7 +7,17 @@
   <h1 id="site"><%= @site.name %></h1>
   <h5 class="text-grey"><%= @site.address %></h5>
   <p class="site-description my-4"><%= @site.description %></p>
-  <div class="accordion" id="accordionExample">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Balades</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Avis</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div class="accordion" id="accordionExample">
     <% if @site.walks.size.zero? %>
       <h2 class="text-center"> Aucune balade disponible pour l'instant, il n'appartient qu'à vous de créer la première !</h2>
       <%= link_to "Créer une nouvelle balade", new_site_walk_path(@site), class: "btn btn-flat" %>
@@ -19,5 +29,25 @@
       <% end %>
     <% end %>
   </div>
+  <%= render "shared/create_event_modal" %>
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <h2><%= pluralize @site.reviews.size, "Avi" %></h2>
+      <div id="reviews">
+        <% if @site.reviews.blank? %>
+          Soyez le premier à laisser un avis pour ce lieu de balade.
+        <% else %>
+          <% @site.reviews.each do |review| %>
+            <p id="review-<%= review.id %>"><%= review.content %><%= review.rating %></p>
+          <% end %>
+        <% end %>
+        <%= simple_form_for([ @site, @review ], method: :post) do |f| %>
+          <%= f.input :content, label: 'Contenu:', as: :text %>
+          <%= f.input :rating, label: 'attribuez une note entre 0 et 5:', as: :integer %>
+          <%= f.button :submit, 'Soumettre', class: "btn btn-flat" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
-<%= render "shared/create_event_modal" %>
+

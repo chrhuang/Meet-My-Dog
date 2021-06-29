@@ -29,5 +29,6 @@ class SitesController < ApplicationController
       info_window: render_to_string(partial: "info_window", locals: { site: @site }),
       image_url: helpers.asset_url('3-removebg-preview.png')
     }
+    @review = Review.new
   end
 end
