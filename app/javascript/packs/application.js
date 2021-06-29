@@ -16,7 +16,6 @@ import 'channels'
 // External imports
 import 'bootstrap'
 
-
 // CSS
 import 'mapbox-gl/dist/mapbox-gl.css'
 // internal imports
@@ -30,8 +29,10 @@ import { initSearchSites } from '../plugins/search_sites'
 // import { initSelect2 } from '../components/init_select2';
 import { initAutocomplete } from '../plugins/init_autocomplete'
 import { initNewEvent } from '../plugins/init_new_event'
-import { initDogId } from '../plugins/init_dog_id'
 import { initFlatpickr } from '../plugins/flatpickr'
+import { initEventCable } from '../channels/event_channel'
+import { initChatbox } from '../plugins/init_chatbox'
+import { initDogShow } from '../plugins/init_dog_show'
 
 Rails.start()
 Turbolinks.start()
@@ -43,9 +44,11 @@ document.addEventListener('turbolinks:load', () => {
   initNewEvent()
   initMapbox()
   initAutocomplete()
-  initDogId()
   initSearchSites()
   initCreateMapbox()
   initShowMapbox()
   initFlatpickr()
+  initEventCable()
+  initChatbox()
+  initDogShow()
 })

@@ -171,7 +171,7 @@ const initCreateMapbox = () => {
   if (mapElement) {
     const map = new mapboxgl.Map({
       container: 'mapCreate',
-      style: 'mapbox://styles/mapbox/streets-v10',
+      style: 'mapbox://styles/chrhuang/ckqglr1jegknj17p8r4bblye9',
       center: [2.35183, 48.85658], // starting position
       zoom: 15
     })

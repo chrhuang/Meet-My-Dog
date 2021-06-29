@@ -98,12 +98,12 @@ walk.photo.attach(io: file, filename: 'citadelle01.png', content_type: 'image/pn
 
 puts "Create Walk 2/6"
 file = URI.open('https://parcdelacitadelle.lille.fr/sites/default/files/styles/full/public/thumbnails/image/p-01.premiere_enceintecphilippe_frutier.jpg?itok=SweekwvY')
-walk = Walk.create!(name: "Visite intérieure de la citadelle", description: "balade à l'intérieur de l'enceinte de la citadelle.", length: 5, duration: 120,  site: Site.first)
+walk = Walk.create!(name: "Visite intérieure de la citadelle", description: "Balade à l'intérieur de l'enceinte de la citadelle.", length: 5, duration: 120,  site: Site.first)
 walk.photo.attach(io: file, filename: 'citadelle02.png', content_type: 'image/png')
 
 puts "Create Walk 3/6"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624539773/145151_88829_b1w2gu.jpg')
-walk = Walk.create!(name: "longitudeue promenade autour de la citadelle", description: "Pour les toutous les plus sportifs, un tour complet de la citadelle.", length: 15, duration: 300,  site: Site.first)
+walk = Walk.create!(name: "Promenade autour de la citadelle", description: "Pour les toutous les plus sportifs, un tour complet de la citadelle.", length: 15, duration: 300,  site: Site.first)
 walk.photo.attach(io: file, filename: 'citadelle03.png', content_type: 'image/png')
 
 puts "Create Walk 4/6"
@@ -138,11 +138,11 @@ EventHasUser.create!(event: event, user: User.all[1]);
 EventHasUser.create!(event: event, user: User.last);
 
 puts "Create Event 2/6"
-event = Event.create!(name: "Découverte de la citadelle", walk: Walk.all[1], description: "N'étant pas du Nord je viens découvrir ce lieu si prisé des lillois. Je viens ave 3 enfants.", max_dog: 2, date: DateTime.strptime("07/02/2021 16:00", "%m/%d/%Y %H:%M"))
+event = Event.create!(name: "Découverte de la citadelle", walk: Walk.all[1], description: "N'étant pas du Nord je viens découvrir ce lieu si prisé des lillois. Je viens avec 3 enfants.", max_dog: 2, date: DateTime.strptime("07/02/2021 16:00", "%m/%d/%Y %H:%M"))
 EventHasUser.create!(event: event, user: User.all[1]);
 
 puts "Create Event 3/6"
-event = Event.create!(name: "Footing avec sa boule de poils", walk: Walk.all[2], description: "N'étant pas du Nord je viens découvrir ce lieu si prisé des lillois. Je viens ave 3 enfants.", max_dog: 3, date: DateTime.strptime("07/23/2021 18:30", "%m/%d/%Y %H:%M"))
+event = Event.create!(name: "Footing avec sa boule de poils", walk: Walk.all[2], description: "N'étant pas du Nord je viens découvrir ce lieu si prisé des lillois. Je viens avec 3 enfants.", max_dog: 3, date: DateTime.strptime("07/23/2021 18:30", "%m/%d/%Y %H:%M"))
 EventHasUser.create!(event: event, user: User.all[2]);
 
 puts "Create Event 4/6"

@@ -21,8 +21,16 @@
     font-size: 12px;
     opacity: 0.3;
   }
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .message_content {
   width: 100%;
+}
+
+.messages-body {
+  max-height: 600px;
+  overflow: scroll;
 }
