@@ -31,7 +31,7 @@
           <% end %>
           <div class="modal-footer">
             <%= simple_form_for :message, url: messages_path, wrapper: :inline_form, html: { class: 'form-inline d-flex w-100', id: "chatForm" }, method: :post do |f| %>
-              <%= f.input :event, as: :hidden, input_html: { :value => @events.first.id } %>
+              <%= f.input :event, as: :hidden, input_html: { :value => @events&.first&.id } %>
               <%= f.input :content, placeholder: "Votre message" %>
               <%= f.button :submit, "Envoyer", class: "btn btn-flat ms-4", id: "chat-send" %>
             <% end %>

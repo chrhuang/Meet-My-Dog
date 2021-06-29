@@ -23,8 +23,6 @@ import { initMapbox } from '../plugins/init_mapbox'
 import { initCreateMapbox } from '../plugins/init_create_mapbox'
 import { initShowMapbox } from '../plugins/init_map_show'
 
-import { initSearchSites } from '../plugins/search_sites'
-
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initAutocomplete } from '../plugins/init_autocomplete'
@@ -44,7 +42,6 @@ document.addEventListener('turbolinks:load', () => {
   initNewEvent()
   initMapbox()
   initAutocomplete()
-  initSearchSites()
   initCreateMapbox()
   initShowMapbox()
   initFlatpickr()
