@@ -5,10 +5,7 @@ const listGroup = () => {
       chatGroup.addEventListener('click', (event) => {
         const active = document.getElementsByClassName('chat-group active')
         const display = document.getElementsByClassName('chat-show d-block')
-        // console.log(chatGroup.id)
         const show = document.getElementById(`show-${chatGroup.id}`)
-        console.log(active)
-        console.log(display)
         if (active) {
           active[0].classList.remove('active')
           display[0].classList.add('d-none')

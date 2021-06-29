@@ -3,7 +3,6 @@ const initDogShow = () => {
 
   elements.forEach((element) => {
     const dog = element.dataset
-    console.log(dog)
     element.addEventListener('click', () => {
       document.querySelector('#dog_name').innerText = dog.dogName
       document.querySelector('#dog_age').innerText = dog.dogAge

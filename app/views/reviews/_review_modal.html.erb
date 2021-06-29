@@ -1,0 +1,24 @@
+<div class="modal fade" id="modal_<%= dom_id(event) %>" tabindex="-1" aria-labelledby="modal_title_<%= dom_id(event) %>" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal_title_<%= dom_id(event) %>">Ajouter mon avis</h5>
+        <a type="button" class="text-green" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
+      </div>
+      <%= simple_form_for :review, url: reviews_path do |f| %>
+        <div class="modal-body">
+          <div class="review_infos">
+            <%= f.input :event_id, as: :hidden, input_html: { namespace: dom_id(event), value: event.id } %>
+            <%= f.input :content, as: :text, label: 'Votre avis:', required: true, input_html: { namespace: dom_id(event) } %>
+            <%= f.input :rating, as: :integer, label: 'rating:', required: true, input_html: { namespace: dom_id(event) } %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="form-actions">
+            <%= f.button :submit, "Ajouter mon avis", class: "btn btn-flat" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
