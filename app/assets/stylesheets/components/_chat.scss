@@ -29,3 +29,8 @@
 .message_content {
   width: 100%;
 }
+
+.messages-body {
+  max-height: 600px;
+  overflow: scroll;
+}

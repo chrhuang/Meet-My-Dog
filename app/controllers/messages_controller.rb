@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
     message.save!
     EventChannel.broadcast_to(
       event,
-      render_to_string(partial: "message", locals: { message: message, current: current_user == message.user })
+      render_to_string(partial: "message", locals: { message: message })
     )
     # redirect_to root_path #Je sais pas quoi mettre ici
   end
