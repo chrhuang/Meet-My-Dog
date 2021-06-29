@@ -50,7 +50,10 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <a class="text-green" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal" href="#">Login</a>
+            <a class="text-green" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal" href="#">Se connecter</a>
+          </li>
+          <li class="nav-item ms-4">
+            <a class="text-green" aria-current="page" data-bs-toggle="modal" data-bs-target="#signupModal" href="#">S'inscrire</a>
           </li>
         <% end %>
       </ul>
@@ -61,5 +64,6 @@
   <%= render '/shared/update_user_modal' %>
 <% else %>
   <%= render '/shared/login_modal' %>
+  <%= render '/shared/sign_up_modal' %>
 <% end %>
 <%= render '/shared/chat_modal' %>

@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   include Pundit
   before_action :chat
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   # Pundit: white-list approach.
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
@@ -14,6 +15,14 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
   helper_method :resource_name, :resource, :devise_mapping, :resource_class
+
+  def configure_permitted_parameters
+    # For additional fields in app/views/devise/registrations/new.html.erb
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[address photo gender description])
+
+    # For additional in app/views/devise/registrations/edit.html.erb
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[address photo gender description])
+  end
 
   def resource_name
     :user
