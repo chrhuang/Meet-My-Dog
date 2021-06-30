@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   resources :events, only: [:show, :create, :destroy]
   resources :dogs, only: [:create, :update, :destroy]
   resources :messages, only: [:create]
-  resources :reviews, only: [:create]
+  resources :reviews, only: [:new, :create]
 end
