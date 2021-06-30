@@ -1,4 +1,8 @@
 class ReviewsController < ApplicationController
+  def new
+    @review = Review.new
+  end
+
   def create
     event = Event.find(params["review"]["event_id"])
     site = event.walk.site
@@ -10,7 +14,7 @@ class ReviewsController < ApplicationController
     if review.save
       redirect_to site_path(site, anchor: "review-#{review.id}")
     else
-      render 'sites/show'
+      render :new
     end
   end
 

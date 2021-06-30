@@ -19,9 +19,10 @@ import 'bootstrap'
 // CSS
 import 'mapbox-gl/dist/mapbox-gl.css'
 // internal imports
-import { initMapbox } from '../plugins/init_mapbox'
-import { initCreateMapbox } from '../plugins/init_create_mapbox'
-import { initShowMapbox } from '../plugins/init_map_show'
+import { initMapbox } from '../plugins/init_mapbox';
+import { initCreateMapbox } from '../plugins/init_create_mapbox';
+import { initShowMapbox } from '../plugins/init_map_show';
+
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -31,6 +32,7 @@ import { initFlatpickr } from '../plugins/flatpickr'
 import { initEventCable } from '../channels/event_channel'
 import { initChatbox } from '../plugins/init_chatbox'
 import { initDogShow } from '../plugins/init_dog_show'
+import { initStarRating } from '../plugins/init_star_rating';
 
 Rails.start()
 Turbolinks.start()
@@ -48,4 +50,5 @@ document.addEventListener('turbolinks:load', () => {
   initEventCable()
   initChatbox()
   initDogShow()
+  initStarRating();
 })
