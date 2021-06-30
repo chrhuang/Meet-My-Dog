@@ -32,5 +32,14 @@
 
 .messages-body {
   max-height: 600px;
-  overflow: scroll;
+  // overflow: scroll;
+  overflow-x: hidden; //horizontal
+  overflow-y: scroll; //vertical
+  transform: rotate(180deg);
+  direction: rtl;
+}
+
+.message {
+  transform: rotate(180deg);
+  direction: ltr;
 }
