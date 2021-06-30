@@ -1,4 +1,4 @@
-<div class="row p-3 shadow-sm align-items-center mb-4">
+<div class="row p-3 shadow-sm align-items-center mb-4" style='background-color: #f9f9f9'>
   <div class="col-5">
     <h4 class="mb-0"><%= event.name %></h4>
     <p class="mb-0" style="opacity: 0.5;"><%= event.walk.site.name %> - <%= event.walk.name %></p>
@@ -6,10 +6,10 @@
   <div class="col-2">
     <h5 class="mb-0">Le <%= l(event.date, format: '%d/%m/%Y') %></h5>
   </div>
-  <!--  <div class="col-2">
-    <h5 class="mb-0">chiens: <%= event.dogs_count %>/<%= event.max_dog %></h5>
-  </div> -->
-  <div class="col-5">
+    <div class="col-3">
+    <h5 class="mb-0"><i class="fas fa-dog" style='color:black; font-size: 24px'></i> <%= event.dogs_count %>/<%= event.max_dog %></h5>
+  </div>
+  <div class="col-2">
     <% if user_signed_in? %>
       <div class="d-flex justify-content-end">
         <%= link_to "Page du groupe", event_path(event), class: "btn btn-group"%>
