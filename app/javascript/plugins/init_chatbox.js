@@ -24,11 +24,13 @@ const initChatbox = () => {
   listGroup()
   const send = document.getElementById('chat-send')
   const message = document.getElementById('message_content')
-  send.addEventListener('click', (event) => {
-    document.getElementById('chatForm').submit()
-    event.preventDefault()
-    message.value = ''
-  })
+  if (send) {
+    send.addEventListener('click', (event) => {
+      document.getElementById('chatForm').submit()
+      event.preventDefault()
+      message.value = ''
+    })
+  }
 }
 
 export { initChatbox }

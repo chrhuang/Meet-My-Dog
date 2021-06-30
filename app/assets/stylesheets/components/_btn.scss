@@ -73,3 +73,9 @@
 .accordion-button {
   z-index: 0 !important;
 }
+
+.btn-round-green {
+  border-radius: 100px;
+  background-color: $green;
+  color: white;
+}

@@ -32,6 +32,7 @@ import { initEventCable } from '../channels/event_channel'
 import { initChatbox } from '../plugins/init_chatbox'
 import { initStarRating } from '../plugins/init_star_rating'
 import { initMapSelect } from '../plugins/init_map_select'
+import { initUpdateNavbarOnScroll } from '../plugins/init_navbar'
 
 Rails.start()
 Turbolinks.start()
@@ -50,4 +51,5 @@ document.addEventListener('turbolinks:load', () => {
   initChatbox()
   initStarRating()
   initMapSelect(map)
+  initUpdateNavbarOnScroll()
 })

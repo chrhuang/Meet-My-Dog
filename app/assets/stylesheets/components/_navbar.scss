@@ -1,15 +1,39 @@
 .navbar {
   height: 80px;
+  background-color: transparent;
+  transition: 0.5s;
+  color: white;
 }
+
+.navbar-white {
+  background-color: white;
+  color: $green;
+  height: 80px;
+}
+
 .navbar-brand {
   font-size: 1.5 rem;
   font-weight: bold;
-  color: $green !important;
+  color: $green;
 }
 
 .navbar-dashboard {
   color: $green;
   margin: 0;
+  &:hover {
+    color: $green;
+  }
+}
+
+.navbar-text-black {
+  color: black;
+  &:hover {
+    color: black;
+  }
+}
+
+.navbar-text-green {
+  color: $green;
   &:hover {
     color: $green;
   }
@@ -32,4 +56,27 @@
     top: 5px;
     right: 5px;
   }
+}
+
+.search-form {
+  display: inline-block;
+  background-color: white;
+  padding: 8px;
+  border-radius: 100px;
+}
+
+.search-form-border {
+  display: inline-block;
+  background-color: white;
+  padding: 8px;
+  border-radius: 100px;
+  border: 1px solid $green;
+}
+
+.form-no-border {
+  border: none;
+}
+
+.ap-icon-pin {
+  display: none;
 }
