@@ -1,7 +1,11 @@
 <div class="accordion-item shadow-sm rounded mb-4 site-show-card" data-coords="<%= walk.coords %>">
   <h2 class="accordion-header" id="heading-<%= walk.id %>">
     <button class="accordion-button collapsed ps-0 pt-0 pb-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-<%= walk.id %>" aria-expanded="true" aria-controls="collapse-<%= walk.id %>">
+      <% if walk.photo.attached? %>
       <%= cl_image_tag walk.photo.key, crop: :fill, class: "me-3 walk-photo" %>
+      <% else %>
+      <img src="https://res.cloudinary.com/dtn8c7o7m/image/upload/v1625061998/walk_photo_c906xw.jpg" alt="" class="me-3 walk-photo">
+      <% end %>
       <div class="d-flex flex-column justify-content-center w-100">
         <h3 class="walk-title"><%= walk.name %></h3>
         <div class="walk-description">
