@@ -3,3 +3,25 @@
 .vh100 {
   height: 100vh;
 }
+
+.organize {
+  display: flex;
+  align-items: center;
+  padding-left: 100px;
+  border-radius: 10px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624550420/dog_wall_ygtt3i.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+  &-div {
+    width: 400px;
+  }
+  .title {
+    color: white;
+  }
+  .content {
+    color: white;
+  }
+}

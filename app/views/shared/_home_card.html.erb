@@ -1,4 +1,5 @@
-<div class="home-card" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(<%= img %>);">
-  <h3 class="home-card__title"><%= title %></h3>
-  <p class="home-card__description"><%= description %></p>
-</div>
+<%= link_to sites_path(query: title) do %>
+  <div class="home-card mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(<%= img %>);">
+    <h3 class="home-card__title"><%= title %></h3>
+  </div>
+<% end %>

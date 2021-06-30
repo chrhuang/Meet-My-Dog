@@ -9,10 +9,11 @@
       <div class="modal-body">
         <%= simple_form_for :event, url: events_path, method: :post do |f| %>
           <div class="form-inputs">
-            <%= f.input :name, as: :hidden %>
+            <%= f.input :name, as: :hidden, input_html: { value: "Balade seul" } %>
             <%= f.input :description, as: :hidden %>
             <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
             <%= f.input :max_dog, as: :hidden, input_html: {value: 0} %>
+            <%= f.input :group, as: :hidden, input_html: { value: false } %>
             <%= f.input :walk_id, as: :hidden, input_html: { class: "walk-alone" } %>
           </div>
         </div>
