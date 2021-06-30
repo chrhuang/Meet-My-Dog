@@ -18,7 +18,7 @@ User.destroy_all
 
 puts "Create User 1/3"
 file = URI.open('https://avatars.githubusercontent.com/u/78411645?v=4')
-user = User.create!(email: "tom@email.com", password: "123456", nickname: "Tom", description: "Mon idée de site était meilleure bordel!")
+user = User.create!(email: "tom@email.com", password: "123456", nickname: "Tom", description: "Arrivé sur Lille depuis peu avec mes 2 chiens, j'ai hâte de découvrir des lieux sympas pour les balader.")
 user.photo.attach(io: file, filename: 'tom.png', content_type: 'image/png')
 file = URI.open('https://www.rd.com/wp-content/uploads/2021/01/GettyImages-588935825.jpg')
 dog = Dog.create!(name: "Tyson", user: user, size: "Grand", gender: "male", age: 2)
@@ -29,7 +29,7 @@ dog.photo.attach(io: file, filename: 'tomdog2.png', content_type: 'image/png')
 
 puts "Create User 2/3"
 file = URI.open('https://avatars.githubusercontent.com/u/82810122?v=4')
-user = User.create!(email: "thomas@email.com", password: "123456", nickname: "Thomas", description: "Pectauraux à la Broly! Gripsou fait du sale!")
+user = User.create!(email: "thomas@email.com", password: "123456", nickname: "Thomas", description: "Une sortie à plusieurs c'est toujours plus sympa alors me voilà sur MeetMyDog. Au plaisir de partager une balade!")
 user.photo.attach(io: file, filename: 'thomas.png', content_type: 'image/png')
 file = URI.open('https://media1.fdncms.com/orlando/imager/u/original/26765334/adobestock_107224974.jpeg')
 dog = Dog.create!(name: "Poki", user: user, size: "Grand", gender: "male", age: 2)
@@ -37,7 +37,7 @@ dog.photo.attach(io: file, filename: 'tomasdog1.png', content_type: 'image/png')
 
 puts "Create User 3/3"
 file = URI.open('https://avatars.githubusercontent.com/u/41517143?v=4')
-user = User.create!(email: "christian@email.com", password: "123456", nickname: "Chris", description: "J'ai faim. On mange un tata cheese?")
+user = User.create!(email: "christian@email.com", password: "123456", nickname: "Chris", description: "Mon chien Yugi adore jouer avec d'autres chiens donc n'hésitez pas à rejoindre mes balades, j'en poste régulièrement.")
 user.photo.attach(io: file, filename: 'christian.png', content_type: 'image/png')
 file = URI.open('https://race-shiba-inu.fr/wp-content/uploads/2019/09/Shiba_inu_taiki-869x1024.jpg')
 dog = Dog.create!(name: "Yugi", user: user, size: "Grand", gender: "male", age: 2)
