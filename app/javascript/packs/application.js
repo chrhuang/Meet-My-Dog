@@ -30,7 +30,6 @@ import { initNewEvent } from '../plugins/init_new_event'
 import { initFlatpickr } from '../plugins/flatpickr'
 import { initEventCable } from '../channels/event_channel'
 import { initChatbox } from '../plugins/init_chatbox'
-import { initDogShow } from '../plugins/init_dog_show'
 
 Rails.start()
 Turbolinks.start()
@@ -47,5 +46,4 @@ document.addEventListener('turbolinks:load', () => {
   initFlatpickr()
   initEventCable()
   initChatbox()
-  initDogShow()
 })
