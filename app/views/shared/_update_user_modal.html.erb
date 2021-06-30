@@ -15,7 +15,7 @@
               <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
             <% end %>
             <%= f.input :address, label:'Adresse Postale:', autofocus: true %>
-            <%= f.input :photo, label: 'Votre photo de profil: ', as: :file %>
+            <%= f.input :photo, label: 'Photo:', as: :file, input_html: { class: "d-none" }, label_html: { class: 'my-3 w-100 text-center upload-photo'}, label: '📷 Votre photo de profil 📷' %> 
             <%= f.input :password, label: "Changer de Mot De Passe ?",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>

@@ -57,7 +57,7 @@ site = Site.create!(name: "Citadelle de Lille", description: "Situé autour de l
 site.photos.attach(io: file, filename: 'Citadelle.png', content_type: 'image/png')
 
 puts "Create Site 2/6"
-file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624548583/kpnpwtirvm78k0jp8fedz6opt09p.jpg')
+file = URI.open('https://www.roubaixxl.fr/wp-content/uploads/2018/02/Parc-Barbieux-banc.jpeg')
 site = Site.create!(name: "Parc Barbieux", description: "Le parc de Barbieux est situé dans la commune de Roubaix. C'est un parc remarquable par la présence de plus de 60 essences d'arbres. Il s’étend sur 1,5 kilomètre avec un joli plan d'eau.", longitude: 3.160818, latitude: 50.675526, city: "Roubaix")
 site.photos.attach(io: file, filename: 'Barbieux.png', content_type: 'image/png')
 
@@ -68,7 +68,7 @@ site.photos.attach(io: file, filename: 'ForetSA.png', content_type: 'image/png')
 
 
 puts "Create Site 4/6"
-file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624525689/Appartement-neuf-Villeneuve-dAscq-parc-Heron-Novacity-02_osepru.jpg')
+file = URI.open('https://media-cdn.tripadvisor.com/media/photo-s/05/b5/a9/21/les-pres-du-hem.jpg')
 site = Site.create!(name: "Prés du Hem", description: "Au coeur de 120 hectares de nature et autour d'un vaste lac, des dizaines d'activités ludiques, naturalistes et sportives attendent votre chien!.", longitude: 2.874436, latitude: 50.698895, city: "Armentières")
 site.photos.attach(io: file, filename: 'ParcHeron.png', content_type: 'image/png')
 
@@ -103,7 +103,7 @@ walk.photo.attach(io: file, filename: 'citadelle02.png', content_type: 'image/pn
 
 puts "Create Walk 3/6"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624539773/145151_88829_b1w2gu.jpg')
-walk = Walk.create!(name: "longitudeue promenade autour de la citadelle", description: "Pour les toutous les plus sportifs, un tour complet de la citadelle.", length: 15, duration: 300,  site: Site.first)
+walk = Walk.create!(name: "Longue promenade autour de la citadelle", description: "Pour les toutous les plus sportifs, un tour complet de la citadelle.", length: 15, duration: 300,  site: Site.first)
 walk.photo.attach(io: file, filename: 'citadelle03.png', content_type: 'image/png')
 
 puts "Create Walk 4/6"
@@ -138,11 +138,11 @@ EventHasUser.create!(event: event, user: User.all[1]);
 EventHasUser.create!(event: event, user: User.last);
 
 puts "Create Event 2/6"
-event = Event.create!(name: "Découverte de la citadelle", walk: Walk.all[1], description: "N'étant pas du Nord je viens découvrir ce lieu si prisé des lillois. Je viens ave 3 enfants.", max_dog: 2, date: DateTime.strptime("07/02/2021 16:00", "%m/%d/%Y %H:%M"))
+event = Event.create!(name: "Découverte de la citadelle", walk: Walk.all[1], description: "N'étant pas du Nord je viens découvrir ce lieu si prisé des lillois. Je viens avec 3 enfants.", max_dog: 2, date: DateTime.strptime("07/02/2021 16:00", "%m/%d/%Y %H:%M"))
 EventHasUser.create!(event: event, user: User.all[1]);
 
 puts "Create Event 3/6"
-event = Event.create!(name: "Footing avec sa boule de poils", walk: Walk.all[2], description: "N'étant pas du Nord je viens découvrir ce lieu si prisé des lillois. Je viens ave 3 enfants.", max_dog: 3, date: DateTime.strptime("07/23/2021 18:30", "%m/%d/%Y %H:%M"))
+event = Event.create!(name: "Footing avec sa boule de poils", walk: Walk.all[2], description: "N'étant pas du Nord je viens découvrir ce lieu si prisé des lillois. Je viens avec 3 enfants.", max_dog: 3, date: DateTime.strptime("07/23/2021 18:30", "%m/%d/%Y %H:%M"))
 EventHasUser.create!(event: event, user: User.all[2]);
 
 puts "Create Event 4/6"
