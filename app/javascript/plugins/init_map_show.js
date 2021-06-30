@@ -79,7 +79,7 @@ const initShowMapbox = () => {
       container: 'mapShow',
       style: 'mapbox://styles/chrhuang/ckqglr1jegknj17p8r4bblye9',
       center: [2.35183, 48.85658], // starting position
-      zoom: 15
+      zoom: 14
     })
     // set the bounds of the map
     // const bounds = [[-123.069003, 45.395273], [-122.303707, 45.612333]]
