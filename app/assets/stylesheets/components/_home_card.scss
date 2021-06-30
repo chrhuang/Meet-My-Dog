@@ -44,6 +44,8 @@
     background-size: cover;
     padding: 16px;
     margin-bottom: 0;
+    border-bottom-left-radius: 10px ;
+    border-bottom-right-radius: 10px;
 
   }
 &:hover &__title {
@@ -53,5 +55,7 @@
     padding: 16px;
     padding-top: 122px;
     margin-bottom: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
   }
 }
