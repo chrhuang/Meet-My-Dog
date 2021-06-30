@@ -1,8 +1,8 @@
 <% if @site.reviews.blank? %>
   <h2 class="text-center my-4">Aucun avis sur cette balade.</h2>
 <% else %>
+  <h2 class="text-center my-4"><%= @site.reviews.size %> Avis</h2>
   <div id="reviews" class="review-cards w-100">
-    <h2 class="text-center my-4"><%= @site.reviews.size %><%= " " %><%= "avis"  %></h2>
     <% @site.reviews.each do |review| %>
       <%= render "reviews/review_card", review: review %>
     <% end %>
