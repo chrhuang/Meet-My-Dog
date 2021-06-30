@@ -7,16 +7,13 @@
         <p class="city"><%= site.city %></p>
       </div>
       <div class="d-flex site-card__icons">
-        <div class="d-flex me-2">
-          <p class="m-0 me-1 walks"><%= site.walks.count %></p>
-          <%= cl_image_tag "walk_tjrcyj", height: 20, width: 20, crop: :fill %>
-        </div>
-        <% 4.times do |i| %>
-          <%= cl_image_tag "star_fill_lnb439", height: 20, width: 20, crop: :fill %>
+        <% 4.times do |i| %>               <!-- Etoile pleine -->
+          <i style="font-size: 20px;" class="fas fa-star text-green"></i>
         <% end %>
-        <% (5 - 4).times do |i| %>
-          <%= cl_image_tag "star_jibq15", height: 20, width: 20, crop: :fill %>
+        <% (5 - 4).times do |i| %>        <!-- Etoile vide -->
+          <i style="font-size: 20px;" class="far fa-star text-green"></i>
         <% end %>
+        <i style="font-size: 20px;" class="fas fa-star-half-alt text-green"></i>        <!-- Etoile semi pleine -->
       </div>
     </div>
   </div>
