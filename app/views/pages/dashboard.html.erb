@@ -2,9 +2,8 @@
 <div class="container">
   <%= render "create_dog_button", dog: @new_dog %>
   <%= render "dog_modal_form", dog: @new_dog %>
-
   <h2>Mes balades à venir:</h2>
   <% @my_events.each do |event| %>
-    <%= render "/shared/event_card", event: event %>
+    <%= render "/shared/event_card", event: event, show: false %>
   <% end %>
 </div>

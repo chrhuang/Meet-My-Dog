@@ -29,7 +29,7 @@
           <h2 class="text-center mt-3">😢 Aucun événement disponible 😢</h2>
         <% else %>
           <% walk.events.each do |event| %>
-            <%= render '/shared/event_card', event: event %>
+            <%= render '/shared/event_card', event: event, show: true %>
           <% end %>
         <% end %>
       </div>
