@@ -57,11 +57,15 @@
   color: white;
   padding: 8px 24px;
   border-radius: 10px;
-  background: #41A8F1;
+  background: #41a8f1;
   transition: background 0.3s ease;
 }
 
 .btn-group:hover {
   background: #0f67da;
   color: white;
+}
+
+.accordion-button {
+  z-index: 0 !important;
 }

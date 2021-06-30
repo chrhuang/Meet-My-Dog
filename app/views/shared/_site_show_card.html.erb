@@ -25,6 +25,11 @@
   <div id="collapse-<%= walk.id %>" class="accordion-collapse collapse" aria-labelledby="heading-<%= walk.id %>" data-bs-parent="#accordionExample">
     <div class="accordion-body">
       <div class="container">
+        <% if user_signed_in? %>
+          <button class="btn btn-ghost mb-3 create-alone-event" aria-current="page" data-bs-toggle="modal" data-bs-target="#createEventAloneModal" data-walk-id="<%= walk.id %>" href="#">Balade seul</button>
+        <% else %>
+          <button class="btn btn-ghost mb-3" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal" href="#">Balade seul</button>
+        <% end %>
         <% if walk.events.count.zero? %>
           <h2 class="text-center mt-3">😢 Aucun événement disponible 😢</h2>
         <% else %>
@@ -33,16 +38,11 @@
           <% end %>
         <% end %>
       </div>
-      <div class="w-100 d-flex justify-content-between p-4">
+      <div class="w-100 d-flex justify-content-end p-4">
         <% if user_signed_in? %>
           <button class="btn btn-flat create-event" aria-current="page" data-bs-toggle="modal" data-bs-target="#createEventModal" data-walk-id="<%= walk.id %>" href="#">Créer un evenement</button>
         <% else %>
           <button class="btn btn-flat" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal" href="#">Créer un evenement</button>
-        <% end %>
-        <% if user_signed_in? %>
-          <button class="btn btn-ghost">Balade seul</button>
-        <% else %>
-          <button class="btn btn-flat" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal" href="#">Balade seul</button>
         <% end %>
       </div>
     </div>
