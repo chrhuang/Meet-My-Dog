@@ -1,7 +1,7 @@
 <div class="event-card">
   <div class="event-card-body">
     <div class="event-card__img">
-      <%= cl_image_tag user.photo.key, width: 200, height: 200, class: "user-img" %>
+      <%= cl_image_tag user.photo.key, width: 200, height: 200, class: "user-img", crop: :fill %>
     </div>
     <div class="event-card__content">
       <span class="event-card__code"></span>
@@ -13,10 +13,10 @@
       </div>
       <div class="event-card__text mt-2">
         <% user.dogs.each do |dog| %>
-         <a class="dog-query" href=""data-bs-toggle="modal" data-bs-target="#dogCardModal" data-dog-id="<%= dog.id%>" data-dog-name="<%= dog.name%>" data-dog-age="<%= dog.age %>" data-dog-size="<%= dog.size %>" data-dog-gender="<%= dog.gender%>" data-dog-photo-key="<%= dog.photo.key%>"> <%= cl_image_tag dog.photo.key, class: "avatar-dog me-2" %></a>
+          <a class="dog-query" href=""data-bs-toggle="modal" data-bs-target="<%= "#dogCardModal_#{dog.id}" %>"><%= cl_image_tag dog.photo.key, class: "avatar-dog me-2" %></a>
+          <%= render '/shared/dog_card_modal', dog: dog %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-<%= render '/shared/dog_card_modal' %>

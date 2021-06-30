@@ -23,7 +23,7 @@
               </div>
               <div class="modal-body messages-body" data-event-id="<%= event.id %>">
                 <%# ICI LA BOUCLE POUR RECUPERER LES MESSAGES %>
-                <% event.messages.each do |message| %>
+                <% event.messages.reverse.each do |message| %>
                   <%= render "/messages/message", message: message, current: nil %>
                 <% end %>
               </div>
