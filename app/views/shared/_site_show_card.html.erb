@@ -31,7 +31,7 @@
           <button class="btn btn-ghost mb-3" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal" href="#">Balade seul</button>
         <% end %>
         <% if walk.events.count.zero? %>
-          <h2 class="text-center mt-3">😢 Aucun événement disponible 😢</h2>
+          <h2 class="text-center mt-3"> Aucun événement disponible pour cette balade pour l'instant, il n'appartient qu'à vous de créer le premier!</h2>
         <% else %>
           <% walk.events.each do |event| %>
             <%= render '/shared/event_card', event: event, show: true %>

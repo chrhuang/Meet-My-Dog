@@ -4,7 +4,7 @@
   <%= simple_form_for [@site, @walk], url: site_walks_path, html: { method: :post } do |f| %>
     <%= f.input :name, label: 'Nom:' %>
     <%= f.input :description, label: 'Description:' %>
-    <%= f.input :photo, label: 'Photo:', as: :file, input_html: { class: "d-none" }, label_html: { class: 'my-3 w-100 text-center upload-photo'}, label: '📷 Ajouter une photo du lieu 📷' %>
+    <%= f.input :photo, label: 'Photo:', as: :file, input_html: { class: "d-none" }, label_html: { class: 'my-3 w-100 text-center upload-photo'}, label: '📷 La photo illustrant la balade 📷' %>
     <div id="mapCreate" class=""
      style="height: 600px;"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
