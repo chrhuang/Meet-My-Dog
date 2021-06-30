@@ -6,15 +6,23 @@
         <h5 class="title"><%= site.name %></h5>
         <p class="city"><%= site.city %></p>
       </div>
+      <% if site.average_review != 0 %>
       <div class="d-flex site-card__icons">
-        <% 4.times do |i| %>               <!-- Etoile pleine -->
+        <% site.average_review.round(half: :down).times do |i| %>
           <i style="font-size: 20px;" class="fas fa-star text-green"></i>
         <% end %>
-        <% (5 - 4).times do |i| %>        <!-- Etoile vide -->
+        <% if site.average_review % 1 != 0 %>
+          <i style="font-size: 20px;" class="fas fa-star-half-alt text-green"></i>
+        <% end %>
+        <% (5 - site.average_review.round(half: :up)).times do |i| %>
           <i style="font-size: 20px;" class="far fa-star text-green"></i>
         <% end %>
-        <i style="font-size: 20px;" class="fas fa-star-half-alt text-green"></i>        <!-- Etoile semi pleine -->
       </div>
+      <% end  %>
     </div>
   </div>
 <% end %>
+
+
+
+
