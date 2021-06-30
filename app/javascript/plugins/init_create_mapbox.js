@@ -50,8 +50,8 @@ const fetchLocalisation = (search, map) => {
       })
       // set the bounds of the map
       const bounds = [
-        [data.features[0].geometry.coordinates[0] - 0.02, data.features[0].geometry.coordinates[1] - 0.02], // Southwest coordinates
-        [data.features[0].geometry.coordinates[0] + 0.02, data.features[0].geometry.coordinates[1] + 0.02] // Northeast coordinates
+        [data.features[0].geometry.coordinates[0] - 0.04, data.features[0].geometry.coordinates[1] - 0.02], // Southwest coordinates
+        [data.features[0].geometry.coordinates[0] + 0.04, data.features[0].geometry.coordinates[1] + 0.02] // Northeast coordinates
       ]
       map.setMaxBounds(bounds)
       // insertCoordinates(data.features[0].geometry.coordinates, map) // Le marqueur bonhomme

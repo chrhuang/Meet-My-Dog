@@ -2,15 +2,17 @@
 <div class="modal fade" id="dogCardModal_<%= dog.id %>" tabindex="-1" aria-labelledby="dogCardModal" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="mb-0 align-self-center"><%= dog.name %></h2>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
       <div class="modal-body">
+        <div class="d-flex flex-row-reverse ">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
         <div class= "modal-photo">
           <%= cl_image_tag dog.photo.key, class: "avatar-dog-modal" %>
         </div>
         <div class="infos">
+          <div class="info-elements">
+            <h2><%= dog.name %></h2>
+          </div>
           <div class="info-elements">
             <div>Sexe:</div>
             <p><%= dog.gender %></p>

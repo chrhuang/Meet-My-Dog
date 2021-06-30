@@ -1,7 +1,11 @@
 <div class="accordion-item shadow-sm rounded mb-4 site-show-card" data-coords="<%= walk.coords %>">
   <h2 class="accordion-header" id="heading-<%= walk.id %>">
     <button class="accordion-button collapsed ps-0 pt-0 pb-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-<%= walk.id %>" aria-expanded="true" aria-controls="collapse-<%= walk.id %>">
+      <% if walk.photo.attached? %>
       <%= cl_image_tag walk.photo.key, crop: :fill, class: "me-3 walk-photo" %>
+      <% else %>
+      <img src="https://res.cloudinary.com/dtn8c7o7m/image/upload/v1625061998/walk_photo_c906xw.jpg" alt="" class="me-3 walk-photo">
+      <% end %>
       <div class="d-flex flex-column justify-content-center w-100">
         <h3 class="walk-title"><%= walk.name %></h3>
         <div class="walk-description">
@@ -10,7 +14,7 @@
         </div>
       </div>
       <div class="d-flex align-items-center mx-4 walk-infos">
-        <p class="text-nowrap mb-0 mx-2"><%= walk.length.round(1) %> km</p>
+        <p class="text-nowrap mb-0 mx-2"><%= (walk.length / 10).round(1) %> km</p>
         <p class="mb-0 site-bar">|</p>
         <p class="text-nowrap mb-0 mx-2"><%= walk.duration  %> minutes</p>
         <p class="mb-0 site-bar">|</p>
@@ -25,24 +29,24 @@
   <div id="collapse-<%= walk.id %>" class="accordion-collapse collapse" aria-labelledby="heading-<%= walk.id %>" data-bs-parent="#accordionExample">
     <div class="accordion-body">
       <div class="container">
+        <% if user_signed_in? %>
+          <button class="btn btn-ghost mb-3 create-alone-event" aria-current="page" data-bs-toggle="modal" data-bs-target="#createEventAloneModal" data-walk-id="<%= walk.id %>" href="#">Balade seul</button>
+        <% else %>
+          <button class="btn btn-ghost mb-3" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal" href="#">Balade seul</button>
+        <% end %>
         <% if walk.events.count.zero? %>
-          <h2 class="text-center mt-3">😢 Aucun événement disponible 😢</h2>
+          <h2 class="text-center mt-3"> Aucun événement disponible pour cette balade pour l'instant, il n'appartient qu'à vous de créer le premier!</h2>
         <% else %>
           <% walk.events.each do |event| %>
             <%= render '/shared/event_card', event: event, show: true %>
           <% end %>
         <% end %>
       </div>
-      <div class="w-100 d-flex justify-content-between p-4">
+      <div class="w-100 d-flex justify-content-end p-4">
         <% if user_signed_in? %>
           <button class="btn btn-flat create-event" aria-current="page" data-bs-toggle="modal" data-bs-target="#createEventModal" data-walk-id="<%= walk.id %>" href="#">Créer un evenement</button>
         <% else %>
           <button class="btn btn-flat" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal" href="#">Créer un evenement</button>
-        <% end %>
-        <% if user_signed_in? %>
-          <button class="btn btn-ghost">Balade seul</button>
-        <% else %>
-          <button class="btn btn-flat" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal" href="#">Balade seul</button>
         <% end %>
       </div>
     </div>
