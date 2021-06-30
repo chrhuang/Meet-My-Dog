@@ -1,4 +1,5 @@
 .list-sites {
   height: 700px;
-  overflow: scroll;
+  overflow-x: hidden; //horizontal
+  overflow-y: scroll; //vertical
 }
