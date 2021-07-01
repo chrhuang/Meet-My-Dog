@@ -12,7 +12,9 @@
             <div class="d-flex flex-column w-100 h-100 chat-show <%= event == @events.first ? "d-block" : "d-none" %>" id="show-<%= event.id %>" data-event-id="<%= event.id %>">
               <div class="modal-header flex-column align-items-start">
                 <div class="d-flex justify-content-between w-100">
-                  <h5 class="modal-title" id="exampleModalLabel"><%= event.name %></h5>
+                  <%= link_to event_path(event.id) do %>
+                    <h5 class="modal-title" id="exampleModalLabel"><%= event.name %></h5>
+                  <% end %>
                   <a type="button" class="text-green" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
                 </div>
                 <div>

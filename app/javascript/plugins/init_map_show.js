@@ -90,8 +90,18 @@ const initShowMapbox = () => {
     // const start = [2.35183, 48.85658]
 
     // create a function to make a directions request
-    const site = document.getElementById('site').innerText
-    fetchLocalisation(site, map)
+    const site = document.getElementById('show-container')
+    if (site) {
+      map.jumpTo({
+        center: [
+          site.dataset.longitude,
+          site.dataset.latitude
+        ],
+        essential: true // this animation is considered essential with respect to prefers-reduced-motion
+      })
+    }
+    // fetchLocalisation(site, map)
+
     const coords = document.querySelector('#mapShow').dataset.coords
     if (coords) {
       map.on('load', function () {
