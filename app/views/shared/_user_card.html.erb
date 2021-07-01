@@ -1,7 +1,11 @@
 <div class="event-card">
   <div class="event-card-body">
     <div class="event-card__img">
-      <%= cl_image_tag user.photo.key, width: 200, height: 200, class: "user-img", crop: :fill %>
+      <% if user&.photo.present? %>
+        <%= cl_image_tag user.photo.key, width: 200, height: 200, class: "user-img", crop: :fill %>
+      <% else %>
+        <%= cl_image_tag "avatar-1577909-darker-neutral-200x200_lsw7fy", width: 200, height: 200, class: "user-img", crop: :fill %>
+      <% end %>
     </div>
     <div class="event-card__content">
       <span class="event-card__code"></span>
@@ -15,7 +19,13 @@
         <div class="text-no-wrap me-3">MeetMyDog:</div>
         <div class="d-flex">
           <% user.dogs.each do |dog| %>
-            <a class="dog-query" href=""data-bs-toggle="modal" data-bs-target="<%= "#dogCardModal_#{dog.id}" %>"><%= cl_image_tag dog.photo.key, class: "avatar-dog me-2" %></a>
+            <a class="dog-query" href=""data-bs-toggle="modal" data-bs-target="<%= "#dogCardModal_#{dog.id}" %>">
+              <% if dog&.photo.present? %>
+                <%= cl_image_tag dog.photo.key, class: "avatar-dog me-2" %>
+              <% else %>
+                <%= cl_image_tag "dog_avatar_wzjl2a", class: "avatar-dog me-2" %>
+              <% end %>
+            </a>
             <%= render '/shared/dog_card_modal', dog: dog %>
           <% end %>
         </div>

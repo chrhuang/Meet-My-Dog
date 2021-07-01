@@ -67,7 +67,6 @@ const getRoute = (map, points) => {
   // an arbitrary start will always be the same
   // only the end or destination will change
   // const start = [2.35183, 48.85658]
-  console.log(points.length)
   if (points.length > 1) {
     const coords = points.map(e => e.join(',')).join(';')
     const url = 'https://api.mapbox.com/directions/v5/mapbox/walking/' + coords + '?geometries=geojson&access_token=' + mapboxgl.accessToken
@@ -77,7 +76,6 @@ const getRoute = (map, points) => {
     req.open('GET', url, true)
     req.onload = function () {
       const json = JSON.parse(req.response)
-      // console.log(json)
       const data = json.routes[0]
       const route = data.geometry.coordinates
       const geojson = {

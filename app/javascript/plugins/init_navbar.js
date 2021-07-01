@@ -1,7 +1,6 @@
 const initUpdateNavbarOnScroll = () => {
   const navbar = document.querySelector('#home-navbar')
   const elems = document.querySelectorAll('.navbar-text-black')
-  console.log(elems)
   if (navbar) {
     window.addEventListener('scroll', () => {
       if (window.scrollY >= 1) {

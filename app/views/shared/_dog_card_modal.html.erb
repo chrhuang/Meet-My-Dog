@@ -7,7 +7,11 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class= "modal-photo">
-          <%= cl_image_tag dog.photo.key, class: "avatar-dog-modal" %>
+          <% if dog&.photo.present? %>
+            <%= cl_image_tag dog.photo.key, class: "avatar-dog-modal" %>
+          <% else %>
+            <%= cl_image_tag "dog_avatar_wzjl2a", class: "avatar-dog-modal" %>
+          <% end %>
         </div>
         <div class="infos">
           <div class="info-elements">
@@ -26,6 +30,9 @@
             <p><%= dog.size %></p>
           </div>
           <div class="d-flex flex-wrap justify-content-center align-items-center">
+            <% if dog.temperaments.count.zero? %>
+              <div class="dog-temperament">Pas de tempérament</div>
+            <% end %>
             <% dog.temperaments.each do |temperament| %>
               <div class="dog-temperament"><%= temperament.name %></div>
             <% end %>

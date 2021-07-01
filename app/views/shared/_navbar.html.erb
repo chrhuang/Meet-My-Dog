@@ -53,6 +53,8 @@
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <% if current_user&.photo.present? %>
                   <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "#{current_user.nickname}" %>
+                <% else %>
+                  <%= cl_image_tag "avatar-1577909-darker-neutral-200x200_lsw7fy", class: "avatar", alt: "#{current_user.nickname}" %>
                 <% end %>
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">

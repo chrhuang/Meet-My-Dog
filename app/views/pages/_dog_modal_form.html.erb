@@ -8,25 +8,22 @@
       <div class="modal-body">
         <%= simple_form_for dog do |f| %>
           <div class="dog_infos">
-              <%= f.input :name, label: 'Nom:', required: true, input_html: { namespace: dom_id(dog) } %>
-              <%= f.input :age, label: 'Âge:',as: :integer, required: true, input_html: { namespace: dom_id(dog) } %>
-              <%= f.input :size, placeholder: 'Merci de selectionner une taille', collection: ['Petit', 'Moyen', 'Grand'], label: 'Taille:', required: true, input_html: { namespace: dom_id(dog) } %>
-              <%= f.input :photo, label: 'Photo:', as: :file, input_html: { namespace: dom_id(dog), class: "d-none" }, label_html: { namespace: dom_id(dog), class: 'my-3 w-100 text-center upload-photo'}, label: '📷 Ajouter une image' %>
-              <%= f.input :gender,
+            <%= f.input :name, label: 'Nom:', required: true, input_html: { namespace: dom_id(dog) } %>
+            <%= f.input :age, label: 'Âge:',as: :integer, required: true, input_html: { namespace: dom_id(dog) } %>
+            <%= f.input :size, placeholder: 'Merci de selectionner une taille', collection: ['Petit', 'Moyen', 'Grand'], label: 'Taille:', required: true, input_html: { namespace: dom_id(dog) } %>
+            <%= f.input :photo, label: 'Photo:', as: :file, input_html: { namespace: dom_id(dog), class: "d-none" }, label_html: { namespace: dom_id(dog), class: 'my-3 w-100 text-center upload-photo'}, label: '📷 Ajouter une image' %>
+            <%= f.input :gender,
                           as: :radio_buttons,
                           collection_wrapper_tag: 'div',
                           label: "Sexe",
                           collection: ['Mâle', 'Femelle'],
                           input_html: { namespace: dom_id(dog) } %>
-            <a aria-current="page" data-bs-toggle="modal" data-bs-target="#temperaments_modal_<%= dom_id(dog) %>" href="#" color=($green)> Ajoutez les tempéraments de votre chien</a>
           </div>
-
           <%= render "pages/temperament_modal", dog: dog, f: f %>
-
         </div>
         <div class="modal-footer">
           <div class="form-actions">
-            <%= f.button :submit, "Ajouter mon chien sans temperament", class: "btn btn-flat" %>
+            <a class="btn btn-flat" aria-current="page" data-bs-toggle="modal" data-bs-target="#temperaments_modal_<%= dom_id(dog) %>" href="#" color=($green)> Ajoutez les tempéraments de votre chien</a>
           </div>
         </div>
       </div>
