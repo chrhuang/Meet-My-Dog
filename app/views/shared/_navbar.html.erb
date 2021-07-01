@@ -6,15 +6,15 @@
     <div class="container-fluid">
       <div class="d-flex align-items-center">
         <% if current_page? root_path %>
-          <%= link_to "MeetMyDog", root_path, class: "navbar-brand navbar-text-black" %>
+          <%= link_to "MeetMyDog", root_path, class: "navbar-brand navbar-text-black", style: "font-size: 24px;" %>
         <% else %>
-          <%= link_to "MeetMyDog", root_path, class: "navbar-brand navbar-text-green" %>
+          <%= link_to "MeetMyDog", root_path, class: "navbar-brand navbar-text-green", style: "font-size: 24px;" %>
         <% end %>
         <% if user_signed_in? %>
           <% if current_page? root_path %>
-            <%= link_to "Dashboard", dashboard_path, class: "navbar-dashboard navbar-text-black" %>
+            <%= link_to "Dashboard", dashboard_path, class: "navbar-dashboard navbar-text-black", style: "font-size: 18px;" %>
           <% else %>
-            <%= link_to "Dashboard", dashboard_path, class: "navbar-dashboard navbar-text-green" %>
+            <%= link_to "Dashboard", dashboard_path, class: "navbar-dashboard navbar-text-green", style: "font-size: 18px;" %>
           <% end %>
         <% end %>
       </div>
@@ -66,10 +66,10 @@
             </li>
           <% else %>
             <li class="nav-item">
-              <a class="text-green text-nowrap" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal" href="#">Se connecter</a>
+              <a class="text-nowrap navbar-text-black" aria-current="page" data-bs-toggle="modal" data-bs-target="#loginModal" href="#" style="font-size: 20px;">Se connecter</a>
             </li>
             <li class="nav-item ms-4">
-              <a class="text-green text-nowrap" aria-current="page" data-bs-toggle="modal" data-bs-target="#signupModal" href="#">S'inscrire</a>
+              <a class="text-nowrap navbar-text-black" aria-current="page" data-bs-toggle="modal" data-bs-target="#signupModal" href="#" style="font-size: 20px;">S'inscrire</a>
             </li>
           <% end %>
         </ul>
