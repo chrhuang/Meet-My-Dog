@@ -29,7 +29,9 @@
   </head>
   <body>
     <%= render "shared/navbar"%>
-    <%= yield %>
+    <div class='full-content'>
+      <%= yield %>
+    </div>
     <%= render "shared/footer" %>
   </body>
 </html>
