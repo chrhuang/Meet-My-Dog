@@ -132,7 +132,7 @@ site.photos.attach(io: file, filename: 'MontBoron.png', content_type: 'image/png
 
 puts "Create Site 12/15"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1625145016/newparcs-vinaigrier-galerie-10_mqrjvj.jpg')
-site = Site.create!(name: "Le mont Vinaigrier est constitué d'un plateau calcaire d'une altitude de 370 mètres et de versants plus ou moins abrupts. Sur la partie où la pente est la plus douce, on trouve des sols plus épais où l'homme a installé des terrasses cultivables. Le plateau est composé de grands pins d’Alep et de chênes verts.", longitude: 7.302043, latitude: 43.716171, city: "Nice")
+site = Site.create!(name: "Le Mont Vinaigrier", description: "Le mont Vinaigrier est constitué d'un plateau calcaire d'une altitude de 370 mètres et de versants plus ou moins abrupts. Sur la partie où la pente est la plus douce, on trouve des sols plus épais où l'homme a installé des terrasses cultivables. Le plateau est composé de grands pins d’Alep et de chênes verts.", longitude: 7.302043, latitude: 43.716171, city: "Nice")
 site.photos.attach(io: file, filename: 'parcVinaigrier.png', content_type: 'image/png')
 
 puts "Create Site 13/15"
