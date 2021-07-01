@@ -1,8 +1,12 @@
 import mapboxgl from 'mapbox-gl'
-import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2hyaHVhbmciLCJhIjoiY2twODVmcHB3MDJ6MTJwdDdtNjA2YnRmOSJ9.UASVCzlZa34egBDU9JgA8Q'
+
+const updateInfo = (data) => {
+  document.getElementById('new-km').innerText = Math.round((data.distance / 1000) * 1000) / 1000
+  document.getElementById('new-min').innerText = Math.round((data.duration / 100))
+}
 
 const setForm = (coords, data) => {
   document.getElementById('walk_coords').value = coords
@@ -116,6 +120,7 @@ const getRoute = (map, points) => {
       }
       // add turn instructions here at the end
       setForm(coords, data)
+      updateInfo(data)
     }
     req.send()
   }
