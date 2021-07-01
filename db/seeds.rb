@@ -106,9 +106,9 @@ site = Site.create!(name: "Promenade Des Anglais", description: "La promenade de
 site.photos.attach(io: file, filename: 'Promenade des anglais.png', content_type: 'image/png')
 
 puts "Create Site 7/15"
-file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624525689/Appartement-neuf-Villeneuve-dAscq-parc-Heron-Novacity-02_osepru.jpg')
-site = Site.create!(name: "Parc du Héron", description: "Les quelques 110 hectares d'eau et de verdure constituant le Parc du Héron forment un remarquable terrain de jeu pour nos amis à 4 pattes. Ils pourront profiter d' une vaste zone de nature en métropole.", longitude: 3.1483957, latitude: 50.6343157, city: "Villeneuve d'ascq")
-site.photos.attach(io: file, filename: 'ParcHeron.png', content_type: 'image/png')
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1625146532/55424861_ql5epb.jpg')
+site = Site.create!(name: "Les 6 Bonniers", description: "Cette base constitue un lieu de convergence pour promeneurs et randonneurs qui découvrent le Val de Marque. De nombreuses activités de plein air peuvent être pratiquées toute l’année : canoë kayak, descente de la Marque en canoë, tir à l’arc, VTT, course d’orientation, escalade dans les arbres, pêche…", longitude: 3.218537, latitude: 50.626066, city: "Willems")
+site.photos.attach(io: file, filename: 'Willems.png', content_type: 'image/png')
 
 puts "Create Site 8/15"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1625143580/33017_-_Parc_des_Buttes_Chaumont_en_automne-2_wf7ma8.jpg')
@@ -145,11 +145,11 @@ file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1625145968/0
 site = Site.create!(name: "Forêt de Phalempin", description: "Située à environ 20 kilomètres de Lille, la forêt de Phalempin est l’une des forêts domaniales les plus fréquentées de la région. Malgré sa petite taille, la forêt bénéficie d’une grande bio diversité. Parmi sa population animale, on trouve chevreuils, renards, lapins, hermines, écureuils…", longitude: 3.030302, latitude: 50.500226, city: "Phalempin")
 site.photos.attach(io: file, filename: 'Phalempin.png', content_type: 'image/png')
 
-puts "Create Site 15/15"
-file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1625146532/55424861_ql5epb.jpg')
-site = Site.create!(name: "Les 6 Bonniers", description: "Cette base constitue un lieu de convergence pour promeneurs et randonneurs qui découvrent le Val de Marque. De nombreuses activités de plein air peuvent être pratiquées toute l’année : canoë kayak, descente de la Marque en canoë, tir à l’arc, VTT, course d’orientation, escalade dans les arbres, pêche…", longitude: 3.218537, latitude: 50.626066, city: "Willems")
-site.photos.attach(io: file, filename: 'Willems.png', content_type: 'image/png')
 
+puts "Create Site 15/15"
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624525689/Appartement-neuf-Villeneuve-dAscq-parc-Heron-Novacity-02_osepru.jpg')
+site = Site.create!(name: "Parc du Héron", description: "Les quelques 110 hectares d'eau et de verdure constituant le Parc du Héron forment un remarquable terrain de jeu pour nos amis à 4 pattes. Ils pourront profiter d' une vaste zone de nature en métropole.", longitude: 3.1483957, latitude: 50.6343157, city: "Villeneuve d'ascq")
+site.photos.attach(io: file, filename: 'ParcHeron.png', content_type: 'image/png')
 
 puts "Sites Created"
 
