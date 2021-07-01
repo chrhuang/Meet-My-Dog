@@ -5,6 +5,10 @@
     <%= f.input :name, placeholder: 'Nom de la balade:', label: false %>
     <%= f.input :description, placeholder: 'Description de la balade:', label: false %>
     <%= f.input :photo, label: 'Photo:', as: :file, input_html: { class: "d-none" }, label_html: { class: 'my-3 w-100 text-center upload-photo'}, label: '📷 La photo illustrant la balade 📷' %>
+    <div class="d-flex justify-content-end">
+      <p class="mb-1 h4"><span id="new-km">0</span> km</p>
+      <p class="mb-1 ms-3 h4"><span id="new-min">0</span> min</p>
+    </div>
     <div id="mapCreate" class=""
      style="height: 600px;"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
