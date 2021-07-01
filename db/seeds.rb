@@ -16,18 +16,18 @@ puts "Delete all Users ..."
 User.all.each { |user| user.photo.purge }
 User.destroy_all
 
-puts "Create User 1/3"
+puts "Create User 1/5"
 file = URI.open('https://avatars.githubusercontent.com/u/78411645?v=4')
 user = User.create!(email: "tom@email.com", password: "123456", nickname: "Tom", description: "Arrivé sur Lille depuis peu avec mes 2 chiens, j'ai hâte de découvrir des lieux sympas pour les balader.")
 user.photo.attach(io: file, filename: 'tom.png', content_type: 'image/png')
 file = URI.open('https://www.rd.com/wp-content/uploads/2021/01/GettyImages-588935825.jpg')
-dog = Dog.create!(name: "Tyson", user: user, size: "Grand", gender: "male", age: 2)
+dog = Dog.create!(name: "Pink", user: user, size: "Petit", gender: "femelle", age: 1)
 dog.photo.attach(io: file, filename: 'tomdog1.png', content_type: 'image/png')
 file = URI.open('https://upload.chien.com/img_global/24-les-races-de-chiens/_light-17356-des-welsh-corgi-nagent-dans-la-piscine.jpg')
-dog = Dog.create!(name: "Floyd", user: user, size: "Grand", gender: "male", age: 2)
+dog = Dog.create!(name: "Floyd", user: user, size: "Moyen", gender: "male", age: 3)
 dog.photo.attach(io: file, filename: 'tomdog2.png', content_type: 'image/png')
 
-puts "Create User 2/3"
+puts "Create User 2/5"
 file = URI.open('https://avatars.githubusercontent.com/u/82810122?v=4')
 user = User.create!(email: "thomas@email.com", password: "123456", nickname: "Thomas", description: "Une sortie à plusieurs c'est toujours plus sympa alors me voilà sur MeetMyDog. Au plaisir de partager une balade!")
 user.photo.attach(io: file, filename: 'thomas.png', content_type: 'image/png')
@@ -35,13 +35,36 @@ file = URI.open('https://media1.fdncms.com/orlando/imager/u/original/26765334/ad
 dog = Dog.create!(name: "Poki", user: user, size: "Grand", gender: "male", age: 2)
 dog.photo.attach(io: file, filename: 'tomasdog1.png', content_type: 'image/png')
 
-puts "Create User 3/3"
+puts "Create User 3/5"
 file = URI.open('https://avatars.githubusercontent.com/u/41517143?v=4')
 user = User.create!(email: "christian@email.com", password: "123456", nickname: "Chris", description: "Mon chien Yugi adore jouer avec d'autres chiens donc n'hésitez pas à rejoindre mes balades, j'en poste régulièrement.")
 user.photo.attach(io: file, filename: 'christian.png', content_type: 'image/png')
 file = URI.open('https://race-shiba-inu.fr/wp-content/uploads/2019/09/Shiba_inu_taiki-869x1024.jpg')
-dog = Dog.create!(name: "Yugi", user: user, size: "Grand", gender: "male", age: 2)
+dog = Dog.create!(name: "Yugi", user: user, size: "Grand", gender: "male", age: 5)
 dog.photo.attach(io: file, filename: 'christiandog.png', content_type: 'image/png')
+
+puts "Create User 4/5"
+file = URI.open('https://avatars.githubusercontent.com/u/77677383?v=4')
+user = User.create!(email: "marie@email.com", password: "123456", nickname: "Marie", description: "Venant de Blegique je découvre le Nord depuis peu. Molki mon chihuahua a hâte de rencontrer de nouveaux compagnons de balade!")
+user.photo.attach(io: file, filename: 'marie.png', content_type: 'image/png')
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1625141781/Molki_nxx7h1.jpg')
+dog = Dog.create!(name: "Molki", user: user, size: "Petit", gender: "femelle", age: 2)
+dog.photo.attach(io: file, filename: 'mariedog.png', content_type: 'image/png')
+
+puts "Create User 5/5"
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1625142048/flavie_umef0k.jpg')
+user = User.create!(email: "flavie@email.com", password: "123456", nickname: "Flavie", description: "J'adore faire de la trotinette mais mes chiens n'arrivent pas à suivre. On cherche donc d'autres toutous pour s'amuser")
+user.photo.attach(io: file, filename: 'flavie.png', content_type: 'image/png')
+file = URI.open('https://dogtime.com/assets/uploads/gallery/pit-bull-dog-breed-pictures/pit-bull-dog-breed-picture-1.jpg')
+dog = Dog.create!(name: "Victor", user: user, size: "Grand", gender: "male", age: 6)
+dog.photo.attach(io: file, filename: 'flaviedog1.png', content_type: 'image/png')
+file = URI.open('https://toutchien.fr/wp-content/uploads/2019/07/Image4-864x536.jpg')
+dog = Dog.create!(name: "Choupette", user: user, size: "Grand", gender: "femelle", age: 7)
+dog.photo.attach(io: file, filename: 'flaviedog2.png', content_type: 'image/png')
+file = URI.open("https://www.omlet.fr/images/cache/1024/682/Dog-Doberman_Pinscher-A-close_up_of_a_Doberman_Pinscher's_amazing,_pointed_ears.jpg")
+dog = Dog.create!(name: "Pupuce", user: user, size: "Grand", gender: "femelle", age: 5)
+dog.photo.attach(io: file, filename: 'flaviedog3.png', content_type: 'image/png')
+
 
 puts "Users Created"
 
@@ -51,41 +74,81 @@ puts "Users Created"
 puts "Delete all Sites ..."
 Site.destroy_all
 
-puts "Create Site 1/7"
+puts "Create Site 1/15"
 file = URI.open('https://www.lille.fr/var/www/storage/images/mediatheque/mairie-de-lille/visuels-annuaire/le-parc-de-la-citadelle/76380-1-fre-FR/Le-parc-de-la-Citadelle_news_image_top.jpg')
 site = Site.create!(name: "Citadelle de Lille", description: "Situé autour de la Citadelle, ce véritable poumon vert de 90 hectares, est le paradis des toutous, des familles et de tout ceux qui désirent profiter de la nature au sein d’une grande métropole.", longitude: 3.045384, latitude: 50.64079, city: "Lille")
 site.photos.attach(io: file, filename: 'Citadelle.png', content_type: 'image/png')
 
-puts "Create Site 2/7"
+puts "Create Site 2/15"
 file = URI.open('https://static.actu.fr/uploads/2020/05/parc-barbieux-roubaix-exhibition-sexuelle-adolescents.jpg')
 site = Site.create!(name: "Parc Barbieux", description: "Le parc de Barbieux est situé dans la commune de Roubaix. C'est un parc remarquable par la présence de plus de 60 essences d'arbres. Il s’étend sur 1,5 kilomètre avec un joli plan d'eau.", longitude: 3.160818, latitude: 50.675526, city: "Roubaix")
 site.photos.attach(io: file, filename: 'Barbieux.png', content_type: 'image/png')
 
-puts "Create Site 3/7"
+puts "Create Site 3/15"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624527074/4QSp5dqK3zT9joFE_QFPvVkp14H-nKpPLRTi3mX977O00AhDUKOz4HzXDgAX1HOL25U1PFc4KerUl_btjkE3XTN-WxNQQ0MGLAW6IT1V3SL5u6eu3ClCIbbFAblReeTSQ-k_uvkuui.jpg')
 site = Site.create!(name: "Forêt de Raismes-Saint-Amand-Wallers", description: "S’étendant sur 4 600 hectares, la forêt domaniale de Raismes-Saint-Amand-Wallers est parfaite pour les chiens qui ont besoin de se dépenser.", longitude: 3.496953, latitude: 50.428708, city: "Raismes")
 site.photos.attach(io: file, filename: 'ForetSA.png', content_type: 'image/png')
 
 
-puts "Create Site 4/7"
+puts "Create Site 4/15"
 file = URI.open('https://media-cdn.tripadvisor.com/media/photo-s/05/b5/a9/21/les-pres-du-hem.jpg')
 site = Site.create!(name: "Prés du Hem", description: "Au coeur de 120 hectares de nature et autour d'un vaste lac, des dizaines d'activités ludiques, naturalistes et sportives attendent votre chien!.", longitude: 2.874436, latitude: 50.698895, city: "Armentières")
 site.photos.attach(io: file, filename: 'ParcHeron.png', content_type: 'image/png')
 
-puts "Create Site 5/7"
+puts "Create Site 5/15"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624526174/Parc-Jean-Baptiste-Lebas_news_image_top_zjy1uv.jpg')
 site = Site.create!(name: "Parc Jean Baptiste Lebas", description: "Le parc Jean Baptiste Lebas est un jardin pour tous : jeux pour enfants, terrains de boules, placettes, grandes pelouses et parterres de fleurs. Votre compagnon adorera toute cette animation!", longitude: 3.069022, latitude: 50.626658, city: "Lille")
 site.photos.attach(io: file, filename: 'ParcJBL.png', content_type: 'image/png')
 
-puts "Create Site 6/7"
+puts "Create Site 6/15"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1625129816/Nice-promenade-des-Anglais-walking-tour-13_afpe4i.jpg')
 site = Site.create!(name: "Promenade Des Anglais", description: "La promenade des Anglais est une avenue longeant le bord de mer face à la baie des Anges, à Nice. Son histoire, liée aux débuts du tourisme international, et sa situation exceptionnelle, en bord de mer, longée par des hôtels prestigieux, en font l'une des plus célèbres avenues du monde.", longitude: 7.23752931889528, latitude: 43.686018, city: "Nice")
 site.photos.attach(io: file, filename: 'Promenade des anglais.png', content_type: 'image/png')
 
-puts "Create Site 7/7"
+puts "Create Site 7/15"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1624525689/Appartement-neuf-Villeneuve-dAscq-parc-Heron-Novacity-02_osepru.jpg')
 site = Site.create!(name: "Parc du Héron", description: "Les quelques 110 hectares d'eau et de verdure constituant le Parc du Héron forment un remarquable terrain de jeu pour nos amis à 4 pattes. Ils pourront profiter d' une vaste zone de nature en métropole.", longitude: 3.1483957, latitude: 50.6343157, city: "Villeneuve d'ascq")
 site.photos.attach(io: file, filename: 'ParcHeron.png', content_type: 'image/png')
+
+puts "Create Site 8/15"
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1625143580/33017_-_Parc_des_Buttes_Chaumont_en_automne-2_wf7ma8.jpg')
+site = Site.create!(name: "Parc des Buttes-Chaumont", description: "Le parc des Buttes-Chaumont est un jardin public situé dans le nord-est de Paris, en France, dans le 19ᵉ arrondissement de la ville. Avec près de 25 hectares, le parc est l'un des plus grands espaces verts de Paris.", longitude: 2.381201, latitude: 48.878396, city: "Paris")
+site.photos.attach(io: file, filename: 'ParcButtes.png', content_type: 'image/png')
+
+puts "Create Site 9/15"
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1625143785/medium_parc-montsouris-paris_tddvxd.jpg')
+site = Site.create!(name: "Parc Montsouris", description: "Le parc des Buttes-Chaumont est un jardin public situé dans le nord-est de Paris, en France, dans le 19ᵉ arrondissement de la ville. Avec près de 25 hectares, le parc est l'un des plus grands espaces verts de Paris.", longitude: 2.337792, latitude: 48.821991, city: "Paris")
+site.photos.attach(io: file, filename: 'ParcMontsouris.png', content_type: 'image/png')
+
+puts "Create Site 10/15"
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1625144354/xl_avatar_jms1jq.jpg')
+site = Site.create!(name: "Champ de Mars", description: "Ouvert en 1780, le parc du Champ-de-Mars s’étend entre l’École Militaire et la tour Eiffel. Haut lieu de grandes manifestations nationales, il est en accès libre et offre la plus belle perspective sur le monument phare de la capitale.", longitude: 2.29782, latitude: 48.856145, city: "Paris")
+site.photos.attach(io: file, filename: 'ParcMars.png', content_type: 'image/png')
+
+puts "Create Site 11/15"
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1625144638/Cap-de-Nice-1C_yjfhwv.jpg')
+site = Site.create!(name: "Le Mont Boron", description: "Lieu de promenade, de détente et de pique-nique, il offre de superbes panoramas.11 km de sentiers balisés au coeur d’une forêt méditerranéenne de 57 ha (pins d’Alep et espèces rares).", longitude: 7.30083, latitude: 43.69, city: "Nice")
+site.photos.attach(io: file, filename: 'MontBoron.png', content_type: 'image/png')
+
+puts "Create Site 12/15"
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1625145016/newparcs-vinaigrier-galerie-10_mqrjvj.jpg')
+site = Site.create!(name: "Le mont Vinaigrier est constitué d'un plateau calcaire d'une altitude de 370 mètres et de versants plus ou moins abrupts. Sur la partie où la pente est la plus douce, on trouve des sols plus épais où l'homme a installé des terrasses cultivables. Le plateau est composé de grands pins d’Alep et de chênes verts.", longitude: 7.302043, latitude: 43.716171, city: "Nice")
+site.photos.attach(io: file, filename: 'parcVinaigrier.png', content_type: 'image/png')
+
+puts "Create Site 13/15"
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1625145609/93910707_mmccof.jpg')
+site = Site.create!(name: "Parc Naturel Urbain", description: "Cet espace naturel qui abrite l'école du cirque est parfait pour un pique-nique, des promenades ou un footing. Votre chien pourra courser des clowns ou se faire pote avec un Lion.", longitude: 2.983671, latitude: 50.655988, city: "Lomme")
+site.photos.attach(io: file, filename: 'ParcUrbain.png', content_type: 'image/png')
+
+puts "Create Site 14/15"
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1625145968/0_ewefi3.jpg')
+site = Site.create!(name: "Forêt de Phalempin", description: "Située à environ 20 kilomètres de Lille, la forêt de Phalempin est l’une des forêts domaniales les plus fréquentées de la région. Malgré sa petite taille, la forêt bénéficie d’une grande bio diversité. Parmi sa population animale, on trouve chevreuils, renards, lapins, hermines, écureuils…", longitude: 3.030302, latitude: 50.500226, city: "Phalempin")
+site.photos.attach(io: file, filename: 'Phalempin.png', content_type: 'image/png')
+
+puts "Create Site 15/15"
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1625146532/55424861_ql5epb.jpg')
+site = Site.create!(name: "Les 6 Bonniers", description: "Cette base constitue un lieu de convergence pour promeneurs et randonneurs qui découvrent le Val de Marque. De nombreuses activités de plein air peuvent être pratiquées toute l’année : canoë kayak, descente de la Marque en canoë, tir à l’arc, VTT, course d’orientation, escalade dans les arbres, pêche…", longitude: 3.218537, latitude: 50.626066, city: "Willems")
+site.photos.attach(io: file, filename: 'Willems.png', content_type: 'image/png')
 
 
 puts "Sites Created"
