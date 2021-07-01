@@ -4,7 +4,6 @@
   <%= simple_form_for [@site, @walk], url: site_walks_path, html: { method: :post } do |f| %>
     <%= f.input :name, placeholder: 'Nom de la balade:', label: false %>
     <%= f.input :description, placeholder: 'Description de la balade:', label: false %>
-    <%= f.input :photo, label: 'Photo:', as: :file, input_html: { class: "d-none" }, label_html: { class: 'my-3 w-100 text-center upload-photo'}, label: '📷 La photo illustrant la balade 📷' %>
     <div class="d-flex justify-content-end">
       <p class="mb-1 h4"><span id="new-km">0</span> km</p>
       <p class="mb-1 ms-3 h4"><span id="new-min">0</span> min</p>
@@ -16,6 +15,7 @@
     <%= f.input :length, as: :hidden %>
     <%= f.input :duration, as: :hidden %>
     <%= f.input :coords, as: :hidden %>
+    <%= f.input :photo, label: 'Photo:', as: :file, input_html: { class: "d-none" }, label_html: { class: 'my-3 w-100 text-center upload-photo'}, label: '📷 Ajouter une photo 📷' %>
     <div class="d-flex justify-content-end">
       <%= f.button :submit, "Créer la balade", class: "btn btn-flat mt-3" %>
     </div>
