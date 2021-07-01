@@ -206,7 +206,7 @@ EventHasUser.create!(event: event, user: User.all[1]);
 EventHasUser.create!(event: event, user: User.last);
 
 puts "Create Event 2/6"
-event = Event.create!(name: "Découverte de la citadelle", walk: Walk.all[1], description: "N'étant pas du Nord je viens découvrir ce lieu si prisé des lillois. Je viens avec 3 enfants.", max_dog: 2, date: DateTime.strptime("07/02/2021 16:00", "%m/%d/%Y %H:%M"))
+event = Event.create!(name: "Découverte de la citadelle", walk: Walk.all[1], description: "N'étant pas du Nord je viens découvrir ce lieu si prisé des lillois. Je viens avec 3 enfants.", max_dog: 2, date: DateTime.strptime("07/05/2021 16:00", "%m/%d/%Y %H:%M"))
 EventHasUser.create!(event: event, user: User.all[1]);
 
 puts "Create Event 3/6"
