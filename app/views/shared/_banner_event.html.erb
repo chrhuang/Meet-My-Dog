@@ -2,7 +2,7 @@
   <div class="event_walk_photo w-100">
     <%= cl_image_tag @event.walk.photo.key, class: "event-img" %>
   </div>
-  <div class="event_map">
+  <div class="event_map" id="show-container" data-longitude="<%= @event.walk.site.longitude %>" data-latitude="<%= @event.walk.site.latitude %>">
     <div id="mapShow" class=""
      style="width:400px; height: 400px;"
      data-coords="<%= coords %>"
