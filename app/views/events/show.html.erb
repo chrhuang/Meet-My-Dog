@@ -8,7 +8,7 @@
       <!--  <a class="btn btn-flat" aria-current="page" data-bs-toggle="modal" data-bs-target="#updateEventModal" href="#">Editer cet événement</a> %>-->
       <%= link_to "Quitter cet événement", event_path(@event), method: :delete, class:"btn btn-red"%>
     <% end %>
-    <h1 class="mt-4 mb-0"><span id="site"><%= @event.walk.site.name %></span> - <%= @event.name %></h1>
+    <h1 class="mt-4 mb-2"><span id="site"><%= link_to @event.walk.site.name, site_path(@event.walk.site.id) %></span> - <%= @event.name %></h1>
     <p style="opacity: 0.5;">Le <%= @event.date.strftime('%d-%m-%Y') %></p>
     <p><%= @event.walk.description %></p>
     <h3>
