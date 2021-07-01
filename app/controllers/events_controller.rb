@@ -2,6 +2,9 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     authorize @event
+    @max_dog = @event.max_dog
+    @dogs = current_user.dogs
+    @other_dogs = @event.dogs
     @user_in_event = user_in_event?
     @eventhasuser = EventHasUser.find_by(event_id: @event, user_id: current_user)
   end

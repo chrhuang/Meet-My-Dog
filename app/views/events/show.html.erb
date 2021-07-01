@@ -1,12 +1,14 @@
 <%= render "/shared/banner_event", coords: @event.walk.coords %>
 <div class="container mt-4">
   <div>
-    <% unless @user_in_event %>
-      <%= link_to "Rejoindre cette balade", join_path(@event.id), class: "btn btn-flat" %>
-    <% end %>
     <% if @user_in_event %>
-      <!--  <a class="btn btn-flat" aria-current="page" data-bs-toggle="modal" data-bs-target="#updateEventModal" href="#">Editer cet événement</a> %>-->
       <%= link_to "Quitter cet événement", event_path(@event), method: :delete, class:"btn btn-red"%>
+    <% else %>
+      <% if @dogs.count + @other_dogs.count > @max_dog %>
+        <button class="btn btn-red disabled">Cette balade n'accepte pas plus de <%= @max_dog %> <i class="fas fa-dog" style="color: white;font-size: 24px"></i></button>
+      <% else %>
+        <%= link_to "Rejoindre cette balade", join_path(@event.id), class: "btn btn-flat" %>
+      <% end %>
     <% end %>
     <h1 class="mt-4 mb-0"><span id="site"><%= @event.walk.site.name %></span> - <%= @event.name %></h1>
     <p style="opacity: 0.5;">Le <%= @event.date.strftime('%d-%m-%Y') %></p>

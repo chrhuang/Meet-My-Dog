@@ -78,7 +78,7 @@ site = Site.create!(name: "Parc Jean Baptiste Lebas", description: "Le parc Jean
 site.photos.attach(io: file, filename: 'ParcJBL.png', content_type: 'image/png')
 
 puts "Create Site 6/7"
-file = URI.open('https://i.pinimg.com/originals/6d/28/f6/6d28f63fdaacb906c15bca9c150c6025.jpg')
+file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1625129816/Nice-promenade-des-Anglais-walking-tour-13_afpe4i.jpg')
 site = Site.create!(name: "Promenade Des Anglais", description: "La promenade des Anglais est une avenue longeant le bord de mer face à la baie des Anges, à Nice. Son histoire, liée aux débuts du tourisme international, et sa situation exceptionnelle, en bord de mer, longée par des hôtels prestigieux, en font l'une des plus célèbres avenues du monde.", longitude: 7.23752931889528, latitude: 43.686018, city: "Nice")
 site.photos.attach(io: file, filename: 'Promenade des anglais.png', content_type: 'image/png')
 

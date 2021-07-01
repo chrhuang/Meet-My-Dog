@@ -5,7 +5,6 @@ const initUpdateNavbarOnScroll = () => {
   if (navbar) {
     window.addEventListener('scroll', () => {
       if (window.scrollY >= 1) {
-        console.log('Coucou')
         navbar.classList.add('navbar-white')
         if (elems) {
           elems.forEach((elem) => {

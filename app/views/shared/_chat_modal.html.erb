@@ -1,13 +1,13 @@
 <% if user_signed_in? %>
   <div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
       <div class="modal-content d-flex flex-row">
         <div class="chat-list">
           <% @events.each do |event| %>
             <%= render "/shared/chat_group", event: event, first: @events.first == event %>
           <% end %>
         </div>
-        <div class="d-flex flex-column w-100">   <!-- Changer ici pour mettre une boucle -->
+        <div class="d-flex flex-column w-100">
           <% @events.each do |event| %>
             <div class="d-flex flex-column w-100 h-100 chat-show <%= event == @events.first ? "d-block" : "d-none" %>" id="show-<%= event.id %>" data-event-id="<%= event.id %>">
               <div class="modal-header flex-column align-items-start">
