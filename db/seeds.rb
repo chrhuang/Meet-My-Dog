@@ -117,7 +117,7 @@ site.photos.attach(io: file, filename: 'ParcButtes.png', content_type: 'image/pn
 
 puts "Create Site 9/15"
 file = URI.open('https://res.cloudinary.com/dtn8c7o7m/image/upload/v1625143785/medium_parc-montsouris-paris_tddvxd.jpg')
-site = Site.create!(name: "Parc Montsouris", description: "Le parc des Buttes-Chaumont est un jardin public situé dans le nord-est de Paris, en France, dans le 19ᵉ arrondissement de la ville. Avec près de 25 hectares, le parc est l'un des plus grands espaces verts de Paris.", longitude: 2.337792, latitude: 48.821991, city: "Paris")
+site = Site.create!(name: "Parc Montsouris", description: "Le parc Montsouris est un jardin public situé dans le quartier du même nom, dans le sud de Paris, dans le 14e arrondissement. Le parc abrite un grand nombre d'espèces d'oiseaux. Il y est planté de nombreux arbres.", longitude: 2.337792, latitude: 48.821991, city: "Paris")
 site.photos.attach(io: file, filename: 'ParcMontsouris.png', content_type: 'image/png')
 
 puts "Create Site 10/15"
