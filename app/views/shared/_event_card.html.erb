@@ -4,7 +4,7 @@
     <p class="mb-0" style="opacity: 0.5;"><%= event.walk.site.name %> - <%= event.walk.name %></p>
   </div>
   <div class="col-2">
-    <h5 class="mb-0">Le <%= l(event.date, format: '%d/%m/%Y') %></h5>
+    <h5 class="mb-0 text-nowrap">Le <%= l(event.date, format: '%d/%m/%Y %H:%m') %></h5>
   </div>
   <div class="col-3">
     <% if event.group %>
