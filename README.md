@@ -1,1 +1,2 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+# Link to see this project
+[Meet My Dog](https://meet-my-dog.osc-fr1.scalingo.io/)
